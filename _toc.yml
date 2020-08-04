@@ -1,0 +1,21 @@
+- file: intro
+- file: week_01
+  sections:
+    - file: folder_01/W1_classwork_firstnotebook
+    - file: folder_01/W1_tabular_data
+    - file: folder_01/W1_maps
+- file: week_02
+  sections:
+    - file: folder_02/W2_IO
+    - file: folder_02/W2_gpts_rockcycle_tectonics
+- file: week_03
+  sections:
+    - file: folder_03/W3_visualize
+    - file: folder_03/W3_earthquakes  
+- file: week_04
+  sections:
+    - file: folder_04/W4_seafloor_spreading
+- file: week_05
+  sections:
+    - file: folder_05/W5_gutenberg_richter
+- file: append_A
