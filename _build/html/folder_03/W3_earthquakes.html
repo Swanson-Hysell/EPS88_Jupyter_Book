@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.2 Earthquakes and Seismology &#8212; Python Intro to Geoscience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week Four: Seafloor Spreading and Pandas" href="../week_04.html" />
+    <link rel="prev" title="3.1 Data Visualization" href="W3_visualize.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Intro to Geoscience</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to PyEarth
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_01.html">
+   Chapter One: Syllabus and Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_02.html">
+   Chapter Two: Dynamic Earth and Data Input
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../week_03.html">
+   Week Three: Earthquakes and Data Visualization
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="W3_visualize.html">
+     3.1 Data Visualization
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.2 Earthquakes and Seismology
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_04.html">
+   Week Four: Seafloor Spreading and Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_05.html">
+   Week Five: Earthquake Statistics and Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_A.html">
+   Appendix A: Function Catalog
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/folder_03/W3_earthquakes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-an-earthquake">
+   What is an Earthquake
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deformation">
+   Deformation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seismic-waves">
+   Seismic Waves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#locating-earthquakes">
+   Locating Earthquakes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#magnitude-of-earthquakes">
+   Magnitude of Earthquakes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#where-earthquakes-occur">
+   Where Earthquakes Occur
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading-optional">
+   Further Reading (Optional)
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="earthquakes-and-seismology">
+<h1>3.2 Earthquakes and Seismology<a class="headerlink" href="#earthquakes-and-seismology" title="Permalink to this headline">¶</a></h1>
+<p><strong>Goal:</strong> Build background knowledge about seismology to introduce and motivate earth science questions that we can study using data science computational methods. More in-depth material on these topics can be studied in EPS 20 Earthquakes in Your Backyard and EPS 130 Strong Motion Seismology.</p>
+<p><strong>Outline:</strong></p>
+<ul class="simple">
+<li><p>What is an Earthquake</p></li>
+<li><p>Elastic/Plastic Deformation</p></li>
+<li><p>Seismic Waves</p></li>
+<li><p>Locating Earthquakes</p></li>
+<li><p>Earthquake Magnitude</p></li>
+<li><p>Where Earthquakes Occur</p></li>
+</ul>
+<div class="section" id="what-is-an-earthquake">
+<h2>What is an Earthquake<a class="headerlink" href="#what-is-an-earthquake" title="Permalink to this headline">¶</a></h2>
+<p>As you have possibly experienced, an earthquake is ground shaking caused by the sudden movement of one block of rock relative to another along a fracture in Earth’s crust called a fault. Frictional forces usually keep faults from rupturing, and they can spend large amounts of time locked. Stress on the fault accumulates and at some point slippage occurs. The hypocenter is the location within the crust where the earthquake rupture occurs, and the epicenter is the point on Earth’s surface directly above the hypocenter (Figure 1). Thousands of earthquakes occur every day, but most are too small to be felt by humans. Larger magnitude earthquakes occur less frequently, only about 15 magnitude 7 or larger (M_W≥7) earthquakes occur each year. Large main shock earthquakes are followed by smaller aftershock earthquakes as the crust adjusts to the main shock displacement. Aftershocks decrease in size and frequency with time after the main shock.</p>
+<p><img alt="Definitions of fault, hypocenter, and epicenter" src="../_images/fault_epicenter.png" />   <br />
+Figure 1: Definitions of fault, hypocenter, and epicenter. Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.</p>
+</div>
+<div class="section" id="deformation">
+<h2>Deformation<a class="headerlink" href="#deformation" title="Permalink to this headline">¶</a></h2>
+<p>The elastic/plastic properties of earth materials are what allow earthquakes to occur and seismic waves to propagate. When a force is applied to a material, it deforms. Unless the force exceeds a critical value, the deformation is reversible, and the material will return to its original shape if the force is removed. This is elastic deformation (imagine a pencil being bent). The force acting on the material is called stress, and the change in shape of the material due to this stress is strain. Once a material is deformed beyond its elastic limit it will not recover its original shape when the stress is removed, this is plastic deformation (imagine a paper clip being bent). Unlike elastic deformation plastic deformation is permanent. If the stress exceeds the strength of the material failure occurs (Figure 2). Earth materials are not perfectly elastic. They are viscoelastic, so failure can be brittle (without much plastic deformation) or ductile (with more plastic deformation) depending on the rate at which the stress is applied. Imagine silly putty: if you snap it quickly with will crack, but if you pull it more slowly it will stretch before breaking. An earthquake occurs when the tectonic stress exceeds the strength of the crustal material and failure occurs. Earthquake rupture is localized to a portion of a fault – the whole length of fault does not slip at once. Further away from the hypocenter, seismic waves propagate through the earth by elastically deforming the materials as they spread.</p>
+<p><img alt="Elastic rebound" src="../_images/elastic_rebound.png" />   \
+Figure 2: Elastic rebound. Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.</p>
+</div>
+<div class="section" id="seismic-waves">
+<h2>Seismic Waves<a class="headerlink" href="#seismic-waves" title="Permalink to this headline">¶</a></h2>
+<p>Seismic waves are measured by seismometers as they pass. The record of ground motion due to seismic waves is called a seismogram. There are two types of seismic waves defined by how they travel through Earth: body waves travel through Earth’s interior and surface waves travel though the rock just below Earth’s surface (Figure 3). These two types of seismic waves are further characterized by the ground motions they cause as they propagate. There are two forms of body waves: P waves (primary waves) and S waves (secondary waves). As their names imply, P waves travel more rapidly than S waves and arrive at a seismometer station first. P waves travel by compressing the earth causing it to squeeze and stretch in the direction the wave is traveling i.e. volume changes (Figure 4 A). S waves displace/shear material perpendicular to the direction of wave propagation i.e. shape changes (Figure 4 B). P waves can travel through solids, liquids, and gases; S waves cannot travel through fluids (liquid and gas) because these materials do not resist stresses that cause changes in shape and do not elastically rebound. There are also two forms of surface waves: Rayleigh waves and Love waves. Rayleigh waves cause the ground to displace in a rolling motion (Figure 5 A). Love waves cause side to side motion perpendicular to the direction of wave propagation (Figure 5 B). As can be seen in the seismograms in Figure 3, body waves are faster than surface waves and arrive first. Surface waves are larger in amplitude and cause more ground motion for a longer time period (and therefore more destruction).</p>
+<p><img alt="Seismograms" src="../_images/seis_waves.png" />   \<br />
+Figure 3: Seismograms recorded at three station locations, logging the body and surface waves produced by an earthquake. Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.</p>
+<p><img alt="P and S body waves" src="../_images/p_s_wave_illustration.png" />   \
+Figure 4: Illustrations of the ground motion due to P and S body waves.  Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.</p>
+<p><img alt="Rayleigh and Love surface waves" src="../_images/rayleigh_love_wave_illustration.png" />   \
+Figure 5: Illustrations of the ground motion due to Rayleigh and Love surface waves.  Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.</p>
+</div>
+<div class="section" id="locating-earthquakes">
+<h2>Locating Earthquakes<a class="headerlink" href="#locating-earthquakes" title="Permalink to this headline">¶</a></h2>
+<p>The differences in the velocities of seismic waves allows seismologists to locate the hypocenter of the earthquake. The difference between arrival times of the P and S waves is used to determine the distance from that seismometer station to the earthquake epicenter (Figure 6). With three seismogram recordings (or more) from different stations the location of the epicenter can be triangulated (Figure 7). With modern seismic instruments and networks this can be done quickly, which can help along with estimates of the earthquake magnitude determine the hazard the earthquake has caused. Earthquakes that occur near areas with high population density impact humans more than earthquakes that occur in remote areas.</p>
+<p><img alt="Travel times of P and S waves" src="../_images/travel_time.eps" />   \<br />
+Figure 6: Travel times of P and S waves with increasing distance from an earthquake epicenter. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.</p>
+<p><img alt="Earthquake triangulation" src="../_images/eq_triangulation.png" />   \<br />
+Figure 7: Location of earthquake epicenter determined by triangulation. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.</p>
+</div>
+<div class="section" id="magnitude-of-earthquakes">
+<h2>Magnitude of Earthquakes<a class="headerlink" href="#magnitude-of-earthquakes" title="Permalink to this headline">¶</a></h2>
+<p>The displacement recorded in seismograms can also be used to estimate the size of the earthquake i.e. its magnitude. The magnitude of an earthquake indicates the amount of energy released. Larger earthquakes produce larger ground motions, and therefore seismogram signals with greater amplitude and duration. The moment magnitude (M_W) depends on the amount of slip on the fault, the area of the fault that slipped, and the strength of the local rocks. Each unit increase in magnitude is a 10x increase in ground motion, and a 32x increase in energy released (Figure 8). The most powerful earthquake ever recorded had a M_W=9.5 and occurred in 1960 in Chile.</p>
+<p><img alt="Magnitude scale" src="../_images/mag_scale.png" />   \
+Figure 8: Frequency and energy released by earthquakes of different magnitudes.  Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.</p>
+</div>
+<div class="section" id="where-earthquakes-occur">
+<h2>Where Earthquakes Occur<a class="headerlink" href="#where-earthquakes-occur" title="Permalink to this headline">¶</a></h2>
+<p>Earthquake epicenters are not uniformly distributed across Earth’s surface (Figure 9). They mostly occur along narrow interplate zones. Tectonic stresses at plate boundaries generate these earthquakes. Away from their margins tectonic plates are largely aseismic; only ~1% of global seismicity is due to intraplate earthquakes. Intraplate earthquakes can still be destructive, because they are rare infrastructure is often unprepared. Earthquakes are also classified by their depth. Shallow earthquakes (&lt; 70 km deep) occur at all seismically active, interplate zones. At oceanic ridges only shallow earthquakes occur. Intermediate (70 – 300 km) and deep (&gt;300 km) earthquakes only occur with plate subduction. The Wadati – Benioff zone is a zone of seismicity 30 – 40 km thick in the upper portion of a subducting slab (Figure 10). Determining the Wadati – Benioff zone for a subducting plate allows the imaging of the plunge angle of the subducting plate beneath the overriding plate (usually 30 – 60). The largest magnitude earthquakes occur in this environment. The compression and friction between the two plates make earthquakes infrequent, more stress accumulates between failures, and the energy released by the earthquake when it occurs is larger (i.e. larger magnitude).</p>
+<p><img alt="Map of earthquake epicenters" src="../_images/epicenter_map.png" />   \
+Figure 9: Distribution of earthquake epicenters. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.</p>
+<p><img alt="Subduction zone" src="../_images/slab_eq.png" />   \
+Figure 10: Cross-section of a subduction zone with areas of seismicity labeled. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.</p>
+</div>
+<div class="section" id="further-reading-optional">
+<h2>Further Reading (Optional)<a class="headerlink" href="#further-reading-optional" title="Permalink to this headline">¶</a></h2>
+<p>Chapter 3.5: Earthquake Seismology (pg. 148 – 170) of Fundamentals of Geophysics
+Lowrie, W. (2007). Fundamentals of Geophysics, 2nd Edition. Cambridge, UK: Cambridge University Press.</p>
+<p>Chapter 9: Plotting and Visualization, Python for Data Analysis
+McKinney, W. (2018). Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython, 2nd Edition. Sebastopol, CA: O’Reilly Media, Inc.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./folder_03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="W3_visualize.html" title="previous page">3.1 Data Visualization</a>
+    <a class='right-next' id="next-link" href="../week_04.html" title="next page">Week Four: Seafloor Spreading and Pandas</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EPS 88 Team<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

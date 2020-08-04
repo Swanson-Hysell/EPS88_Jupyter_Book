@@ -41,22 +41,22 @@ The differences in the velocities of seismic waves allows seismologists to locat
 ![Travel times of P and S waves](./figures/travel_time.eps)   \  
 Figure 6: Travel times of P and S waves with increasing distance from an earthquake epicenter. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.
 
-![Earthquake triangulation](./figures/eq_triangulation.eps)   \   
+![Earthquake triangulation](./figures/eq_triangulation.png)   \   
 Figure 7: Location of earthquake epicenter determined by triangulation. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.
 
 ## Magnitude of Earthquakes
 The displacement recorded in seismograms can also be used to estimate the size of the earthquake i.e. its magnitude. The magnitude of an earthquake indicates the amount of energy released. Larger earthquakes produce larger ground motions, and therefore seismogram signals with greater amplitude and duration. The moment magnitude (M_W) depends on the amount of slip on the fault, the area of the fault that slipped, and the strength of the local rocks. Each unit increase in magnitude is a 10x increase in ground motion, and a 32x increase in energy released (Figure 8). The most powerful earthquake ever recorded had a M_W=9.5 and occurred in 1960 in Chile. 
 
-![Magnitude scale](./figures/mag_scale.eps)   \ 
+![Magnitude scale](./figures/mag_scale.png)   \ 
 Figure 8: Frequency and energy released by earthquakes of different magnitudes.  Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.
 
 ## Where Earthquakes Occur
 Earthquake epicenters are not uniformly distributed across Earth’s surface (Figure 9). They mostly occur along narrow interplate zones. Tectonic stresses at plate boundaries generate these earthquakes. Away from their margins tectonic plates are largely aseismic; only ~1% of global seismicity is due to intraplate earthquakes. Intraplate earthquakes can still be destructive, because they are rare infrastructure is often unprepared. Earthquakes are also classified by their depth. Shallow earthquakes (< 70 km deep) occur at all seismically active, interplate zones. At oceanic ridges only shallow earthquakes occur. Intermediate (70 – 300 km) and deep (>300 km) earthquakes only occur with plate subduction. The Wadati – Benioff zone is a zone of seismicity 30 – 40 km thick in the upper portion of a subducting slab (Figure 10). Determining the Wadati – Benioff zone for a subducting plate allows the imaging of the plunge angle of the subducting plate beneath the overriding plate (usually 30 – 60). The largest magnitude earthquakes occur in this environment. The compression and friction between the two plates make earthquakes infrequent, more stress accumulates between failures, and the energy released by the earthquake when it occurs is larger (i.e. larger magnitude).
 
-![Map of earthquake epicenters](./figures/epicenter_map.eps)   \ 
+![Map of earthquake epicenters](./figures/epicenter_map.png)   \ 
 Figure 9: Distribution of earthquake epicenters. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.
 
-![Subduction zone](./figures/slab_eq.eps)   \ 
+![Subduction zone](./figures/slab_eq.png)   \ 
 Figure 10: Cross-section of a subduction zone with areas of seismicity labeled. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.
 
 

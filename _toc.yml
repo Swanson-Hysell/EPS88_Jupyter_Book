@@ -11,7 +11,7 @@
 - file: week_03
   sections:
     - file: folder_03/W3_visualize
-    - file: folder_03/W3_earthquakes  
+    - file: folder_03/W3_earthquakes
 - file: week_04
   sections:
     - file: folder_04/W4_seafloor_spreading

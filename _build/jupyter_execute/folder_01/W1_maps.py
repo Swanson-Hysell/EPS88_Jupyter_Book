@@ -11,10 +11,9 @@ The purpose of this introduction is to give you a bit of a background on map pro
  * choose map projections that are appropriate for plotting data
  * understand the terms used in the ```cartopy``` functions which is a function library we will use for plotting geospatial data
 
-# The world *is not* flat / 2D (sorry flat-Earthers)
+## The world *is not* flat / 2D (sorry flat-Earthers)
 
-<img src="./figures/azim-eq.png" style="max-height: 55vh; margin-left: auto; margin-right: auto;">
-
+![Azimuthal equidistant](./figures/azim-eq.png)
 "Azimuthal equidistant projections of the sphere ... have been co-opted as images of the flat Earth model, depicting Antarctica as an ice wall surrounding a disk-shaped Earth." ([Wikipedia: Flat Earth](https://en.wikipedia.org/wiki/Flat_Earth#Flat_Earth_Society))
 
 ## Most of our media for visualization *are* flat
@@ -39,7 +38,7 @@ A map projection (or more commonly refered to as just "projection") is:
 
 ## The major problem with map projections
 
-<img src="./figures/orange_peel.jpg" style="margin-left: auto; margin-right: auto;">
+![Orange earth](./figures/orange_peel.jpg)
 
  * The surface of a sphere is topologically different to a 2D surface, therefore we *have* to cut the sphere *somewhere*
  * A sphere's surface cannot be represented on a plane without distortion.
@@ -48,14 +47,14 @@ A map projection (or more commonly refered to as just "projection") is:
 
 [![](http://img.youtube.com/vi/kIID5FDi2JQ/0.jpg)](http://www.youtube.com/watch?v=kIID5FDi2JQ "")
 
-from IPython.lib.display import YouTubeVideo
-YouTubeVideo('kIID5FDi2JQ')
+#from IPython.lib.display import YouTubeVideo
+#YouTubeVideo('kIID5FDi2JQ')
 
 ### Different projections
 
 We are going to use the function library `cartopy` to make maps. `cartopy`  supports a number of different map projections which enable the 3 dimensional surface of Earth to be shown in 2 dimensions on our computer screens. I (Nick Swanson-Hysell) like the Robinson projection (although I like Mollweide more)-- you can see what the says about me by referring to this XKCD comic (https://xkcd.com/977/). Having watched the above video will give you some context to appreciate these jokes:
 
-<img src="./figures/map_projections.png" style="margin-left: auto; margin-right: auto;">
+![xkcd Map projections](./figures/map_projections.png)
 
 You can check out the list of projections supported by `cartopy` here: https://scitools.org.uk/cartopy/docs/latest/crs/projections.html
 
@@ -84,30 +83,24 @@ Two common approaches:
 
 ## Surface classification: Cylindrical
 
-<img src="./figures/cylindrical.png" style="margin-left: auto; margin-right: auto; height: 40vh;">
-<p style="font-size: xx-small; float: right;">
+![Cylindrical](./figures/cylindrical.png)
 Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
-</p>
 
 
 * Meridians and paralells are straight and perpendicular.
 
 ## Surface classification: Azimuthal
 
-<img src="./figures/azimuthal.png" style="margin-left: auto; margin-right: auto; height: 40vh;">
-<p style="font-size: xx-small; float: right;">
+![azimuthal](./figures/azimuthal.png)
 Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
-</p>
 
 
 * Parallels are complete circles
 * Great circles from central point are straight lines.
 
 ## Surface classification: Conic
-<img src="./figures/conic.png" style="margin-left: auto; margin-right: auto; height: 40vh;">
-<p style="font-size: xx-small; float: right;">
+![conic](./figures/conic.png)
 Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
-</p>
 
 * Meridians are straight equally-spaced lines
 * Parallels are circular arcs.
@@ -193,5 +186,4 @@ Examples:
 
 A mathematical contrivance in order to characterize local distortions of a map projection. Multiple circles (on the sphere/ellipse) of constant area are drawn on the map. By analysing the distortions, we can identify (or more often rule-out) particular preserving metrics. You can see how dramatic the distortion is in an equirectangular projection. 
 
-
-<img src="./figures/tissot.platecarree.1000km.png" style="margin-left: auto; margin-right: auto;">
+![Tissot's indicatrix](./figures/tissot.platecarree.1000km.png)
