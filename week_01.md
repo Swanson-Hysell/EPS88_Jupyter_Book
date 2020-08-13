@@ -4,6 +4,8 @@ Chapter One: Syllabus and Introduction
 ## Syllabus can be found on the bCourses page:
 [Syllabus](https://bcourses.berkeley.edu/courses/1494649/assignments/syllabus)
 
+<br>
+
 This week we will focus on building skills we will be using throughout the semester:
 
 * How to navigate the [class website](https://bcourses.berkeley.edu/courses/1494649) and tools

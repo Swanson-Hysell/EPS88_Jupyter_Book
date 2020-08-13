@@ -1,5 +1,8 @@
 # 1.3 Map Projections
 
+**Goal:** Introduce the concepts of projecting 3D spherical geography onto a 2D plane.
+   
+
 This introductory text is modified from a tutorial on working with geospatial data using the library ```cartopy``` that was presented at the 2018 Scipy conference by Phileas Elson (lots of great things to learn in this tutorial if you want to dig into it at some point):
 
 https://youtu.be/AmidIx6Jmn8
