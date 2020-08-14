@@ -231,31 +231,33 @@
 <li><p>what is the delimiter</p></li>
 </ul>
 <p>Usually this will be straight foward. For example:</p>
-<img src="figures/csv_example.png" width="600">
+<p><img alt="" src="../_images/csv_example.png" /></p>
 <p>This file has one row of header information. There are 3 columns: Latitude, Longitude, and Age. The elements in each row are separated by commas. Each column has float (a number with decimal points) type data.</p>
 <p>Or slightly more complicated, but still do-able:</p>
-<img src="figures/more_complicated_example.png" width="700">
+<p><img alt="" src="../_images/more_complicated_example.png" /></p>
 <p>This file has 9 rows of header information. There are 13 columns. The elements in each row are separated by tabs. The columns are a mix of strings, floats, and integers.</p>
 <p>Sometimes you’ll mess up and get something crazy.</p>
-<img src="figures/AHHH_example.png" width="700">
+<p><img alt="" src="../_images/AHHH_example.png" /></p>
 <p>It’s much better to catch this early than to struggle trying to troubleshoot.</p>
-<img src="figures/meme_AHHH_example.png" width="700"></div>
+<p><img alt="" src="../_images/meme_AHHH_example.png" /></p>
+</div>
 <div class="section" id="loading-data">
 <h2>Loading Data<a class="headerlink" href="#loading-data" title="Permalink to this headline">¶</a></h2>
 <p>The functions we will use most for reading and parsing data in text format are <code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code>,<code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>, and <code class="docutils literal notranslate"><span class="pre">pd.read_table</span></code>.</p>
-<img src="figures/Table_6.1.png" width="700">
+<p><img alt="" src="../_images/Table_6.1.png" /></p>
 <p>They are similar except <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> has a default comma delimiter and <code class="docutils literal notranslate"><span class="pre">pd.read_table</span></code> has tab (<code class="docutils literal notranslate"><span class="pre">'\t'</span></code>) as its default delimiter.</p>
 <p>The syntax will look something like: <code class="docutils literal notranslate"><span class="pre">pd.read_csv('filename.csv',header=2,</span> <span class="pre">sep=',',names=['Date','Time','Location'])</span></code>. There are other argument options that you may need to use.</p>
-<img src="figures/Table_6_2.png" width="700">
+<p><img alt="" src="../_images/Table_6_2.png" /></p>
 <blockquote>
 <div><p>Source: Python for Data Analysis, McKinney</p>
 </div></blockquote>
 <p>For example the first file above can be loaded into a DataFrame name <code class="docutils literal notranslate"><span class="pre">seafloor_age</span></code> by calling <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> as <code class="docutils literal notranslate"><span class="pre">seafloor_age</span> <span class="pre">=</span> <span class="pre">pd.read_csv('age_xyz.csv',header=1,</span> <span class="pre">sep=',',names=['latitude','longitude','age_Myr'])</span></code>.</p>
-<img src="figures/read_example1.png"></div>
+<p><img alt="" src="../_images/read_example1.png" /></p>
+</div>
 <div class="section" id="writing-data-to-text-format">
 <h2>Writing Data to Text Format<a class="headerlink" href="#writing-data-to-text-format" title="Permalink to this headline">¶</a></h2>
 <p>Often once you have completed your data wrangling and analysis you want to save your data. Unless you need to save in a software-specific file format or you have thousands of rows, you’ll want to save in text format. Again so they are human readable. A simple way to do this is use the DataFrame method <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> and setting the path and filename.</p>
-<img src="./figures/write_example1.png">
+<p><img alt="" src="../_images/write_example1.png" /></p>
 <p>This will save a file named ‘seafloor_age_new.csv’ in the same directory as your notebook. You can set a different file path instead. <code class="docutils literal notranslate"><span class="pre">seafloor_age.to_csv('data/seafloor_age_new.csv')</span></code> would make a directory named ‘data’ and place your new file there.</p>
 </div>
 </div>
