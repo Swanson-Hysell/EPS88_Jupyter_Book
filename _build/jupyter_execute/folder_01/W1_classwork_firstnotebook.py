@@ -6,7 +6,6 @@
 * Course description
 * Jupyter Notebooks
 
-### Additional reading: Follow the links below
 
 ## EPS 88 Fall 2020
 
@@ -55,7 +54,7 @@ Cell types default to 'Code' but you change the cell type to 'Markdown' with the
 You "execute" a cell (either typeset or run the code) by clicking on the 'Run' button (sideways triangle), select 'Run Cells' under the Cell tab, or by holding Shift and typing Return.
 ![](./figures/run_cell.png)
 
-In a code block, you can only type valid python statements EXCEPT after a pound sign `# everything after that will be ignored.`
+In a code block, you can only type valid python statements EXCEPT after a pound sign `#` everything after that will be ignored.
 That is how you write "comments" in your code to remind yourself or tell others what you were thinking:
 
 ![](./figures/first_line.png)

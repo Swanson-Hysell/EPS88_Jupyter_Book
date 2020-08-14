@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to PyEarth &#8212; Python Intro to Geoscience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter One: Syllabus and Introduction" href="week_01.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Intro to Geoscience</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="#">
+   Welcome to PyEarth
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_01.html">
+   Chapter One: Syllabus and Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_02.html">
+   Chapter Two: Dynamic Earth and Data Input
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_03.html">
+   Week Three: Earthquakes and Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_04.html">
+   Week Four: Seafloor Spreading and Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_05.html">
+   Week Five: Earthquake Statistics and Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="append_A.html">
+   Appendix A: Function Catalog
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-materials-can-be-found-on-the-bcourses-page">
+   Course materials can be found on the bCourses page:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-this-book">
+   About this Book
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-study-the-earth">
+   Why Study the Earth?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-do-geoscience-and-data-science-work-together">
+   How do Geoscience and Data Science work together?
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="welcome-to-pyearth">
+<h1>Welcome to PyEarth<a class="headerlink" href="#welcome-to-pyearth" title="Permalink to this headline">¶</a></h1>
+<p>A Python Introduction to Earth Science!</p>
+<p>This course uses Python programming and Jupyter Notebooks along with real-world observations to introduce students to Earth phenomena and their underlying physics. Students will learn how to access and visualize the data, extract signals, and make probability forecasts. The final module is a research project, of the students’ own design, that synthesizes the course material.</p>
+<div class="section" id="course-materials-can-be-found-on-the-bcourses-page">
+<h2>Course materials can be found on the bCourses page:<a class="headerlink" href="#course-materials-can-be-found-on-the-bcourses-page" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://bcourses.berkeley.edu/courses/1494649">Class Website</a></p>
+</div>
+<div class="section" id="about-this-book">
+<h2>About this Book<a class="headerlink" href="#about-this-book" title="Permalink to this headline">¶</a></h2>
+<p>This book is organized by week, going along with the pace of EPS 88. Each chapter will cover some relevant data science, python programming, and earth science concepts but is not intended to be exhaustive on any of these topics. We have tried to include video clips and external links to pertinent materials to keep student attention and reinforce ideas. The text for this course is written by the instructors, so please forgive any typos or errors.</p>
+</div>
+<div class="section" id="why-study-the-earth">
+<h2>Why Study the Earth?<a class="headerlink" href="#why-study-the-earth" title="Permalink to this headline">¶</a></h2>
+<p>Earth is an ever-changing, complex system of interacting rock, water, air, and life. Humans depend on Earth for resources and are affected by natural-hazards. Earth scientists make observations and conduct experiments to understand Earth’s complexities, and use their understanding of past processes to forecast future conditions.</p>
+<p><img alt="The internal structure of Earth" src="_images/Earth_structure.png" /></p>
+<blockquote>
+<div><p>Figure 1: The internal structure of Earth. Source: modified from Gary Hincks/Science Source SS2410099.</p>
+</div></blockquote>
+<p>Earth has four major systems: the geosphere, hydrosphere, atmosphere, and biosphere. Each of these systems forms a branch of Earth Science, made up of many subdisciplines of scientists who use a variety of tools and techniques to study Earth.</p>
+<p><img alt="Earth science" src="_images/Earth_science_spheres_1.png" /></p>
+<blockquote>
+<div><p>Figure 2: The four earth systems.</p>
+</div></blockquote>
+<p><img alt="Earth science details" src="_images/ES_spheres_detail.png" /></p>
+<blockquote>
+<div><p>Figure 3: Example earth science subdisciplines.</p>
+</div></blockquote>
+<p>This semester of EPS 88 we will focus on the geosphere, made up of Earth’s crust, mantle, and core. Again, this branch of Earth Science is made up of many subdisciplines of scientists who use a variety of tools and techniques to study the Earth. Geoscientists make observations of earth materials and of the dynamic evolution of Earth as mass and energy are cycled between systems. Geoscience is highly interdisciplinary because its subdisciplines have complementary approaches and because Earth’s systems are so interconnected. Gaining knowledge of a broad-base of geoscience fields and practicing many techniques will make students of EPS 88 more capable earth scientists.</p>
+</div>
+<div class="section" id="how-do-geoscience-and-data-science-work-together">
+<h2>How do Geoscience and Data Science work together?<a class="headerlink" href="#how-do-geoscience-and-data-science-work-together" title="Permalink to this headline">¶</a></h2>
+<p>As with many fields of science access to digital instrumentation and high-power computing capabilities are rapidly changing the methods used by geoscientists. The amount of data being collecting is growing, and the systems of equations are growing in number and complexity. Data science and programming skills make students more employable and, more importantly, better scientists.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="week_01.html" title="next page">Chapter One: Syllabus and Introduction</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EPS 88 Team<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

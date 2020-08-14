@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Earthquake Statistics &#8212; Python Intro to Geoscience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Appendix A: Function Catalog" href="../append_A.html" />
+    <link rel="prev" title="Week Five: Earthquake Statistics and Loops" href="../week_05.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Intro to Geoscience</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to PyEarth
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_01.html">
+   Chapter One: Syllabus and Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_02.html">
+   Chapter Two: Dynamic Earth and Data Input
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_03.html">
+   Week Three: Earthquakes and Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_04.html">
+   Week Four: Seafloor Spreading and Pandas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../week_05.html">
+   Week Five: Earthquake Statistics and Loops
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Earthquake Statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_A.html">
+   Appendix A: Function Catalog
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/folder_05/W5_gutenberg_richter.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-assigned-reading">
+   Additional Assigned Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#earthquake-magnitude">
+   Earthquake Magnitude
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#earthquake-frequency">
+   Earthquake Frequency
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aftershocks">
+   Aftershocks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seismicity-declustering">
+   Seismicity Declustering
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading-optional">
+   Further Reading (Optional)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="earthquake-statistics">
+<h1>Earthquake Statistics<a class="headerlink" href="#earthquake-statistics" title="Permalink to this headline">¶</a></h1>
+<p><strong>Outline:</strong></p>
+<ul class="simple">
+<li><p>Earthquake Magnitude</p></li>
+<li><p>Earthquake Frequency – Gutenberg-Richter Law</p></li>
+<li><p>Aftershocks – Omari’s Law</p></li>
+<li><p>Seismicity Declustering</p></li>
+</ul>
+<div class="section" id="additional-assigned-reading">
+<h2>Additional Assigned Reading<a class="headerlink" href="#additional-assigned-reading" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.nationalgeographic.com/science/2020/06/strange-earthquake-swarm-lasted-years-scientists-finally-know-wh/">A strange earthquake swarm lasted for years. Scientists finally know why.</a> from National Geographic</p>
+</div>
+<div class="section" id="earthquake-magnitude">
+<h2>Earthquake Magnitude<a class="headerlink" href="#earthquake-magnitude" title="Permalink to this headline">¶</a></h2>
+<p>Earthquake magnitude is an empirically determined measure of the size of an earthquake. Several methods have been used to estimate magnitude based on different aspects of earthquake waveform observations (seismograms).</p>
+<ul class="simple">
+<li><p>The <em>surface-wave magnitude (M_s)</em> is defined as M_s=log_10⁡〖(A_s/T)+1.66 log_10⁡〖(∆)+3.3〗 〗 where A_s is determined from the maximum Rayleigh-wave amplitude, T is the period of the Rayleigh wave (18-22 seconds), and ∆ is epicentral distance in degrees. This magnitude scale works well for shallow earthquakes (&lt;50km).</p></li>
+<li><p>The <em>body-wave magnitude (m_b</em>) is defined as m_sb=log_10⁡〖(A_p/T)+Q⁡(∆,h) 〗 where A_P is determined from the maximum P-wave amplitude, T is the period of the P-waves (&lt;3 seconds), and Q⁡(∆,h)  is a correction for signal attenuation due to epicentral distance ∆ and depth h.</p></li>
+</ul>
+<p>Because of the way the ground responds to seismic waves M_s and m_b for the same earthquake often don’t agree well, except for small earthquakes. Above a certain size these magnitude scales exhibit magnitude saturation (M_s=8 and m_b=6), where a larger earthquakes tend to radiate energy at longer periods than are commonly used to estimate m_b. Thus the amplitude of several second P-waves does not grow as quickly as 20 second period surface waves. Magnitude saturation can even impact estimates of M_s for earthquake significantly larger than M8. Thus, a better magnitude scale has been formulated based on the seismic moment M_0=μSD, where μ is the shear modulus of the rock known as “rigidity” (units of Pascal), S is the area of the fault surface that ruptures, and D is the amount of slip (displacement) that occurs.  Thus M_0 is related to the energy of an earthquake with units of Joules.</p>
+<ul class="simple">
+<li><p>The <em>moment magnitude (M_w)</em> is defined as M_w=2/3 (log_10⁡〖M_0 〗-9.1), in SI units. M_w is better for describing the magnitude of large earthquakes. M_0=μSD is determined by modeling synthetic seismograms of earthquakes with different fault geometries and matching them to the observed seismograms, where the amplitude of the waves is proportional to M_0. Geologic field observations of fault length, taking aftershocks into account, with some observations of fault slip can be used to infer approximate estimates of M_0.</p></li>
+</ul>
+<p>Watch this helpful video about <a class="reference external" href="https://www.iris.edu/hq/inclass/video/pasta_quake_modeling_magnitude_scale_using_spaghetti">earthquake magnitude:</a></p>
+</div>
+<div class="section" id="earthquake-frequency">
+<h2>Earthquake Frequency<a class="headerlink" href="#earthquake-frequency" title="Permalink to this headline">¶</a></h2>
+<p>We have seen in the earthquake catalogs we’ve examined so far, there are many more small earthquakes than large earthquakes. We estimated the relationship between earthquake frequency and magnitude to be roughly log-linear (Figure 1). More precisely this relationship can be modeled as log⁡〖N=a-b〗 M or N=10^(a-bM), where N is the number of earthquakes and M is magnitude, a and b are empirically determined constants that vary between seismic regions. This is known as the Gutenberg-Richter law. The value of b gives the slope of the log⁡〖N(〗 M) line and is close to 1.0, so there are ~ 10 times more M=4 earthquakes than there are M=5. The value of a is less interesting, it gives the y-intercept of the log⁡〖N(〗 M) line which just indicates the total number of earthquakes in the catalog, but a regional scales does describe the relatively level of seismic activity (i.e. a very active region would have a larger value of a). Determining the b-value of a seismically active region is an important step in estimating the seismic hazard, because it can be related to the average annual frequency of earthquake occurrence.</p>
+<p><img alt="Histogram of logN" src="../_images/logN_histogram.png" />
+Figure 1: Histogram of the logarithm of the number if earthquakes per year (logN) with magnitude.  Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.</p>
+</div>
+<div class="section" id="aftershocks">
+<h2>Aftershocks<a class="headerlink" href="#aftershocks" title="Permalink to this headline">¶</a></h2>
+<p>Large mainshock earthquakes are followed by smaller aftershock earthquakes as the crust adjusts to the main shock displacement. Aftershocks decrease in size and frequency with time after the main shock. The largest aftershock produced is typically ~1.2 magnitude smaller than its main shock. The number of aftershocks decays with time i.e. the number of aftershocks is inversely proportional to time, n(t)∝1/t. This decay called Omori’s law. Large main shock earthquakes have more and larger aftershocks, and their aftershock sequence can last for years. Aftershocks can be dangerous, collapsing structures and buildings damaged during the main shock.</p>
+</div>
+<div class="section" id="seismicity-declustering">
+<h2>Seismicity Declustering<a class="headerlink" href="#seismicity-declustering" title="Permalink to this headline">¶</a></h2>
+<p>In this week’s in-class exercise we will be programming a function for declustering a seismic catalog (filtering out aftershock earthquakes). Declusting splits a seismic catalog into events that are independent from each other (mainshocks) and events that depend on other events (aftershocks, foreshock). The process of declustering is used in seismic hazard assessment and earthquake forecast models. Mainshock and aftershock earthquakes are not distinguishable by their seismograms, instead aftershocks are determined based on the statistics of their occurrence time and distance from a main shock. We’ll call these criteria (time and distance) our Ttest and Dtest. We will be working with a catalog of all M0+ earthquakes that occurred within 100km of Berkeley from 1900 to 2018. Our algorithm for declustering will filter out events which occur within the aftershock windows in Table 1.</p>
+<p><img alt="Aftershock windows" src="../_images/aftershock_windows.png" /><br />
+Table 1: Aftershock windows from Gardner and Knopoff, 1974.
+<a class="reference external" href="http://www.corssa.org">Source:</a> van Stiphout, T., J. Zhuang, and D. Marsan (2012), Seismicity declustering, Community Online Resource for Statistical Seismicity Analysis, doi:10.5078/corssa-52382934.</p>
+<p>For each earthquake in the catalog we will calculate the distance and time interval to the other earthquakes in the catalog, and test if they are within these windows. To compute the distance between events we will use the Great-circle distance equations. The distance d between two points on the surface of a sphere is given by
+d=rθ,
+where r is the radius of the sphere and θ is the angular separation between the points (in radians) (Figure 2).
+θ=〖2sin^(-1)〗⁡√(sin^2⁡〖(|γ_P-γ_Q |/2)+cos⁡〖γ_P  cos⁡〖γ_Q  sin^2⁡(|λ_P-λ_Q |/2) 〗 〗 〗 ),
+where γ is latitude and λ is longitude (in radians) of points P and Q. |┤| indicates an absolute value.</p>
+<p><img alt="Great-circle distance" src="../_images/Illustration_of_great_circle_distance.png" /><br />
+Figure 2: Great-circle distance shown in red between two points on a sphere, P and Q.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Great-circle_distance">Source:</a></p>
+</div>
+<div class="section" id="further-reading-optional">
+<h2>Further Reading (Optional)<a class="headerlink" href="#further-reading-optional" title="Permalink to this headline">¶</a></h2>
+<p>Chapter 5 Getting Started with pandas, Python for Data Analysis
+McKinney, W. (2018). Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython, 2nd Edition. Sebastopol, CA: O’Reilly Media, Inc.</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>Gardner, J. K., and L. Knopoff (1974), Is the sequence of earthquakes in Southern California, with aftershocks removed, Poissonian?, Bull. Seis. Soc. Am., 64(5), 1363-1367.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./folder_05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../week_05.html" title="previous page">Week Five: Earthquake Statistics and Loops</a>
+    <a class='right-next' id="next-link" href="../append_A.html" title="next page">Appendix A: Function Catalog</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EPS 88 Team<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

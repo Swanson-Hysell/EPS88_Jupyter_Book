@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>2.2 The Dynamic Earth &#8212; Python Intro to Geoscience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week Three: Earthquakes and Data Visualization" href="../week_03.html" />
+    <link rel="prev" title="2.1 Data I/O (Input/Output)" href="W2_IO.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Intro to Geoscience</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to PyEarth
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_01.html">
+   Chapter One: Syllabus and Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../week_02.html">
+   Chapter Two: Dynamic Earth and Data Input
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="W2_IO.html">
+     2.1 Data I/O (Input/Output)
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.2 The Dynamic Earth
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_03.html">
+   Week Three: Earthquakes and Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_04.html">
+   Week Four: Seafloor Spreading and Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_05.html">
+   Week Five: Earthquake Statistics and Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_A.html">
+   Appendix A: Function Catalog
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/folder_02/W2_gpts_rockcycle_tectonics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-assigned-reading">
+   Additional Assigned Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geologic-time">
+   Geologic Time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#earths-structure">
+   Earth’s Structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-rocks-and-the-rock-cycle">
+   Types of Rocks and the Rock Cycle
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#igneous">
+     Igneous
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sedimentary">
+     Sedimentary
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metamorphic">
+     Metamorphic
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tectonic-plates">
+   Tectonic Plates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-plate-boundaries">
+   Types of Plate Boundaries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#divergent-constructive">
+     Divergent (Constructive)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convergent-destructive">
+     Convergent (Destructive)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transform-conservative">
+     Transform (Conservative)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommended-further-reading-optional">
+   Recommended Further Reading (Optional)
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-dynamic-earth">
+<h1>2.2 The Dynamic Earth<a class="headerlink" href="#the-dynamic-earth" title="Permalink to this headline">¶</a></h1>
+<p><strong>Goal:</strong> Build upon background geologic knowledge to introduce and motivate earth science questions that we can study using data science computational methods.</p>
+<p><strong>Outline:</strong></p>
+<ul class="simple">
+<li><p>Geologic time</p></li>
+<li><p>Earth’s structure</p></li>
+<li><p>Types of rocks and the rock cycle</p></li>
+<li><p>Tectonic plates</p></li>
+<li><p>Types of plate boundaries</p></li>
+</ul>
+<div class="section" id="additional-assigned-reading">
+<h2>Additional Assigned Reading<a class="headerlink" href="#additional-assigned-reading" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.earthscienceliteracy.org/">Earth Science Literacy Principles: The Big Ideas and Supporting Concepts of Earth Science</a>
+A .pdf version and printer-friendly .docx version can be downloaded from bCourses.</p>
+</div>
+<div class="section" id="geologic-time">
+<h2>Geologic Time<a class="headerlink" href="#geologic-time" title="Permalink to this headline">¶</a></h2>
+<p>Earth was formed 4.56 billion years ago (Ga). Concealed in the rocks of the continental crust is a record of nearly all of this history. Earth cooled enough for crustal rocks to begin forming 4.28 Ga. The rock record provides evidence of past Earth dynamics and the evolution of life. Earth scientists divide the 4.56 billion years of Earth history into the geologic timescale to describe these variations. The period from 4.56 Ga to 541 million years ago (Ma) is known as the Precambrian, it’s made up of the Hadean, Archean and Proterozoic Eons, and describes the majority of Earth history (January 1 – mid-November if Earth history was a single year, Figure 1). The end of the Precambrian and the start of the Phanerozoic eon is marked by the Cambrian explosion - a dramatic increase in the diversity and complexity of life. The divisions between different geologic eras are often marked by extreme changes in environment and biodiversity such as during mass extinction events. Figure 2 shows the geologic time scale – DON’T memorize it, DO use it as a reference tool as we continue our study of Earth’s variations through time.</p>
+<p><strong>Please watch this ~10 min video:</strong>
+<a class="reference external" href="https://www.youtube.com/watch?v=rWp5ZpJAIAE">A Brief History of Geologic Time</a> from PBS Eons.</p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=rWp5ZpJAIAE"><img alt="" src="http://img.youtube.com/vi/rWp5ZpJAIAE/0.jpg" /></a></p>
+<p>EPS 50 and 102 cover this topics in greater detail.</p>
+<img src="./figures/gts_in_a_year.png" width="700">
+Figure 1: The history of Earth compressed into a year to illustrate the relative length of different geologic periods. Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.
+<img src="./figures/timescale.png" width="1000">
+Figure 2: The geologic time scale. [Source: GSA](https://www.geosociety.org/documents/gsa/timescale/timescl.pdf) 
+</div>
+<div class="section" id="earths-structure">
+<h2>Earth’s Structure<a class="headerlink" href="#earths-structure" title="Permalink to this headline">¶</a></h2>
+<p>Earth has three major compositional layers the crust, mantle, and core (Shown in Figures 3 and 4). These layers are a consequence of the heat that was produced during the accretion of Earth from the early solar disk. Gravitational compaction, decay of radioactive elements, and bombardment by meteorites heated the proto-earth enough to melt the initially random mixture of solar system dust and gases. After melting, the constituent parts were able to stratify by composition. The denser metals (mainly iron and nickel) sank to the interior forming the core while the lighter elements (oxygen, silicon, magnesium, etc.) rose to the top forming the crust and mantle, in a process called differentiation. Earth’s layers were discovered by their response to seismic waves, which is controlled by their physical properties.</p>
+<p>The core is the dense, metal deep-interior of Earth, made up of two physical layers the inner-core and outer-core. The inner-core is a solid iron and nickel alloy, and ~1200 km in radius. The inner-core boundary (ICB) is the surface at which the temperature and pressure conditions within the earth allow this iron and nickel alloy to freeze. The outer-core a ~2300 km thick layer of molten iron and nickel alloy with a kinematic viscosity similar to water (~1x10<sup>-6</sup> m<sup>2</sup>/s). Because the outer-core is liquid seismic shear waves (S-waves) cannot travel through it; a shadow zone is observed where seismographs located greater than ~105° from an earthquake will not record its S-waves. The core – mantle boundary (CMB) is defined by a large discontinuity between the denser, liquid, metal outer-core and the less dense, plastic-solid, rocky mantle.</p>
+<p>The mantle and crust make up the rocky outer layers of the earth. They are compositionally distinct. The mantle is a 2850 km thick layer of fairly homogeneous rock, made of just a few dense minerals. The mantle is made of iron and magnesium rich silicate minerals. In the upper mantle olivine, pyroxene, spinel, and garnet are stable. With increasing depth (and therefore increasing temperature and pressure) these mineral phases are no longer stable, and the elements rearrange themselves into the minerals perovskite and ferropericlase in the lower mantle. These phase transitions occur between depths of 400 – 660 km, a region of the mantle known as the transition zone. The material in most of the mantle is a viscoelastic solid; meaning on short-time scales it reacts elastically and will return to its original shape after a stress (such as a seismic wave) is applied, but on long time-scales it will viscously deform and flow.</p>
+<p>The crust is the brittle outer ~5 - 30 km of Earth. Crust comes in two flavors: oceanic and continental. The oceanic crust is thinner (5 – 8 km) and denser than the continents. Compositionally oceanic crust is also simpler; it is made of basalt (an extrusive igneous rock) overlain with marine sediments which are deposited through time. Continental crust is thicker (30 – 60 km) and less dense. It is also compositionally and structurally more complex.</p>
+<p>The outer-most silicate layers of the earth (crust and upper mantle) can also be divided based on their physical properties into the lithosphere and asthenosphere. The lithosphere is defined by its brittle response to stress. When strongly stressed the lithosphere ruptures producing earthquakes. Elastic energy is released by the rapid displacement on a fault plane. The lithosphere is the outer 100 – 150 km of the earth and is compositionally made of the crust and upper-most mantle. The asthenosphere is the ~150 km of the upper mantle below the lithosphere and is rheologically weaker, it deforms ductilly because of its increased temperature.
+EPS 50 and EPS 122 cover these topics in greater detail.</p>
+<img src="./figures/layers.png" width="700">
+Figure 3: Structure of Earth, compositional and mechanical layering. Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.
+<img src="./figures/deep_structure.png" width="700">
+Figure 4: Earth’s structure with depth. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.
+</div>
+<div class="section" id="types-of-rocks-and-the-rock-cycle">
+<h2>Types of Rocks and the Rock Cycle<a class="headerlink" href="#types-of-rocks-and-the-rock-cycle" title="Permalink to this headline">¶</a></h2>
+<p>There are three types of rocks (igneous, sedimentary, and metamorphic) which are defined by how they are formed. The characteristics of every rock (i.e. grain-size, mineral make up, layering or foliation, presence of fossils) provide evidence of the processes and environment which formed it. The rock cycle (Shown in Figure 8) is used to describe the interconnected systems at work forming the rocks which make up Earth’s crust. Crustal materials are recycled between the different types of rocks, keeping physical and chemical records of their journey through time.</p>
+<p><strong>Watch this video clip from</strong>
+<a class="reference external" href="https://www.youtube.com/watch?v=BsIHV__voMk">Bill Nye the Science Guy episode: Earth’s Crust</a></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=BsIHV__voMk"><img alt="" src="http://img.youtube.com/vi/BsIHV__voMk/0.jpg" /></a></p>
+<p>EPS 50, 100 A&amp;B cover these topics in greater detail.</p>
+<div class="section" id="igneous">
+<h3>Igneous<a class="headerlink" href="#igneous" title="Permalink to this headline">¶</a></h3>
+<p>Igneous rocks are formed by the cooling and crystallization of magma (molten rock). Crystallization can happen below Earth’s surface forming intrusive igneous rocks (e.g. granite) or above the surface forming extrusive igneous rocks (e.g. basalt).</p>
+<img src="./figures/igneous_rocks.png" width="700">
+Figure 5: Examples of intrusive (granite) and extrusive igneous rocks (basalt). Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.
+</div>
+<div class="section" id="sedimentary">
+<h3>Sedimentary<a class="headerlink" href="#sedimentary" title="Permalink to this headline">¶</a></h3>
+<p>Sedimentary rocks are formed through the compaction and lithification of sediments (e.g. sandstone). Sediments are the product of weathering and erosion of earlier rocks. Sedimentary rocks provide evidence of their depositional environment and ecosystem.</p>
+<img src="./figures/sandstone1.png" width="700">
+Figure 6: Examples of a sedimentary rock, sandstone. [Source:](http://geologylearn.blogspot.com/2015/03/sandstone.html)
+</div>
+<div class="section" id="metamorphic">
+<h3>Metamorphic<a class="headerlink" href="#metamorphic" title="Permalink to this headline">¶</a></h3>
+<p>Metamorphic rocks are formed by the application of heat and pressure to earlier rocks (igneous, sedimentary, or metamorphic). Elevated pressure and temperature conditions cause both physical (structural) and chemical (mineralogical) changes in the rock. The metamorphic grade describes the extent of these changes and increases with increasing pressure and temperature.</p>
+<img src="./figures/metamorphic.png" width="700">
+Figure 7: Examples of metamorphic rocks, and the rocks that they formed from. [Source:](https://mspagett.weebly.com/metamorphic-rocks.html)
+<img src="./figures/rock_cycle.png" width="700">
+Figure 8: The rock cycle. Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.
+</div>
+</div>
+<div class="section" id="tectonic-plates">
+<h2>Tectonic Plates<a class="headerlink" href="#tectonic-plates" title="Permalink to this headline">¶</a></h2>
+<p>The rigid nature of the lithosphere determines its response to tectonic forces (the pushes and pulls between the lithosphere and the mantle). The convective motion of the mantle places a drag force on the base of the lithosphere. The lithosphere is strong but must accommodate stress somewhere, it forms into lithospheric plates. Ruptures occur at the boundaries between plates. Lithospheric (or tectonic) plates are much thinner (~100km) than they are wide (1000 – 10,000 km). Most earthquakes occur at the boundaries between plates and are associated with the interactions between plates (how they move relative to each other). There are twelve major plates (Antarctic, South America, Nazca, Cocos, Pacific, North America, Eurasia, Africa, Arabia, India, Australia, and Philippine) and several minor plates (Caribbean, Juan de Fuca, and Scotia) (Shown in Figure 9).</p>
+<p><strong>Watch this video:</strong>
+<a class="reference external" href="https://www.youtube.com/watch?v=KfYn9KVya-Q">The Whole Saga of the Supercontinents</a>from PBS Eons.</p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=KfYn9KVya-Q"><img alt="" src="http://img.youtube.com/vi/KfYn9KVya-Q/0.jpg" /></a></p>
+<p>EPS 50 and EPS 116 covers this topic in greater detail.</p>
+<img src="./figures/plate_boundary_map.png" width="700">
+Figure 9: Lithospheric plates and relative motions. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.
+</div>
+<div class="section" id="types-of-plate-boundaries">
+<h2>Types of Plate Boundaries<a class="headerlink" href="#types-of-plate-boundaries" title="Permalink to this headline">¶</a></h2>
+<img src="./figures/plate_tectonics.png" width="700">
+Figure 10: Divergent and convergent lithospheric plate boundaries. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.
+<p>EPS 50 and EPS 116 covers this topic in greater detail.</p>
+<div class="section" id="divergent-constructive">
+<h3>Divergent (Constructive)<a class="headerlink" href="#divergent-constructive" title="Permalink to this headline">¶</a></h3>
+<p>When tectonic forces move lithospheric plates apart a divergent or spreading boundary forms. As the plates spread apart mantle material from below rises to fill the space (Figure 10). As it rises there is less pressure confining it to be solid and it partially melts in process called decompression melting. This melt forms new extrusive igneous basalt – mid-ocean ridge basalt (MORB). Most divergent boundaries occur between oceanic crust (Figure 9) and are called mid-ocean ridges even though they are not strictly in the middle of ocean basins (Figure 11).</p>
+<img src="./figures/divergent_boundary.png" width="700">
+Figure 11: Example of a divergent boundary, the Mid-Atlantic Ridge. The South America and Africa plates move apart from each other. Source: Google Earth
+</div>
+<div class="section" id="convergent-destructive">
+<h3>Convergent (Destructive)<a class="headerlink" href="#convergent-destructive" title="Permalink to this headline">¶</a></h3>
+<p>When lithospheric plates push into each other they form a convergent boundary. One plate (the denser of the two) will be pushed down into the asthenosphere in a process called subduction. The subducting slab is recycled into the mantle. Subduction produces surface expressions which depend on the overriding plate. The subduction zone is often marked by a trench and chain of volcanoes. The trench marks where the subducting plate bends down into the mantle. Melting of the subducting plate (and sometimes the base of overriding plate) produces magma that rises to feed the volcanoes (Figure 10 and 12). The largest magnitude and deepest earthquakes occur at subduction zones as the plates stick (accumulate elastic energy) and slip (release elastic energy in earthquake). The subducting plate is colder than the mantle it is pushed into which creates a negative buoyancy (i.e. the slab sinks). If the descending slab remains connected to the surface plate, a slab pull force is generated pulling the slab into the mantle. Slab pull is generally the largest of the forces acting on lithospheric plates and drives the majority of tectonic plate motion from spreading to subduction (Figure 10).</p>
+<img src="./figures/convergent_boundary.png" width="700">
+Figure 12: Example of a convergent boundary, the west coast of South America. The Pacific plate subducts below the South America plate forming a trench and chain of volcanoes. Source: Google Earth
+</div>
+<div class="section" id="transform-conservative">
+<h3>Transform (Conservative)<a class="headerlink" href="#transform-conservative" title="Permalink to this headline">¶</a></h3>
+<p>At transform boundaries lithospheric plates move past each other without producing or recycling material. Motion between the plates occurs on strike-slip fault systems. They connect segments of subduction zones (e.g. San Andreas fault system, Figure 13) and more commonly connect oceanic ridge segments. Transform boundaries are the most seismically active boundaries but produce smaller earthquakes on average.</p>
+<img src="./figures/strike_slip.png" width="700">
+Figure 13: Example of a transform boundary, the west coast of North America. The Pacific plate and North America plate move past each other forming the San Andreas strike-slip fault system. Source: Google Earth
+</div>
+</div>
+<div class="section" id="recommended-further-reading-optional">
+<h2>Recommended Further Reading (Optional)<a class="headerlink" href="#recommended-further-reading-optional" title="Permalink to this headline">¶</a></h2>
+<p>Chapter 1.2 (pg. 15 – 40) of Fundamentals of Geophysics
+Lowrie, W. (2007). Fundamentals of Geophysics, 2nd Edition. Cambridge, UK: Cambridge University Press.</p>
+<p>Pg. 167 – 174 and Ch. 9 of Python for Data Analysis
+McKinney, W. (2018). Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython, 2nd Edition. Sebastopol, CA: O’Reilly Media, Inc.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./folder_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="W2_IO.html" title="previous page">2.1 Data I/O (Input/Output)</a>
+    <a class='right-next' id="next-link" href="../week_03.html" title="next page">Week Three: Earthquakes and Data Visualization</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EPS 88 Team<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
