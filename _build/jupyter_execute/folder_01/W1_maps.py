@@ -14,10 +14,13 @@ The purpose of this introduction is to give you a bit of a background on map pro
  * choose map projections that are appropriate for plotting data
  * understand the terms used in the ```cartopy``` functions which is a function library we will use for plotting geospatial data
 
-## The world *is not* flat / 2D (sorry flat-Earthers)
+## The world *is not* flat / 2D 
+
+(sorry flat-Earthers)
 
 ![Azimuthal equidistant](./figures/azim-eq.png)
-"Azimuthal equidistant projections of the sphere ... have been co-opted as images of the flat Earth model, depicting Antarctica as an ice wall surrounding a disk-shaped Earth." ([Wikipedia: Flat Earth](https://en.wikipedia.org/wiki/Flat_Earth#Flat_Earth_Society))
+
+Azimuthal equidistant projections of the sphere ... have been co-opted as images of the flat Earth model, depicting Antarctica as an ice wall surrounding a disk-shaped Earth. ([Wikipedia: Flat Earth](https://en.wikipedia.org/wiki/Flat_Earth#Flat_Earth_Society))
 
 ## Most of our media for visualization *are* flat
 
@@ -33,13 +36,13 @@ For example:
  * 3D rendering engine (the engine is then typically responsible for projecting the data to 2D for presentation to screen)
  * A Spherical Projector...
 
-## [Map] Projections: Taking us from spherical to flat
+### [Map] Projections: Taking us from spherical to flat
 
 A map projection (or more commonly refered to as just "projection") is:
 
 > a systematic transformation of the latitudes and longitudes of locations from the surface of a sphere or an ellipsoid into locations on a plane. [[Wikipedia: Map projection](https://en.wikipedia.org/wiki/Map_projection)].
 
-## The major problem with map projections
+### The major problem with map projections
 
 ![Orange earth](./figures/orange_peel.jpg)
 
@@ -50,12 +53,9 @@ A map projection (or more commonly refered to as just "projection") is:
 
 [![](http://img.youtube.com/vi/kIID5FDi2JQ/0.jpg)](http://www.youtube.com/watch?v=kIID5FDi2JQ "")
 
-#from IPython.lib.display import YouTubeVideo
-#YouTubeVideo('kIID5FDi2JQ')
-
 ### Different projections
 
-We are going to use the function library `cartopy` to make maps. `cartopy`  supports a number of different map projections which enable the 3 dimensional surface of Earth to be shown in 2 dimensions on our computer screens. I (Nick Swanson-Hysell) like the Robinson projection (although I like Mollweide more)-- you can see what the says about me by referring to this XKCD comic (https://xkcd.com/977/). Having watched the above video will give you some context to appreciate these jokes:
+We are going to use the function library `cartopy` to make maps. `cartopy`  supports a number of different map projections which enable the 3 dimensional surface of Earth to be shown in 2 dimensions on our computer screens. I (Maggie Avery) like the Robinson projection (although I like Mollweide more)-- you can see what the says about me by referring to this XKCD comic (https://xkcd.com/977/). Having watched the above video will give you some context to appreciate these jokes:
 
 ![xkcd Map projections](./figures/map_projections.png)
 
@@ -78,41 +78,44 @@ Two common approaches:
  1. By [2D] surface classification
  2. By preserving a given property (metric)
 
-### Projections by surface classification
+## Projections by surface classification
 
 ![](./figures/projections.gif)
 
 *Downside: Not all projections can be classified in this way -> Leads to big "pseudo" and "other" groups.*
 
-## Surface classification: Cylindrical
+#### Surface classification: Cylindrical
 
 ![Cylindrical](./figures/cylindrical.png)
+
 Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
 
 
 * Meridians and paralells are straight and perpendicular.
 
-## Surface classification: Azimuthal
+#### Surface classification: Azimuthal
 
 ![azimuthal](./figures/azimuthal.png)
+
 Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
 
 
 * Parallels are complete circles
 * Great circles from central point are straight lines.
 
-## Surface classification: Conic
+### Surface classification: Conic
 ![conic](./figures/conic.png)
+
 Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
 
 * Meridians are straight equally-spaced lines
 * Parallels are circular arcs.
 
-### Projections by preserving metric
+## Projections by preserving metric
 
 Downside: Some projections can live in multiple groups.
 
-## Preserving metric: Conformal
+#### Preserving metric: Conformal
 
 Also known as Orthomorphic.
 
@@ -125,9 +128,9 @@ Examples of conformal projections:
  * Stereographic
  * Lambert conformal conic
 
-## Preserving metric: Conformal
+#### Preserving metric: Conformal
 
-### Use in large scale maps (zoomed in)
+Use in large scale maps (zoomed in)
 
 Often used to preserve shape to represent their physical counterpart.
 Seamless online maps like OSM/Google/Bing typically use a Mercator projection although Google Maps has begun using an 3D-rendered globe projection when the user zooms out:
@@ -136,9 +139,9 @@ Seamless online maps like OSM/Google/Bing typically use a Mercator projection al
 
 The major drawback: it is difficult to compare lengths or areas
 
-## Preserving metric: Conformal
+#### Preserving metric: Conformal
 
-### Use in small scale maps (zoomed out)
+Use in small scale maps (zoomed out)
 
 Maps reflecting directions, such as an [aero]nautical chart, or whose gradients are important,
 such as a weather maps, are often projected by conformal projections.
@@ -148,7 +151,7 @@ varies by location makes it difficult to compare lengths or areas.
 Some have gone as far as calling the Mercator projection imperialistic and racist.
 
 
-## Preserving metric: Equidistant
+#### Preserving metric: Equidistant
 
 No map projection can be universally equidistant.
 
@@ -159,7 +162,7 @@ Examples of projections that preserve distances along meridians (but not paralle
  * Equirectangular / Plate Carree
  * Azimuthal equidistant
 
-## Preserving metric: Equal-area
+#### Preserving metric: Equal-area
 
 
 Equal-area maps preserve area measure, generally distorting shapes in order to do so.
@@ -173,7 +176,7 @@ Examples of equal area projections:
  * Mollweide
  * Sinusoidal
 
-## Preseving metric: Compromise
+#### Preseving metric: Compromise
 
 Rather than perfectly preserving any metric properties, compromise
 projections aim strike a balance between distortions.

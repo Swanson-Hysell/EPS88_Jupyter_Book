@@ -48,6 +48,8 @@ Indexing is the method for navigating around through a dataset. We use numbers t
 |  7  | 07/25 | 196      | 175        |
 |  8  | 08/01 | 127      | 188        |
 
+Both rows and columns are indexed, starting at zero.
+
 | 0     | 1        |  2         |
 |-------|----------|------------|
 | 06/06 | 150      | 230        |
