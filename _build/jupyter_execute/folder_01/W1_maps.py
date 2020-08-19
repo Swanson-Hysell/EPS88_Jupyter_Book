@@ -1,13 +1,15 @@
 # 1.3 Map Projections
 
 **Goal:** Introduce the concepts of projecting 3D spherical geography onto a 2D plane.
+
+**Outline:**
+* Why we need map projections
+* Types of projections for different situations
    
 
-This introductory text is modified from a tutorial on working with geospatial data using the library ```cartopy``` that was presented at the 2018 Scipy conference by Phileas Elson (lots of great things to learn in this tutorial if you want to dig into it at some point):
+This introductory text is modified from a [tutorial](https://youtu.be/AmidIx6Jmn8) on working with geospatial data using the library ```cartopy``` that was presented at the 2018 Scipy conference by Phileas Elson (lots of great things to learn in this tutorial if you want to dig into it at some point):
 
-https://youtu.be/AmidIx6Jmn8
-
-https://github.com/SciTools/cartopy-tutorial
+[https://github.com/SciTools/cartopy-tutorial](https://github.com/SciTools/cartopy-tutorial)
 
 The purpose of this introduction is to give you a bit of a background on map projections, reference systems and other geospatial terms. This will help you to:
  
@@ -49,7 +51,7 @@ A map projection (or more commonly refered to as just "projection") is:
  * The surface of a sphere is topologically different to a 2D surface, therefore we *have* to cut the sphere *somewhere*
  * A sphere's surface cannot be represented on a plane without distortion.
  
-**Watch the video embedded below** (*click the notebook play button to embed it in the notebook or watch it at this link: https://youtu.be/kIID5FDi2JQ*). This video gives an introduction (with nice accompanying visualizations) of this issue and different projections along with the positives and negatives of different commonly used ones.
+**Watch the video embedded below** (*click the image to watch it at this link: https://youtu.be/kIID5FDi2JQ*). This video gives an introduction (with nice accompanying visualizations) of this issue and different projections along with the positives and negatives of different commonly used ones.
 
 [![](http://img.youtube.com/vi/kIID5FDi2JQ/0.jpg)](http://www.youtube.com/watch?v=kIID5FDi2JQ "")
 
@@ -78,7 +80,7 @@ Two common approaches:
  1. By [2D] surface classification
  2. By preserving a given property (metric)
 
-## Projections by surface classification
+### Projections by surface classification
 
 ![](./figures/projections.gif)
 
@@ -103,7 +105,7 @@ Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
 * Parallels are complete circles
 * Great circles from central point are straight lines.
 
-### Surface classification: Conic
+#### Surface classification: Conic
 ![conic](./figures/conic.png)
 
 Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
@@ -111,7 +113,7 @@ Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
 * Meridians are straight equally-spaced lines
 * Parallels are circular arcs.
 
-## Projections by preserving metric
+### Projections by preserving metric
 
 Downside: Some projections can live in multiple groups.
 

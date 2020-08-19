@@ -87,7 +87,7 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="W1_classwork_firstnotebook.html">
-     1.1 EPS 88 Workflow and Introduction to a Jupyter Notebook
+     1.1 Introduction to a Jupyter Notebook
     </a>
    </li>
    <li class="toctree-l2">
@@ -250,63 +250,65 @@
   <a class="reference internal nav-link" href="#classifying-projections">
    Classifying projections
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#projections-by-surface-classification">
-   Projections by surface classification
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surface-classification-cylindrical">
-     Surface classification: Cylindrical
+    <a class="reference internal nav-link" href="#projections-by-surface-classification">
+     Projections by surface classification
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#surface-classification-cylindrical">
+       Surface classification: Cylindrical
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#surface-classification-azimuthal">
+       Surface classification: Azimuthal
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#surface-classification-conic">
+       Surface classification: Conic
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surface-classification-azimuthal">
-     Surface classification: Azimuthal
+    <a class="reference internal nav-link" href="#projections-by-preserving-metric">
+     Projections by preserving metric
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surface-classification-conic">
-     Surface classification: Conic
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#projections-by-preserving-metric">
-   Projections by preserving metric
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#preserving-metric-conformal">
-     Preserving metric: Conformal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Preserving metric: Conformal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Preserving metric: Conformal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#preserving-metric-equidistant">
-     Preserving metric: Equidistant
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#preserving-metric-equal-area">
-     Preserving metric: Equal-area
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#preseving-metric-compromise">
-     Preseving metric: Compromise
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#preserving-metric-conformal">
+       Preserving metric: Conformal
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Preserving metric: Conformal
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Preserving metric: Conformal
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#preserving-metric-equidistant">
+       Preserving metric: Equidistant
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#preserving-metric-equal-area">
+       Preserving metric: Equal-area
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#preseving-metric-compromise">
+       Preseving metric: Compromise
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -328,9 +330,13 @@
   <div class="section" id="map-projections">
 <h1>1.3 Map Projections<a class="headerlink" href="#map-projections" title="Permalink to this headline">¶</a></h1>
 <p><strong>Goal:</strong> Introduce the concepts of projecting 3D spherical geography onto a 2D plane.</p>
-<p>This introductory text is modified from a tutorial on working with geospatial data using the library <code class="docutils literal notranslate"><span class="pre">cartopy</span></code> that was presented at the 2018 Scipy conference by Phileas Elson (lots of great things to learn in this tutorial if you want to dig into it at some point):</p>
-<p>https://youtu.be/AmidIx6Jmn8</p>
-<p>https://github.com/SciTools/cartopy-tutorial</p>
+<p><strong>Outline:</strong></p>
+<ul class="simple">
+<li><p>Why we need map projections</p></li>
+<li><p>Types of projections for different situations</p></li>
+</ul>
+<p>This introductory text is modified from a <a class="reference external" href="https://youtu.be/AmidIx6Jmn8">tutorial</a> on working with geospatial data using the library <code class="docutils literal notranslate"><span class="pre">cartopy</span></code> that was presented at the 2018 Scipy conference by Phileas Elson (lots of great things to learn in this tutorial if you want to dig into it at some point):</p>
+<p><a class="reference external" href="https://github.com/SciTools/cartopy-tutorial">https://github.com/SciTools/cartopy-tutorial</a></p>
 <p>The purpose of this introduction is to give you a bit of a background on map projections, reference systems and other geospatial terms. This will help you to:</p>
 <ul class="simple">
 <li><p>choose map projections that are appropriate for plotting data</p></li>
@@ -371,7 +377,7 @@
 <li><p>The surface of a sphere is topologically different to a 2D surface, therefore we <em>have</em> to cut the sphere <em>somewhere</em></p></li>
 <li><p>A sphere’s surface cannot be represented on a plane without distortion.</p></li>
 </ul>
-<p><strong>Watch the video embedded below</strong> (<em>click the notebook play button to embed it in the notebook or watch it at this link: https://youtu.be/kIID5FDi2JQ</em>). This video gives an introduction (with nice accompanying visualizations) of this issue and different projections along with the positives and negatives of different commonly used ones.</p>
+<p><strong>Watch the video embedded below</strong> (<em>click the image to watch it at this link: https://youtu.be/kIID5FDi2JQ</em>). This video gives an introduction (with nice accompanying visualizations) of this issue and different projections along with the positives and negatives of different commonly used ones.</p>
 <p><a class="reference external" href="http://www.youtube.com/watch?v=kIID5FDi2JQ"><img alt="" src="http://img.youtube.com/vi/kIID5FDi2JQ/0.jpg" /></a></p>
 </div>
 <div class="section" id="different-projections">
@@ -399,13 +405,12 @@
 <li><p>By [2D] surface classification</p></li>
 <li><p>By preserving a given property (metric)</p></li>
 </ol>
-</div>
 <div class="section" id="projections-by-surface-classification">
-<h2>Projections by surface classification<a class="headerlink" href="#projections-by-surface-classification" title="Permalink to this headline">¶</a></h2>
+<h3>Projections by surface classification<a class="headerlink" href="#projections-by-surface-classification" title="Permalink to this headline">¶</a></h3>
 <p><img alt="" src="../_images/projections.gif" /></p>
 <p><em>Downside: Not all projections can be classified in this way -&gt; Leads to big “pseudo” and “other” groups.</em></p>
 <div class="section" id="surface-classification-cylindrical">
-<h3>Surface classification: Cylindrical<a class="headerlink" href="#surface-classification-cylindrical" title="Permalink to this headline">¶</a></h3>
+<h4>Surface classification: Cylindrical<a class="headerlink" href="#surface-classification-cylindrical" title="Permalink to this headline">¶</a></h4>
 <p><img alt="Cylindrical" src="../_images/cylindrical.png" /></p>
 <p>Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/</p>
 <ul class="simple">
@@ -413,7 +418,7 @@
 </ul>
 </div>
 <div class="section" id="surface-classification-azimuthal">
-<h3>Surface classification: Azimuthal<a class="headerlink" href="#surface-classification-azimuthal" title="Permalink to this headline">¶</a></h3>
+<h4>Surface classification: Azimuthal<a class="headerlink" href="#surface-classification-azimuthal" title="Permalink to this headline">¶</a></h4>
 <p><img alt="azimuthal" src="../_images/azimuthal.png" /></p>
 <p>Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/</p>
 <ul class="simple">
@@ -422,7 +427,7 @@
 </ul>
 </div>
 <div class="section" id="surface-classification-conic">
-<h3>Surface classification: Conic<a class="headerlink" href="#surface-classification-conic" title="Permalink to this headline">¶</a></h3>
+<h4>Surface classification: Conic<a class="headerlink" href="#surface-classification-conic" title="Permalink to this headline">¶</a></h4>
 <p><img alt="conic" src="../_images/conic.png" /></p>
 <p>Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/</p>
 <ul class="simple">
@@ -432,10 +437,10 @@
 </div>
 </div>
 <div class="section" id="projections-by-preserving-metric">
-<h2>Projections by preserving metric<a class="headerlink" href="#projections-by-preserving-metric" title="Permalink to this headline">¶</a></h2>
+<h3>Projections by preserving metric<a class="headerlink" href="#projections-by-preserving-metric" title="Permalink to this headline">¶</a></h3>
 <p>Downside: Some projections can live in multiple groups.</p>
 <div class="section" id="preserving-metric-conformal">
-<h3>Preserving metric: Conformal<a class="headerlink" href="#preserving-metric-conformal" title="Permalink to this headline">¶</a></h3>
+<h4>Preserving metric: Conformal<a class="headerlink" href="#preserving-metric-conformal" title="Permalink to this headline">¶</a></h4>
 <p>Also known as Orthomorphic.</p>
 <p>These projections preserve angles locally. Implying that circles anywhere on the Earth’s surface map to circles of <em>varying size</em> in the projected space.</p>
 <p>Examples of conformal projections:</p>
@@ -447,7 +452,7 @@
 </ul>
 </div>
 <div class="section" id="id1">
-<h3>Preserving metric: Conformal<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h4>Preserving metric: Conformal<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>Use in large scale maps (zoomed in)</p>
 <p>Often used to preserve shape to represent their physical counterpart.
 Seamless online maps like OSM/Google/Bing typically use a Mercator projection although Google Maps has begun using an 3D-rendered globe projection when the user zooms out:</p>
@@ -457,7 +462,7 @@ Seamless online maps like OSM/Google/Bing typically use a Mercator projection al
 <p>The major drawback: it is difficult to compare lengths or areas</p>
 </div>
 <div class="section" id="id2">
-<h3>Preserving metric: Conformal<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h4>Preserving metric: Conformal<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>Use in small scale maps (zoomed out)</p>
 <p>Maps reflecting directions, such as an [aero]nautical chart, or whose gradients are important,
 such as a weather maps, are often projected by conformal projections.</p>
@@ -466,7 +471,7 @@ varies by location makes it difficult to compare lengths or areas.
 Some have gone as far as calling the Mercator projection imperialistic and racist.</p>
 </div>
 <div class="section" id="preserving-metric-equidistant">
-<h3>Preserving metric: Equidistant<a class="headerlink" href="#preserving-metric-equidistant" title="Permalink to this headline">¶</a></h3>
+<h4>Preserving metric: Equidistant<a class="headerlink" href="#preserving-metric-equidistant" title="Permalink to this headline">¶</a></h4>
 <p>No map projection can be universally equidistant.</p>
 <p>Some projections preserve distance from some standard point or line.</p>
 <p>Examples of projections that preserve distances along meridians (but not parallels):</p>
@@ -476,7 +481,7 @@ Some have gone as far as calling the Mercator projection imperialistic and racis
 </ul>
 </div>
 <div class="section" id="preserving-metric-equal-area">
-<h3>Preserving metric: Equal-area<a class="headerlink" href="#preserving-metric-equal-area" title="Permalink to this headline">¶</a></h3>
+<h4>Preserving metric: Equal-area<a class="headerlink" href="#preserving-metric-equal-area" title="Permalink to this headline">¶</a></h4>
 <p>Equal-area maps preserve area measure, generally distorting shapes in order to do so.</p>
 <p>Examples of equal area projections:</p>
 <ul class="simple">
@@ -490,7 +495,7 @@ Some have gone as far as calling the Mercator projection imperialistic and racis
 </ul>
 </div>
 <div class="section" id="preseving-metric-compromise">
-<h3>Preseving metric: Compromise<a class="headerlink" href="#preseving-metric-compromise" title="Permalink to this headline">¶</a></h3>
+<h4>Preseving metric: Compromise<a class="headerlink" href="#preseving-metric-compromise" title="Permalink to this headline">¶</a></h4>
 <p>Rather than perfectly preserving any metric properties, compromise
 projections aim strike a balance between distortions.
 These compromises are often at the cost of polar distortions.</p>
@@ -500,6 +505,7 @@ These compromises are often at the cost of polar distortions.</p>
 <li><p>Robinson</p></li>
 <li><p>Winkel Tripel</p></li>
 </ul>
+</div>
 </div>
 </div>
 <div class="section" id="tissot-s-indicatrix">

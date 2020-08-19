@@ -62,5 +62,5 @@ Both rows and columns are indexed, starting at zero.
 | 07/25 | 196      | 175        |
 | 08/01 | 127      | 188        |
 
-The convention is to put the row index first. So the `[4,1]` element of our table is `168` `My Score` from `07/04`.
+The convention is to put the row index first. So the `[4,1]` element of our table is `168` which is from row `07/04` and column `My Score`.
 

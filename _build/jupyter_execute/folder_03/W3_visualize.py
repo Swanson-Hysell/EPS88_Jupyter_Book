@@ -9,7 +9,7 @@ Effective data visualization helps with data analysis and interpretation, but is
 
 ## Basic Default Plot
 
-After importing the `matplotlib` package and loading or calculating the variables you wish to plot, you will call `matplotlib` functions to create your figure. `fig, ax = plt.subplots()` creates the figure object with a single axes. `ax.plot(x,y)` adds the data you want to plot to the figure.
+After importing the `matplotlib` package and loading or calculating the variables you wish to plot, you will call `matplotlib` functions to create your figure. `fig, ax = plt.subplots()` creates the figure object with a single set of axes. `ax.plot(x,y)` adds the data you want to plot to the figure.
 
 import matplotlib
 import matplotlib.pyplot as plt
@@ -24,9 +24,11 @@ ax.plot(t, s)
 
 This quick-simple plot may be useful for you checking your data, but it's nearly useless for communication. There are many possible figure components you should consider when making your figure.
 
-![Matplotlib figures features](./figures/figure_components.png) 
+![Matplotlib figures features](./figures/figure_components.png)
 
-For example we should add labels to our simple figure. This can be done with `ax.set()`. We'll also add a grid with `ax.grid()`.
+> Source: [Matplotlib Tutorial](https://matplotlib.org/3.1.1/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py)
+
+For example we should add labels to our simple figure. This can be done with `ax.set()` or `plt.xlabel`. We'll also add a grid with `ax.grid()`.
 
 import matplotlib
 import matplotlib.pyplot as plt
@@ -48,7 +50,7 @@ There, we have done the bare minimium to have a readable figure. It can be saved
 
 ## Using Additional Plot Features
 
-There are many strategies for making good scientific figures. The primary goal is clarity, rather than asthetic, but bad plots are also often ugly. The first thing to consider are your axises: they should be clearly labeled with a descriptive label that includes units.   
+There are many strategies for making good scientific figures. The primary goal is clarity, rather than asthetic, but bad plots are also often ugly. The first thing to consider are your axes: they should be clearly labeled with a descriptive label that includes units. Increasing the `fontsize` of the labels makes them easier to read also.   
 
 # We can use the same data again, we don't need to import matplotlib or declare t and s again
 fig, ax = plt.subplots()
@@ -62,7 +64,7 @@ plt.yticks(fontsize=12)
 ax.grid()
 
 
-If you are plotting more than one dataset together on the same axises you should make it clear to the reader what the two datasets are with a legend using `plt.lengend()`. You can also differentiate them but plotting with different [line](https://matplotlib.org/gallery/lines_bars_and_markers/line_demo_dash_control.html#sphx-glr-gallery-lines-bars-and-markers-line-demo-dash-control-py) or [marker](https://matplotlib.org/gallery/lines_bars_and_markers/marker_reference.html#sphx-glr-gallery-lines-bars-and-markers-marker-reference-py) types.
+If you are plotting more than one dataset together on the same axes you should make it clear to the reader what the two datasets are with a legend using `plt.lengend()`. You can also differentiate them but plotting with different [line](https://matplotlib.org/gallery/lines_bars_and_markers/line_demo_dash_control.html#sphx-glr-gallery-lines-bars-and-markers-line-demo-dash-control-py) or [marker](https://matplotlib.org/gallery/lines_bars_and_markers/marker_reference.html#sphx-glr-gallery-lines-bars-and-markers-marker-reference-py) types.
 
 # declare a second variable to plot
 s2 = 1 + np.sin( np.pi * t)

@@ -235,7 +235,7 @@ Rougier, N. P., Droettboom, M., &amp; Bourne, P. E. (2014), Ten Simple Rules for
 </div>
 <div class="section" id="basic-default-plot">
 <h2>Basic Default Plot<a class="headerlink" href="#basic-default-plot" title="Permalink to this headline">¶</a></h2>
-<p>After importing the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> package and loading or calculating the variables you wish to plot, you will call <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> functions to create your figure. <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots()</span></code> creates the figure object with a single axes. <code class="docutils literal notranslate"><span class="pre">ax.plot(x,y)</span></code> adds the data you want to plot to the figure.</p>
+<p>After importing the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> package and loading or calculating the variables you wish to plot, you will call <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> functions to create your figure. <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots()</span></code> creates the figure object with a single set of axes. <code class="docutils literal notranslate"><span class="pre">ax.plot(x,y)</span></code> adds the data you want to plot to the figure.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
@@ -252,7 +252,7 @@ Rougier, N. P., Droettboom, M., &amp; Bourne, P. E. (2014), Ten Simple Rules for
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1125bf950&gt;]
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11cfc6350&gt;]
 </pre></div>
 </div>
 <img alt="../_images/W3_visualize_2_1.png" src="../_images/W3_visualize_2_1.png" />
@@ -260,7 +260,10 @@ Rougier, N. P., Droettboom, M., &amp; Bourne, P. E. (2014), Ten Simple Rules for
 </div>
 <p>This quick-simple plot may be useful for you checking your data, but it’s nearly useless for communication. There are many possible figure components you should consider when making your figure.</p>
 <p><img alt="Matplotlib figures features" src="../_images/figure_components.png" /></p>
-<p>For example we should add labels to our simple figure. This can be done with <code class="docutils literal notranslate"><span class="pre">ax.set()</span></code>. We’ll also add a grid with <code class="docutils literal notranslate"><span class="pre">ax.grid()</span></code>.</p>
+<blockquote>
+<div><p>Source: <a class="reference external" href="https://matplotlib.org/3.1.1/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py">Matplotlib Tutorial</a></p>
+</div></blockquote>
+<p>For example we should add labels to our simple figure. This can be done with <code class="docutils literal notranslate"><span class="pre">ax.set()</span></code> or <code class="docutils literal notranslate"><span class="pre">plt.xlabel</span></code>. We’ll also add a grid with <code class="docutils literal notranslate"><span class="pre">ax.grid()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
@@ -289,7 +292,7 @@ Rougier, N. P., Droettboom, M., &amp; Bourne, P. E. (2014), Ten Simple Rules for
 </div>
 <div class="section" id="using-additional-plot-features">
 <h2>Using Additional Plot Features<a class="headerlink" href="#using-additional-plot-features" title="Permalink to this headline">¶</a></h2>
-<p>There are many strategies for making good scientific figures. The primary goal is clarity, rather than asthetic, but bad plots are also often ugly. The first thing to consider are your axises: they should be clearly labeled with a descriptive label that includes units.</p>
+<p>There are many strategies for making good scientific figures. The primary goal is clarity, rather than asthetic, but bad plots are also often ugly. The first thing to consider are your axes: they should be clearly labeled with a descriptive label that includes units. Increasing the <code class="docutils literal notranslate"><span class="pre">fontsize</span></code> of the labels makes them easier to read also.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can use the same data again, we don&#39;t need to import matplotlib or declare t and s again</span>
@@ -309,7 +312,7 @@ Rougier, N. P., Droettboom, M., &amp; Bourne, P. E. (2014), Ten Simple Rules for
 <img alt="../_images/W3_visualize_8_0.png" src="../_images/W3_visualize_8_0.png" />
 </div>
 </div>
-<p>If you are plotting more than one dataset together on the same axises you should make it clear to the reader what the two datasets are with a legend using <code class="docutils literal notranslate"><span class="pre">plt.lengend()</span></code>. You can also differentiate them but plotting with different <a class="reference external" href="https://matplotlib.org/gallery/lines_bars_and_markers/line_demo_dash_control.html#sphx-glr-gallery-lines-bars-and-markers-line-demo-dash-control-py">line</a> or <a class="reference external" href="https://matplotlib.org/gallery/lines_bars_and_markers/marker_reference.html#sphx-glr-gallery-lines-bars-and-markers-marker-reference-py">marker</a> types.</p>
+<p>If you are plotting more than one dataset together on the same axes you should make it clear to the reader what the two datasets are with a legend using <code class="docutils literal notranslate"><span class="pre">plt.lengend()</span></code>. You can also differentiate them but plotting with different <a class="reference external" href="https://matplotlib.org/gallery/lines_bars_and_markers/line_demo_dash_control.html#sphx-glr-gallery-lines-bars-and-markers-line-demo-dash-control-py">line</a> or <a class="reference external" href="https://matplotlib.org/gallery/lines_bars_and_markers/marker_reference.html#sphx-glr-gallery-lines-bars-and-markers-marker-reference-py">marker</a> types.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># declare a second variable to plot</span>
@@ -331,7 +334,7 @@ Rougier, N. P., Droettboom, M., &amp; Bourne, P. E. (2014), Ten Simple Rules for
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x113552a10&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x11d239b50&gt;
 </pre></div>
 </div>
 <img alt="../_images/W3_visualize_10_1.png" src="../_images/W3_visualize_10_1.png" />

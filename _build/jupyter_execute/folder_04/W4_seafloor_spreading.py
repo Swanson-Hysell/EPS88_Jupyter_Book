@@ -1,4 +1,4 @@
-# Seafloor Spreading
+# 4.4 Seafloor Spreading
 
 **Goal:** Build background knowledge about marine geology to introduce and motivate earth science questions that we can study using data science computational methods. More in-depth material on these topics can be studied in EPS C82 Oceans.
 
