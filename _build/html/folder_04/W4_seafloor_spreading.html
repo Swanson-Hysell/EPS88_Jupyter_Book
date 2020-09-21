@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>4.4 Seafloor Spreading &#8212; Python Intro to Geoscience</title>
+    <title>4.2 Seafloor Spreading &#8212; Python Intro to Geoscience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -29,6 +29,7 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -38,8 +39,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Week Five: Earthquake Statistics and Loops" href="../week_05.html" />
-    <link rel="prev" title="4.3 How to Declare a Function" href="W4_decale_functions.html" />
+    <link rel="next" title="Chapter 5: Loops and Earthquake Statistics" href="../week_05.html" />
+    <link rel="prev" title="4.1 Data Wrangling and Advanced Indexing" href="W4_dataframes.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -82,54 +83,92 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../week_01.html">
-   Chapter One: Syllabus and Introduction
+   Chapter 1: Introduction to Jupyter Notebooks and Map Projections
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../week_02.html">
-   Chapter Two: Dynamic Earth and Data Input
+   Chapter 2: Data Input and Our Dynamic Earth
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../week_03.html">
-   Week Three: Earthquakes and Data Visualization
+   Chapter 3: Data Visualization and Earthquakes
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="reference internal" href="../week_04.html">
-   Week Four: Seafloor Spreading and Pandas
+   Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
   </a>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="W4_dataframes.html">
-     4.1 Pandas DataFrames
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="W4_indexing.html">
-     4.2 Advanced Indexing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="W4_decale_functions.html">
-     4.3 How to Declare a Function
+     4.1 Data Wrangling and Advanced Indexing
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     4.4 Seafloor Spreading
+     4.2 Seafloor Spreading
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../week_05.html">
-   Week Five: Earthquake Statistics and Loops
+   Chapter 5: Loops and Earthquake Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_06.html">
+   Chapter 6: Probability Distributions and Random Earth Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_07.html">
+   Chapter 7: A/B Testing and Volcanic Geochemistry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_08.html">
+   Chapter 8: Bootstrapping and Directional Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_09.html">
+   Chapter 9: Linear Regression, the Age of the Universe, and Subsidence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_10.html">
+   Chapter 10: Non-linear Regression and Atmospheric CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_11.html">
+   Chapter 11: Time Series Analysis and Glacial Cycles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_12.html">
+   Chapter 12: Image Reduction and Remote Planetary Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_13.html">
+   Chapter 13: Classification and Volcanic Source
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../append_A.html">
    Appendix A: Function Catalog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_B.html">
+   Appendix B: Earth Science Glossary
   </a>
  </li>
 </ul>
@@ -217,11 +256,6 @@
    Rates of seafloor spreading – Paleomagnetism
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-reading-optional">
-   Further Reading (Optional)
-  </a>
- </li>
 </ul>
 
         </nav>
@@ -233,8 +267,8 @@
               <div>
                 
   <div class="section" id="seafloor-spreading">
-<h1>4.4 Seafloor Spreading<a class="headerlink" href="#seafloor-spreading" title="Permalink to this headline">¶</a></h1>
-<p><strong>Goal:</strong> Build background knowledge about marine geology to introduce and motivate earth science questions that we can study using data science computational methods. More in-depth material on these topics can be studied in EPS C82 Oceans.</p>
+<h1>4.2 Seafloor Spreading<a class="headerlink" href="#seafloor-spreading" title="Permalink to this headline">¶</a></h1>
+<p><strong>Goal:</strong> Build background knowledge about marine geophysical evidence for plate tectonics. More in-depth material on these topics can be studied in EPS C82 Oceans.</p>
 <p><strong>Outline:</strong></p>
 <ul class="simple">
 <li><p>Mapping the seafloor – Bathymetry</p></li>
@@ -244,48 +278,40 @@
 <div class="section" id="mapping-the-seafloor-bathymetry">
 <h2>Mapping the Seafloor – Bathymetry<a class="headerlink" href="#mapping-the-seafloor-bathymetry" title="Permalink to this headline">¶</a></h2>
 <p>The topography of the ocean floor is called bathymetry. Modern measurements of ocean depth are made using sonar (Figure 1). Sound waves are transmitted from a ship (called a ping), they reflect off the seafloor and travel back to the ship, where a receiver records the echo. The travel-time (the time between the ping transmission and echo arrival) is precisely recorded, then using the sound speed of ocean water the depth to the seafloor can be determined. Research vessels equipped with multibeam sonar travel at about 10 miles per hour and research ship time is very expensive (~\$25,000/day), so only about 5% of the seafloor has been imaged in detail.</p>
-<p><img alt="Sidescan Sonar" src="../_images/sidescan.png" /></p>
-<p>Figure 1: A research vessels measuring ocean depth using multibeam and sidescan sonar. Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.</p>
-<p>The ocean floor has three main bathymetric areas: continental margins, ocean basins, and mid-ocean ridges (Figure 2). Continental margins are the transition from continental curst to oceanic crust. As we discussed before, oceanic crust has lower elevation than continental crust because it is denser and thinner, so sinks lower into the mantle. There are two kinds of continental margins: passive margins (such as the eastern coast of North America) made up of a shelf, slope, and rise, and active margins (such as the western coast of South America) where subduction occurs and a trench is created. Ocean basins, also called abyssal plains, make up most of the area of the seafloor and are fairly flat with a depth of ~5000 meters (where we saw the deeper hump of the hypsometric curve). The flat topography of abyssal plains is due to thick accumulations of sediments that have buried the rougher basaltic oceanic crust (Figure 3). The thickness of the sediments increases with age of the oceanic crust. Mid-ocean ridges are the expression of divergent plate boundaries. The oceanic ridge system is a ~70,000 km long mountain range that winds through all of Earth’s major oceans (Figure 4). New oceanic crust is created at the ridge. This new (and hotter) crust is more buoyant and sits higher than the surrounding abyssal plains at a depth of ~2500m. Sections of ridge are often offset by transform faults and some ridges have rift valleys along their axis, both of these features are observed in the seafloor bathymetry (Figure 2).</p>
+<p><img alt="Sidescan Sonar" src="../_images/multibeam.png" /></p>
+<p>Figure 1: A research vessel measuring ocean depth using multibeam sonar. <a class="reference external" href="https://www.bas.ac.uk/polar-operations/sites-and-facilities/facility/rrs-james-clark-ross/multibeam-echosounder-2/">Source: British Antarctic Survey</a></p>
+<p>The ocean floor has three main bathymetric areas: continental margins, ocean basins, and mid-ocean ridges (Figure 2). Continental margins are the transition from continental curst to oceanic crust. As we discussed before, oceanic crust has lower elevation than continental crust because it is denser and thinner, so sinks lower into the mantle. There are two kinds of continental margins: passive margins (such as the eastern coast of North America) made up of a shelf, slope, and rise, and active margins (such as the western coast of South America) where subduction occurs and a trench is created. Ocean basins, also called abyssal plains, make up most of the area of the seafloor and are fairly flat with a depth of ~5000 meters (where we saw the deeper hump of the hypsometric curve). The flat topography of abyssal plains is due to thick accumulations of sediments that have buried the rougher basaltic oceanic crust. The thickness of the sediments increases with age of the oceanic crust. Mid-ocean ridges are the expression of divergent plate boundaries. The oceanic ridge system is a ~70,000 km long mountain range that winds through all of Earth’s major oceans (Figure 3). New oceanic crust is created at the ridge. This new (and hotter) crust is more buoyant and sits higher than the surrounding abyssal plains at a depth of ~2500m. Sections of ridge are often offset by transform faults and some ridges have rift valleys along their axis, both of these features are observed in the seafloor bathymetry (Figure 2).</p>
 <p><img alt="Bathymetry of the North Atlantic" src="../_images/atlantic_bathymetry.png" /></p>
-<p>Figure 2: Bathymetry of the North Atlantic (i.e. passive margins). Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.</p>
-<p><img alt="Structure of the oceanic crust" src="../_images/ocean_crust.png" /></p>
-<p>Figure 3: Structure of the oceanic crust. Marine sediments overlie several layers of mafic igneous rocks: extrusive basalts and intrusive gabbro. Source: Earth’s Dynamic Systems (10th Edition) Hamblin, W. K. and Christiansen, E. H.</p>
+<p>Figure 2: Bathymetry of the North Atlantic (i.e. passive margins).</p>
 <p><img alt="Mid-ocean ridges" src="../_images/midocean_ridges.png" /></p>
-<p>Figure 4: Map of Earth’s mid-ocean ridge system. Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.</p>
+<p>Figure 3: Map of Earth’s mid-ocean ridge system.</p>
+<p><strong>Please watch these two ~6 min videos from IRIS:</strong></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=Xzpk9110Lyw"><img alt="" src="http://img.youtube.com/vi/Xzpk9110Lyw/0.jpg" /></a></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=Nf8xvhb1eBE"><img alt="" src="http://img.youtube.com/vi/Nf8xvhb1eBE/0.jpg" /></a></p>
 </div>
 <div class="section" id="anatomy-of-ocean-ridges">
 <h2>Anatomy of Ocean Ridges<a class="headerlink" href="#anatomy-of-ocean-ridges" title="Permalink to this headline">¶</a></h2>
-<p>As two oceanic plates are pulled apart at divergent boundaries mantle material rises to fill the space and is partially melted by decompression. This magma erupts episodically at the ridge, creating new oceanic crust – like a conveyor belt. The relative plate motion differs between plate pairs; the north Mid-Atlantic Ridge is an example of a slow spreading ridge (~20 mm/yr), and the East Pacific Rise is an example of fast spreading (~150 mm/yr) (Figure 5).</p>
+<p>As two oceanic plates are pulled apart at divergent boundaries mantle material rises to fill the space and is partially melted by decompression. This magma erupts episodically at the ridge, creating new oceanic crust – like a conveyor belt. The relative plate motion differs between plate pairs; the north Mid-Atlantic Ridge is an example of a slow spreading ridge (~20 mm/yr), and the East Pacific Rise is an example of fast spreading (~150 mm/yr) (Figure 4).</p>
 <p><img alt="Relative plate motion" src="../_images/ridge_motion.png" /></p>
-<p>Figure 5: Relative plate motion in mm/yr between the major lithospheric plates. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.</p>
-<p>The topographic expression of seafloor spreading differs slightly based on the spreading rate of the plates (Figures 6 and 7). Fast spreading ridges have more well-developed magma chambers and more frequent eruptions. This leads to a gentler slope, central swell, and smoother topography. Slow spreading ridges have less frequent eruptions leading to a rift valley at the ridge axis and steeper, more rugged topography. Intermediate spreading ridges fall between these extremes.</p>
-<p><img alt="Topography of slow and fast spreading centers" src="../_images/slow_fast_ridge_cross.png" /></p>
-<p>Figure 6: Topography of slow and fast spreading centers. Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.</p>
-<p><img alt="Ridge segments" src="../_images/spreading_ridges.png" /></p>
-<p>Figure 7: Ridge segments that exhibit fast, intermediate, and slow spreading rates. Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.</p>
+<p>Figure 4: Relative plate motion between the major lithospheric plates. The arrows indicate the relative plate velocities in mm/yr. (data source DeMets et al., 1990).</p>
+<p>The topographic expression of seafloor spreading differs slightly based on the spreading rate of the plates (Figures 5). Fast spreading ridges have more well-developed magma chambers and more frequent eruptions. This leads to a gentler slope, central swell, and smoother topography. Slow spreading ridges have less frequent eruptions leading to a rift valley at the ridge axis and steeper, more rugged topography. Intermediate spreading ridges fall between these extremes.</p>
+<p><img alt="Topography of slow and fast spreading centers" src="../_images/bathymetry_spreading_rates.png" /></p>
+<p>Figure 5: Topography of ridge segments that exhibit fast, intermediate, and slow spreading rates.</p>
 </div>
 <div class="section" id="rates-of-seafloor-spreading-paleomagnetism">
 <h2>Rates of seafloor spreading – Paleomagnetism<a class="headerlink" href="#rates-of-seafloor-spreading-paleomagnetism" title="Permalink to this headline">¶</a></h2>
-<p>The rate of seafloor spreading is estimated using a paleomagnetic time-scale reference frame. As new oceanic crust is produced it records the conditions (direction and strength) of the Earth’s magnetic field at that time and location. To first order, Earth’s magnetic field is a dipole (i.e. there are two magnetic poles, a north and south). Because of this dipolar field structure the strength of the magnetic field is a function of latitude. The strength varies from ~65,000 nT (nanotesla) near the poles to ~25,000 nT at the equator. The main Core Field is generated by motion of the liquid outer core by the geodynamo (Figure 8). Rocks in the crust acquire magnetization by various processes (e.g. when igneous rocks cool through the Curie temperature they acquire a thermal remanent magnetization). Magnetic anomalies (anomalous with respect to the background core dipole field) due to crustal sources are small, 20 – 1000 nT.</p>
+<p>The rate of seafloor spreading is estimated using a paleomagnetic time-scale reference frame. As new oceanic crust is produced it records the conditions (direction and strength) of the Earth’s magnetic field at that time and location. To first order, Earth’s magnetic field is a dipole (i.e. there are two magnetic poles, a north and south) (Figure 6 A). Because of this dipolar field structure the strength of the magnetic field is a function of latitude. The strength varies from ~65,000 nT (nanotesla) near the poles to ~25,000 nT at the equator. The main Core Field is generated by motion of the liquid outer core by the geodynamo (Figure 6 C). Rocks in the crust acquire magnetization by various processes (e.g. when igneous rocks cool through the Curie temperature they acquire a thermal remanent magnetization). Magnetic anomalies (anomalous with respect to the background core dipole field) due to crustal sources are small, 20 – 1000 nT.</p>
+<p><strong>Please watch the first 15 minutes of this lecture by Prof. Bruce Buffett:</strong></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=oYHPVGuQAVw"><img alt="" src="http://img.youtube.com/vi/oYHPVGuQAVw/0.jpg" /></a></p>
 <p><img alt="Earth's Magnetic Field" src="../_images/magnetic_field.png" /></p>
-<p>Figure 8: The Core Field is generated by convective motion of the liquid iron outer core. Source: Earth’s Dynamic Systems (10th Edition) Hamblin, W. K. and Christiansen, E. H.</p>
-<p>Earth’s magnetic field varies with time. It reverses its polarity randomly. The field structure in both states is dipolar, but the pole locations are switched (Figure 9). The history of these polarity reversals has been reconstructed for the past ~200 million years and is called the geomagnetic polarity time scale (GPTS). This history of reversals is recorded by the oceanic crust as it forms at the ridge. This leads to ridge-parallel isochrons (surfaces of the same age) (Figure 10). Both sides of the ridge record this pattern of reversals leading to symmetry about the ridge (Figure 10, 11, and 12). Research vessels towing a magnetometer measure the marine magnetic anomalies (Figure 11 and 12). These measurements can be correlated between ship tracks, matched with the GPTS, and this is used to determine the age of the seafloor (Figure 12). Once the seafloor age as a function of the distance from the ridge is determined the spreading rate can be computed (Figure 13).</p>
-<p><img alt="Earth's Magnetic Polarities" src="../_images/polarities.png" /></p>
-<p>Figure 9: Earth’s magnetic field displays two (equal and opposite) polarity states. Source: Earth’s Dynamic Systems (10th Edition) Hamblin, W. K. and Christiansen, E. H.</p>
-<p><img alt="Ridge parallel patterns of magnetization" src="../_images/pmag_spreading_rate.png" /></p>
-<p>Figure 10: Ridge-parallel patterns of magnetization reflect the history of reversals of the geomagnetic field. Source: Earth’s Dynamic Systems (10th Edition) Hamblin, W. K. and Christiansen, E. H.</p>
+<p>Figure 6: The Core Field is generated by convective motion of the liquid iron outer core which can exist in two (equal and opposite) polarity states. <a class="reference external" href="https://www.esa.int/Applications/Observing_the_Earth/Swarm/Our_protective_shield">Modified from European Space Agency</a></p>
+<p>Earth’s magnetic field varies with time. It reverses its polarity randomly. The field structure in both states is dipolar, but the pole locations are switched (Figure 6 A and B). The history of these polarity reversals has been reconstructed for the past ~200 million years and is called the geomagnetic polarity time scale (GPTS). This history of reversals is recorded by the oceanic crust as it forms at the ridge. This leads to ridge-parallel isochrons (surfaces of the same age) (Figure 7). Both sides of the ridge record this pattern of reversals leading to symmetry about the ridge (Figure 7). A research vessel towing a magnetometer measures the marine magnetic anomalies (Figure 7 A). These measurements can be correlated between ship tracks, matched with the GPTS, and this is used to determine the age of the seafloor. Once the seafloor age as a function of the distance from the ridge is determined the spreading rate can be computed (Figure 8).</p>
 <p><img alt="Seafloor magnetization" src="../_images/seafloor_magnetic_recorder.png" /></p>
-<p>Figure 11: The history of polarity reversals is recorded by the near-continuous eruptions of seafloor spreading. These crustal marine magnetic anomalies can be measured by a ship-towed magnetometer (A). Ridge-parallel and symmetric “magnetic polarity stripes” reveal the spreading history of the ridge (B).  Source: Essentials of Geology (13th Edition) Lutgens, F. K., Tarbuck, E. J., Tasa, D. G.</p>
-<p><img alt="Marine magnetic anomalies" src="../_images/marine_mag_anom.png" /></p>
-<p>Figure 12: Reversals in geomagnetic polarity recorded by the seafloor form crustal magnetic anomalies of ~1000 nT. Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.</p>
+<p>Figure 7: The history of polarity reversals is recorded by the near-continuous eruptions of seafloor spreading. Ridge-parallel patterns of magnetization reflect the history of reversals of the geomagnetic field. These crustal marine magnetic anomalies can be measured by a ship-towed magnetometer (A). Ridge-parallel and symmetric “magnetic polarity stripes” reveal the spreading history of the ridge (B).  <a class="reference external" href="https://pubs.usgs.gov/gip/dynamic/stripes.html">Source: USGS</a> and <a class="reference external" href="https://www.esa.int/Applications/Observing_the_Earth/Swarm/From_core_to_crust">European Space Agency</a></p>
 <p><img alt="Relative plate velocity" src="../_images/relative_velocity.png" /></p>
-<p>Figure 13: Age of the seafloor (time) and distance from the ridge (distance) are used to compute the relative velocity of the spreading plates (velocity = distance / time). Source: Fundamentals of Geophysics (2nd Edition) Lowrie, W.</p>
-</div>
-<div class="section" id="further-reading-optional">
-<h2>Further Reading (Optional)<a class="headerlink" href="#further-reading-optional" title="Permalink to this headline">¶</a></h2>
-<p>Chapter 4 NumPy Basics: Arrays and Vectorized Computation, Python for Data Analysis
-McKinney, W. (2018). Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython, 2nd Edition. Sebastopol, CA: O’Reilly Media, Inc.</p>
+<p>Figure 8: Age of the seafloor (time) and distance from the ridge (distance) are used to compute the relative velocity of the spreading plates (velocity = distance / time).</p>
+<p><strong>Please watch this ~6 min video from IRIS:</strong></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=nCIR0pZuqck"><img alt="" src="http://img.youtube.com/vi/nCIR0pZuqck/0.jpg" /></a></p>
 </div>
 </div>
 
@@ -317,8 +343,8 @@ McKinney, W. (2018). Python for Data Analysis: Data Wrangling with Pandas, NumPy
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="W4_decale_functions.html" title="previous page">4.3 How to Declare a Function</a>
-    <a class='right-next' id="next-link" href="../week_05.html" title="next page">Week Five: Earthquake Statistics and Loops</a>
+    <a class='left-prev' id="prev-link" href="W4_dataframes.html" title="previous page">4.1 Data Wrangling and Advanced Indexing</a>
+    <a class='right-next' id="next-link" href="../week_05.html" title="next page">Chapter 5: Loops and Earthquake Statistics</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

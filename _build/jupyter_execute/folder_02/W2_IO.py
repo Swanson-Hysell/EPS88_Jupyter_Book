@@ -1,4 +1,21 @@
-# 2.1 Data I/O (Input/Output)
+# 2.1 Data Input/Output (I/O)
+
+**Goals:** Introduce methods for loading data from a text file using python.
+    
+**Outline:**
+* Reading data files
+* Writing data files
+
+## Additional Assigned Reading (or Review)
+Data 8 textbook "Computational and Inferential Thinking: The Foundations of Data Science" By Ani Adhikari and John DeNero [Chapter 3 Programming in Python](https://www.inferentialthinking.com/chapters/03/programming-in-python.html), [Chapter 4 Data Types](https://www.inferentialthinking.com/chapters/04/Data_Types.html), [Chapter 5 Sequences](https://www.inferentialthinking.com/chapters/05/Sequences.html), and [Chapter 6 Tables](https://www.inferentialthinking.com/chapters/06/Tables.html). This should overlap with your assigned reading for Data 8.
+
+
+<br>
+
+**Watch this video about reading and writing text format data**
+
+[![](http://img.youtube.com/vi/n8FBwLrfWdw/0.jpg)](http://www.youtube.com/watch?v=n8FBwLrfWdw "")
+
 
 ## Know what the data is
 

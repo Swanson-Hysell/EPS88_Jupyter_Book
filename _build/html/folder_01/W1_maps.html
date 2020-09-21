@@ -29,6 +29,7 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -38,7 +39,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter Two: Dynamic Earth and Data Input" href="../week_02.html" />
+    <link rel="next" title="Chapter 2: Data Input and Our Dynamic Earth" href="../week_02.html" />
     <link rel="prev" title="1.2 What is Data Science?" href="W1_tabular_data.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -82,7 +83,7 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="reference internal" href="../week_01.html">
-   Chapter One: Syllabus and Introduction
+   Chapter 1: Introduction to Jupyter Notebooks and Map Projections
   </a>
   <ul class="current">
    <li class="toctree-l2">
@@ -104,27 +105,75 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../week_02.html">
-   Chapter Two: Dynamic Earth and Data Input
+   Chapter 2: Data Input and Our Dynamic Earth
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../week_03.html">
-   Week Three: Earthquakes and Data Visualization
+   Chapter 3: Data Visualization and Earthquakes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../week_04.html">
-   Week Four: Seafloor Spreading and Pandas
+   Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../week_05.html">
-   Week Five: Earthquake Statistics and Loops
+   Chapter 5: Loops and Earthquake Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_06.html">
+   Chapter 6: Probability Distributions and Random Earth Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_07.html">
+   Chapter 7: A/B Testing and Volcanic Geochemistry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_08.html">
+   Chapter 8: Bootstrapping and Directional Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_09.html">
+   Chapter 9: Linear Regression, the Age of the Universe, and Subsidence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_10.html">
+   Chapter 10: Non-linear Regression and Atmospheric CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_11.html">
+   Chapter 11: Time Series Analysis and Glacial Cycles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_12.html">
+   Chapter 12: Image Reduction and Remote Planetary Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_13.html">
+   Chapter 13: Classification and Volcanic Source
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../append_A.html">
    Appendix A: Function Catalog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_B.html">
+   Appendix B: Earth Science Glossary
   </a>
  </li>
 </ul>
@@ -257,18 +306,18 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#surface-classification-cylindrical">
-       Surface classification: Cylindrical
+      <a class="reference internal nav-link" href="#cylindrical">
+       Cylindrical
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#surface-classification-azimuthal">
-       Surface classification: Azimuthal
+      <a class="reference internal nav-link" href="#azimuthal">
+       Azimuthal
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#surface-classification-conic">
-       Surface classification: Conic
+      <a class="reference internal nav-link" href="#conic">
+       Conic
       </a>
      </li>
     </ul>
@@ -279,33 +328,23 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#preserving-metric-conformal">
-       Preserving metric: Conformal
+      <a class="reference internal nav-link" href="#conformal">
+       Conformal
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       Preserving metric: Conformal
+      <a class="reference internal nav-link" href="#equidistant">
+       Equidistant
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Preserving metric: Conformal
+      <a class="reference internal nav-link" href="#equal-area">
+       Equal-area
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#preserving-metric-equidistant">
-       Preserving metric: Equidistant
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#preserving-metric-equal-area">
-       Preserving metric: Equal-area
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#preseving-metric-compromise">
-       Preseving metric: Compromise
+      <a class="reference internal nav-link" href="#compromise">
+       Compromise
       </a>
      </li>
     </ul>
@@ -400,25 +439,25 @@
 </div>
 <div class="section" id="classifying-projections">
 <h2>Classifying projections<a class="headerlink" href="#classifying-projections" title="Permalink to this headline">¶</a></h2>
-<p>Two common approaches:</p>
+<p>Map projections are commonly classified:</p>
 <ol class="simple">
 <li><p>By [2D] surface classification</p></li>
-<li><p>By preserving a given property (metric)</p></li>
+<li><p>By preserving a given property</p></li>
 </ol>
 <div class="section" id="projections-by-surface-classification">
 <h3>Projections by surface classification<a class="headerlink" href="#projections-by-surface-classification" title="Permalink to this headline">¶</a></h3>
 <p><img alt="" src="../_images/projections.gif" /></p>
 <p><em>Downside: Not all projections can be classified in this way -&gt; Leads to big “pseudo” and “other” groups.</em></p>
-<div class="section" id="surface-classification-cylindrical">
-<h4>Surface classification: Cylindrical<a class="headerlink" href="#surface-classification-cylindrical" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="cylindrical">
+<h4>Cylindrical<a class="headerlink" href="#cylindrical" title="Permalink to this headline">¶</a></h4>
 <p><img alt="Cylindrical" src="../_images/cylindrical.png" /></p>
 <p>Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/</p>
 <ul class="simple">
 <li><p>Meridians and paralells are straight and perpendicular.</p></li>
 </ul>
 </div>
-<div class="section" id="surface-classification-azimuthal">
-<h4>Surface classification: Azimuthal<a class="headerlink" href="#surface-classification-azimuthal" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="azimuthal">
+<h4>Azimuthal<a class="headerlink" href="#azimuthal" title="Permalink to this headline">¶</a></h4>
 <p><img alt="azimuthal" src="../_images/azimuthal.png" /></p>
 <p>Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/</p>
 <ul class="simple">
@@ -426,8 +465,8 @@
 <li><p>Great circles from central point are straight lines.</p></li>
 </ul>
 </div>
-<div class="section" id="surface-classification-conic">
-<h4>Surface classification: Conic<a class="headerlink" href="#surface-classification-conic" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="conic">
+<h4>Conic<a class="headerlink" href="#conic" title="Permalink to this headline">¶</a></h4>
 <p><img alt="conic" src="../_images/conic.png" /></p>
 <p>Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/</p>
 <ul class="simple">
@@ -439,8 +478,8 @@
 <div class="section" id="projections-by-preserving-metric">
 <h3>Projections by preserving metric<a class="headerlink" href="#projections-by-preserving-metric" title="Permalink to this headline">¶</a></h3>
 <p>Downside: Some projections can live in multiple groups.</p>
-<div class="section" id="preserving-metric-conformal">
-<h4>Preserving metric: Conformal<a class="headerlink" href="#preserving-metric-conformal" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="conformal">
+<h4>Conformal<a class="headerlink" href="#conformal" title="Permalink to this headline">¶</a></h4>
 <p>Also known as Orthomorphic.</p>
 <p>These projections preserve angles locally. Implying that circles anywhere on the Earth’s surface map to circles of <em>varying size</em> in the projected space.</p>
 <p>Examples of conformal projections:</p>
@@ -450,28 +489,26 @@
 <li><p>Stereographic</p></li>
 <li><p>Lambert conformal conic</p></li>
 </ul>
-</div>
-<div class="section" id="id1">
-<h4>Preserving metric: Conformal<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<br>
 <p>Use in large scale maps (zoomed in)</p>
-<p>Often used to preserve shape to represent their physical counterpart.
-Seamless online maps like OSM/Google/Bing typically use a Mercator projection although Google Maps has begun using an 3D-rendered globe projection when the user zooms out:</p>
+<ul class="simple">
+<li><p>Often used to preserve shape to represent their physical counterpart. Seamless online maps like OSM/Google/Bing typically use a Mercator projection although Google Maps has begun using an 3D-rendered globe projection when the user zooms out:</p></li>
+</ul>
 <blockquote>
 <div><p>The first launch of [Google] Maps actually did not use Mercator, and streets in high latitude places like Stockholm did not meet at right angles on the map the way they do in reality. [<a class="reference external" href="https://productforums.google.com/d/msg/maps/A2ygEJ5eG-o/KbZr_B0h2hkJ">ref</a>]</p>
 </div></blockquote>
-<p>The major drawback: it is difficult to compare lengths or areas</p>
+<ul class="simple">
+<li><p>The major drawback: it is difficult to compare lengths or areas.</p></li>
+</ul>
+<br> 
+Use in small scale maps (zoomed out)
+<ul class="simple">
+<li><p>Maps reflecting directions, such as an [aero]nautical chart, or whose gradients are important, such as a weather maps, are often projected by conformal projections.</p></li>
+<li><p>Historically, many world maps are drawn by conformal projections, but the fact that the scale of the map varies by location makes it difficult to compare lengths or areas. Some have gone as far as calling the Mercator projection imperialistic and racist.</p></li>
+</ul>
 </div>
-<div class="section" id="id2">
-<h4>Preserving metric: Conformal<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<p>Use in small scale maps (zoomed out)</p>
-<p>Maps reflecting directions, such as an [aero]nautical chart, or whose gradients are important,
-such as a weather maps, are often projected by conformal projections.</p>
-<p>Historically, many world maps are drawn by conformal projections, but the fact that the scale of the map
-varies by location makes it difficult to compare lengths or areas.
-Some have gone as far as calling the Mercator projection imperialistic and racist.</p>
-</div>
-<div class="section" id="preserving-metric-equidistant">
-<h4>Preserving metric: Equidistant<a class="headerlink" href="#preserving-metric-equidistant" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="equidistant">
+<h4>Equidistant<a class="headerlink" href="#equidistant" title="Permalink to this headline">¶</a></h4>
 <p>No map projection can be universally equidistant.</p>
 <p>Some projections preserve distance from some standard point or line.</p>
 <p>Examples of projections that preserve distances along meridians (but not parallels):</p>
@@ -480,8 +517,8 @@ Some have gone as far as calling the Mercator projection imperialistic and racis
 <li><p>Azimuthal equidistant</p></li>
 </ul>
 </div>
-<div class="section" id="preserving-metric-equal-area">
-<h4>Preserving metric: Equal-area<a class="headerlink" href="#preserving-metric-equal-area" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="equal-area">
+<h4>Equal-area<a class="headerlink" href="#equal-area" title="Permalink to this headline">¶</a></h4>
 <p>Equal-area maps preserve area measure, generally distorting shapes in order to do so.</p>
 <p>Examples of equal area projections:</p>
 <ul class="simple">
@@ -494,8 +531,8 @@ Some have gone as far as calling the Mercator projection imperialistic and racis
 <li><p>Sinusoidal</p></li>
 </ul>
 </div>
-<div class="section" id="preseving-metric-compromise">
-<h4>Preseving metric: Compromise<a class="headerlink" href="#preseving-metric-compromise" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="compromise">
+<h4>Compromise<a class="headerlink" href="#compromise" title="Permalink to this headline">¶</a></h4>
 <p>Rather than perfectly preserving any metric properties, compromise
 projections aim strike a balance between distortions.
 These compromises are often at the cost of polar distortions.</p>
@@ -544,7 +581,7 @@ These compromises are often at the cost of polar distortions.</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="W1_tabular_data.html" title="previous page">1.2 What is Data Science?</a>
-    <a class='right-next' id="next-link" href="../week_02.html" title="next page">Chapter Two: Dynamic Earth and Data Input</a>
+    <a class='right-next' id="next-link" href="../week_02.html" title="next page">Chapter 2: Data Input and Our Dynamic Earth</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

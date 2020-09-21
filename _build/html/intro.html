@@ -29,6 +29,7 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -38,7 +39,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Chapter One: Syllabus and Introduction" href="week_01.html" />
+    <link rel="next" title="Chapter 1: Introduction to Jupyter Notebooks and Map Projections" href="week_01.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -81,32 +82,80 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="week_01.html">
-   Chapter One: Syllabus and Introduction
+   Chapter 1: Introduction to Jupyter Notebooks and Map Projections
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_02.html">
-   Chapter Two: Dynamic Earth and Data Input
+   Chapter 2: Data Input and Our Dynamic Earth
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_03.html">
-   Week Three: Earthquakes and Data Visualization
+   Chapter 3: Data Visualization and Earthquakes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_04.html">
-   Week Four: Seafloor Spreading and Pandas
+   Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_05.html">
-   Week Five: Earthquake Statistics and Loops
+   Chapter 5: Loops and Earthquake Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_06.html">
+   Chapter 6: Probability Distributions and Random Earth Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_07.html">
+   Chapter 7: A/B Testing and Volcanic Geochemistry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_08.html">
+   Chapter 8: Bootstrapping and Directional Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_09.html">
+   Chapter 9: Linear Regression, the Age of the Universe, and Subsidence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_10.html">
+   Chapter 10: Non-linear Regression and Atmospheric CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_11.html">
+   Chapter 11: Time Series Analysis and Glacial Cycles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_12.html">
+   Chapter 12: Image Reduction and Remote Planetary Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_13.html">
+   Chapter 13: Classification and Volcanic Source
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="append_A.html">
    Appendix A: Function Catalog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="append_B.html">
+   Appendix B: Earth Science Glossary
   </a>
  </li>
 </ul>
@@ -219,7 +268,7 @@
 </div>
 <div class="section" id="about-this-book">
 <h2>About this Book<a class="headerlink" href="#about-this-book" title="Permalink to this headline">¶</a></h2>
-<p>This book is organized by week, going along with the pace of EPS 88. Each chapter will cover some relevant data science, python programming, and earth science concepts but is not intended to be exhaustive on any of these topics. We have tried to include video clips and external links to pertinent materials to keep student attention and reinforce ideas. The text for this course is written by the instructors, so please forgive any typos or errors.</p>
+<p>This book is organized by week, going along with the pace of EPS 88. Each chapter will cover some relevant data science, python programming, and earth science concepts - but is not intended to be exhaustive on any of these topics. We have tried to include video clips and external links to pertinent materials to keep student attention and reinforce ideas. The text for this course is written by the instructors, so please forgive any typos or errors.</p>
 </div>
 <div class="section" id="why-study-the-earth">
 <h2>Why Study the Earth?<a class="headerlink" href="#why-study-the-earth" title="Permalink to this headline">¶</a></h2>
@@ -228,7 +277,7 @@
 <blockquote>
 <div><p>Figure 1: The internal structure of Earth. Source: modified from Gary Hincks/Science Source SS2410099.</p>
 </div></blockquote>
-<p>Earth has four major systems: the geosphere, hydrosphere, atmosphere, and biosphere. Each of these systems forms a branch of Earth Science, made up of many subdisciplines of scientists who use a variety of tools and techniques to study Earth.</p>
+<p>Earth has four major systems: the geosphere, hydrosphere, atmosphere, and biosphere. Each of these systems forms a branch of Earth Science.</p>
 <p><img alt="Earth science" src="_images/Earth_science_spheres_1.png" /></p>
 <blockquote>
 <div><p>Figure 2: The four earth systems.</p>
@@ -237,11 +286,11 @@
 <blockquote>
 <div><p>Figure 3: Example earth science subdisciplines.</p>
 </div></blockquote>
-<p>This semester of EPS 88 we will focus on the geosphere, made up of Earth’s crust, mantle, and core. Again, this branch of Earth Science is made up of many subdisciplines of scientists who use a variety of tools and techniques to study the Earth. Geoscientists make observations of earth materials and of the dynamic evolution of Earth as mass and energy are cycled between systems. Geoscience is highly interdisciplinary because its subdisciplines have complementary approaches and because Earth’s systems are so interconnected. Gaining knowledge of a broad-base of geoscience fields and practicing many techniques will make students of EPS 88 more capable earth scientists.</p>
+<p>This semester of EPS 88 we will focus on the geosphere, made up of Earth’s crust, mantle, and core. This branch of Earth Science is in turn made up of many subdisciplines of scientists who use a variety of tools and techniques to study the Earth. Geoscientists make observations of earth materials and of the dynamic evolution of Earth as mass and energy are cycled between systems. Geoscience is highly interdisciplinary because its subdisciplines have complementary approaches and because Earth’s systems are so interconnected. Gaining knowledge of a broad range of geoscience fields and practicing many techniques will make students of EPS 88 more capable earth scientists.</p>
 </div>
 <div class="section" id="how-do-geoscience-and-data-science-work-together">
 <h2>How do Geoscience and Data Science work together?<a class="headerlink" href="#how-do-geoscience-and-data-science-work-together" title="Permalink to this headline">¶</a></h2>
-<p>As with many fields of science access to digital instrumentation and high-power computing capabilities are rapidly changing the methods used by geoscientists. The amount of data being collecting is growing, and the systems of equations are growing in number and complexity. Data science and programming skills make students more employable and, more importantly, better scientists.</p>
+<p>As with many fields of science, access to digital instrumentation and high-power computing capabilities are rapidly changing the methods used by geoscientists. The amount of data being collecting is growing, and the systems of equations are growing in number and complexity. Data science knowledge and programming skills make students more employable and, more importantly, better scientists.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -275,7 +324,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="week_01.html" title="next page">Chapter One: Syllabus and Introduction</a>
+    <a class='right-next' id="next-link" href="week_01.html" title="next page">Chapter 1: Introduction to Jupyter Notebooks and Map Projections</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

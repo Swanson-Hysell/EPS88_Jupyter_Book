@@ -5,6 +5,11 @@
 **Outline:**
 * Jupyter Notebooks
 
+<br>
+
+**Watch this video about Jupyter Notebooks**
+
+[![](http://img.youtube.com/vi/b6tVme-Q5_g/0.jpg)](http://www.youtube.com/watch?v=b6tVme-Q5_g "")
 
 ## Jupyter Notebooks and Jupyter Hub
 

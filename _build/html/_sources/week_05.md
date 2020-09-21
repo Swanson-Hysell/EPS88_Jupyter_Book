@@ -1,8 +1,7 @@
-Week Five: Earthquake Statistics and Loops
+Chapter 5: Loops and Earthquake Statistics
 =======================
 
-This week we will focus on Gutenberg-Richter earthquake statistics and For Loop:
+This week we will focus on Gutenberg-Richter earthquake statistics and interative/conditional flow control statements.
 
-* More Pandas DataFrames and indexing
-* For Loops
+* Loops and Conditionals
 * Gutenberg-Richter earthquake statistics

@@ -29,6 +29,7 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -39,7 +40,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.2 What is Data Science?" href="W1_tabular_data.html" />
-    <link rel="prev" title="Chapter One: Syllabus and Introduction" href="../week_01.html" />
+    <link rel="prev" title="Chapter 1: Introduction to Jupyter Notebooks and Map Projections" href="../week_01.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -82,7 +83,7 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="reference internal" href="../week_01.html">
-   Chapter One: Syllabus and Introduction
+   Chapter 1: Introduction to Jupyter Notebooks and Map Projections
   </a>
   <ul class="current">
    <li class="toctree-l2 current active">
@@ -104,27 +105,75 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../week_02.html">
-   Chapter Two: Dynamic Earth and Data Input
+   Chapter 2: Data Input and Our Dynamic Earth
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../week_03.html">
-   Week Three: Earthquakes and Data Visualization
+   Chapter 3: Data Visualization and Earthquakes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../week_04.html">
-   Week Four: Seafloor Spreading and Pandas
+   Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../week_05.html">
-   Week Five: Earthquake Statistics and Loops
+   Chapter 5: Loops and Earthquake Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_06.html">
+   Chapter 6: Probability Distributions and Random Earth Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_07.html">
+   Chapter 7: A/B Testing and Volcanic Geochemistry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_08.html">
+   Chapter 8: Bootstrapping and Directional Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_09.html">
+   Chapter 9: Linear Regression, the Age of the Universe, and Subsidence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_10.html">
+   Chapter 10: Non-linear Regression and Atmospheric CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_11.html">
+   Chapter 11: Time Series Analysis and Glacial Cycles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_12.html">
+   Chapter 12: Image Reduction and Remote Planetary Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_13.html">
+   Chapter 13: Classification and Volcanic Source
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../append_A.html">
    Appendix A: Function Catalog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_B.html">
+   Appendix B: Earth Science Glossary
   </a>
  </li>
 </ul>
@@ -224,6 +273,9 @@
 <ul class="simple">
 <li><p>Jupyter Notebooks</p></li>
 </ul>
+<br>
+<p><strong>Watch this video about Jupyter Notebooks</strong></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=b6tVme-Q5_g"><img alt="" src="http://img.youtube.com/vi/b6tVme-Q5_g/0.jpg" /></a></p>
 <div class="section" id="jupyter-notebooks-and-jupyter-hub">
 <h2>Jupyter Notebooks and Jupyter Hub<a class="headerlink" href="#jupyter-notebooks-and-jupyter-hub" title="Permalink to this headline">¶</a></h2>
 <p>The assignments for this class will use a special programming environment called Jupyter notebooks. A <a class="reference external" href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html">Jupyter notebook</a> is a development environment where you can write, debug, and execute your programs.</p>
@@ -281,7 +333,7 @@ That is how you write “comments” in your code to remind yourself or tell oth
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../week_01.html" title="previous page">Chapter One: Syllabus and Introduction</a>
+    <a class='left-prev' id="prev-link" href="../week_01.html" title="previous page">Chapter 1: Introduction to Jupyter Notebooks and Map Projections</a>
     <a class='right-next' id="next-link" href="W1_tabular_data.html" title="next page">1.2 What is Data Science?</a>
 
     </div>

@@ -29,6 +29,7 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -38,7 +39,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Earthquake Statistics" href="folder_05/W5_gutenberg_richter.html" />
+    <link rel="next" title="Appendix B: Earth Science Glossary" href="append_B.html" />
+    <link rel="prev" title="Chapter 13: Classification and Volcanic Source" href="week_13.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -81,32 +83,80 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="week_01.html">
-   Chapter One: Syllabus and Introduction
+   Chapter 1: Introduction to Jupyter Notebooks and Map Projections
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_02.html">
-   Chapter Two: Dynamic Earth and Data Input
+   Chapter 2: Data Input and Our Dynamic Earth
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_03.html">
-   Week Three: Earthquakes and Data Visualization
+   Chapter 3: Data Visualization and Earthquakes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_04.html">
-   Week Four: Seafloor Spreading and Pandas
+   Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_05.html">
-   Week Five: Earthquake Statistics and Loops
+   Chapter 5: Loops and Earthquake Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_06.html">
+   Chapter 6: Probability Distributions and Random Earth Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_07.html">
+   Chapter 7: A/B Testing and Volcanic Geochemistry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_08.html">
+   Chapter 8: Bootstrapping and Directional Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_09.html">
+   Chapter 9: Linear Regression, the Age of the Universe, and Subsidence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_10.html">
+   Chapter 10: Non-linear Regression and Atmospheric CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_11.html">
+   Chapter 11: Time Series Analysis and Glacial Cycles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_12.html">
+   Chapter 12: Image Reduction and Remote Planetary Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_13.html">
+   Chapter 13: Classification and Volcanic Source
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Appendix A: Function Catalog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="append_B.html">
+   Appendix B: Earth Science Glossary
   </a>
  </li>
 </ul>
@@ -189,7 +239,24 @@
                 
   <div class="section" id="appendix-a-function-catalog">
 <h1>Appendix A: Function Catalog<a class="headerlink" href="#appendix-a-function-catalog" title="Permalink to this headline">¶</a></h1>
-<p>This is a (semi)comprehensive list of the built-in python functions we will use in this class.</p>
+<p><strong>This is a (semi)comprehensive list of the built-in python functions we will use in this class.</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">print()</span></code> prints to the screen the value of the variable in the parentheses or the <code class="docutils literal notranslate"><span class="pre">'text'</span></code> if in quote marks.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> reads from a csv (comma separated values) formated file to a Pandas DataFrame.</p>
+<p><code class="docutils literal notranslate"><span class="pre">dataframe.head()</span></code> prints the first 5 rows of the data table named <code class="docutils literal notranslate"><span class="pre">dataframe</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">dataframe.describe()</span></code> prints some summary statistics of the data table named <code class="docutils literal notranslate"><span class="pre">dataframe</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">dataframe.loc[0][column1]</span></code> refers to the element of the data table named <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> in the first (zeroth) row of column <code class="docutils literal notranslate"><span class="pre">column1</span></code>.</p>
+<p>Most basic mapping: <br />
+<code class="docutils literal notranslate"><span class="pre">plt.figure(figsize=(10,5))</span></code> <br />
+<code class="docutils literal notranslate"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.axes(projection=ccrs.Mollweide())</span></code> <br />
+<code class="docutils literal notranslate"><span class="pre">ax.coastlines()</span></code> <br />
+<code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> <br />
+This defines a figure object, addes axes with a Mollweide map projection, adds coastlines, and prints the figure to the screen. Note: you will need to <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">cartopy.crs</span> <span class="pre">as</span> <span class="pre">ccrs</span></code> and <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> first for this to run.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ax.tissot()</span></code> will add Tissot circles to a map. Do this to see the map projection created distortions.</p>
+<p><code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> makes a matplotlib scatter plot.</p>
+<p><code class="docutils literal notranslate"><span class="pre">plt.savefig('filename')</span></code> saves the figure as <em>filename</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ax.gridlines()</span></code> or <code class="docutils literal notranslate"><span class="pre">plt.grid()</span></code> add gridlines to a figure.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> is a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function to load data from a .txt (text) file format.</p>
+<p><code class="docutils literal notranslate"><span class="pre">variablename.shape</span></code> returns the array size of a variable named <em>variablename</em>.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -220,7 +287,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="folder_05/W5_gutenberg_richter.html" title="previous page">Earthquake Statistics</a>
+    <a class='left-prev' id="prev-link" href="week_13.html" title="previous page">Chapter 13: Classification and Volcanic Source</a>
+    <a class='right-next' id="next-link" href="append_B.html" title="next page">Appendix B: Earth Science Glossary</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

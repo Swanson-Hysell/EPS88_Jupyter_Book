@@ -1,7 +1,7 @@
-Week Three: Earthquakes and Data Visualization
+Chapter 3: Data Visualization and Earthquakes
 =======================
 
-This week we will focus on Earthquakes and Seismology:
+This week we will focus on Data visualization through the lense of Earthquakes and Seismology:
 
 * Data visualization
 * Making "good" scientific figures

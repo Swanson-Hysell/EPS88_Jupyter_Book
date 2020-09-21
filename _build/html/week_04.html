@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Week Four: Seafloor Spreading and Pandas &#8212; Python Intro to Geoscience</title>
+    <title>Chapter 4: Data Wrangling, Functions, and Seafloor Spreading &#8212; Python Intro to Geoscience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -29,6 +29,7 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -38,7 +39,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4.1 Pandas DataFrames" href="folder_04/W4_dataframes.html" />
+    <link rel="next" title="4.1 Data Wrangling and Advanced Indexing" href="folder_04/W4_dataframes.html" />
     <link rel="prev" title="3.2 Earthquakes and Seismology" href="folder_03/W3_earthquakes.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -82,54 +83,92 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="week_01.html">
-   Chapter One: Syllabus and Introduction
+   Chapter 1: Introduction to Jupyter Notebooks and Map Projections
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_02.html">
-   Chapter Two: Dynamic Earth and Data Input
+   Chapter 2: Data Input and Our Dynamic Earth
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_03.html">
-   Week Three: Earthquakes and Data Visualization
+   Chapter 3: Data Visualization and Earthquakes
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Week Four: Seafloor Spreading and Pandas
+   Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
   </a>
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="folder_04/W4_dataframes.html">
-     4.1 Pandas DataFrames
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="folder_04/W4_indexing.html">
-     4.2 Advanced Indexing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="folder_04/W4_decale_functions.html">
-     4.3 How to Declare a Function
+     4.1 Data Wrangling and Advanced Indexing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="folder_04/W4_seafloor_spreading.html">
-     4.4 Seafloor Spreading
+     4.2 Seafloor Spreading
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_05.html">
-   Week Five: Earthquake Statistics and Loops
+   Chapter 5: Loops and Earthquake Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_06.html">
+   Chapter 6: Probability Distributions and Random Earth Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_07.html">
+   Chapter 7: A/B Testing and Volcanic Geochemistry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_08.html">
+   Chapter 8: Bootstrapping and Directional Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_09.html">
+   Chapter 9: Linear Regression, the Age of the Universe, and Subsidence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_10.html">
+   Chapter 10: Non-linear Regression and Atmospheric CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_11.html">
+   Chapter 11: Time Series Analysis and Glacial Cycles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_12.html">
+   Chapter 12: Image Reduction and Remote Planetary Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_13.html">
+   Chapter 13: Classification and Volcanic Source
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="append_A.html">
    Appendix A: Function Catalog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="append_B.html">
+   Appendix B: Earth Science Glossary
   </a>
  </li>
 </ul>
@@ -210,11 +249,11 @@
         
               <div>
                 
-  <div class="section" id="week-four-seafloor-spreading-and-pandas">
-<h1>Week Four: Seafloor Spreading and Pandas<a class="headerlink" href="#week-four-seafloor-spreading-and-pandas" title="Permalink to this headline">¶</a></h1>
-<p>This week we will focus on seafloor spreading</p>
+  <div class="section" id="chapter-4-data-wrangling-functions-and-seafloor-spreading">
+<h1>Chapter 4: Data Wrangling, Functions, and Seafloor Spreading<a class="headerlink" href="#chapter-4-data-wrangling-functions-and-seafloor-spreading" title="Permalink to this headline">¶</a></h1>
+<p>This week we will build data wrangling skills and focus on a key piece of evidence for plate tectonics: seafloor spreading.</p>
 <ul class="simple">
-<li><p>Pandas DataFrames and indexing</p></li>
+<li><p>Data wrangling and more advanced indexing methods</p></li>
 <li><p>How to declare a function</p></li>
 <li><p>The age of the seafloor and evidence of plate tectonics</p></li>
 </ul>
@@ -251,7 +290,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="folder_03/W3_earthquakes.html" title="previous page">3.2 Earthquakes and Seismology</a>
-    <a class='right-next' id="next-link" href="folder_04/W4_dataframes.html" title="next page">4.1 Pandas DataFrames</a>
+    <a class='right-next' id="next-link" href="folder_04/W4_dataframes.html" title="next page">4.1 Data Wrangling and Advanced Indexing</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

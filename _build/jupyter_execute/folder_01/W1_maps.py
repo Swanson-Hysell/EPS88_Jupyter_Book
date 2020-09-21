@@ -75,10 +75,10 @@ Properties of maps that are often not preserved in projections:
 
 ## Classifying projections
 
-Two common approaches:
+Map projections are commonly classified:
 
  1. By [2D] surface classification
- 2. By preserving a given property (metric)
+ 2. By preserving a given property 
 
 ### Projections by surface classification
 
@@ -86,7 +86,7 @@ Two common approaches:
 
 *Downside: Not all projections can be classified in this way -> Leads to big "pseudo" and "other" groups.*
 
-#### Surface classification: Cylindrical
+#### Cylindrical
 
 ![Cylindrical](./figures/cylindrical.png)
 
@@ -95,7 +95,7 @@ Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
 
 * Meridians and paralells are straight and perpendicular.
 
-#### Surface classification: Azimuthal
+#### Azimuthal
 
 ![azimuthal](./figures/azimuthal.png)
 
@@ -105,7 +105,7 @@ Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
 * Parallels are complete circles
 * Great circles from central point are straight lines.
 
-#### Surface classification: Conic
+#### Conic
 ![conic](./figures/conic.png)
 
 Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
@@ -117,7 +117,7 @@ Source: http://ayresriverblog.com/2011/05/19/the-world-is-flat/
 
 Downside: Some projections can live in multiple groups.
 
-#### Preserving metric: Conformal
+#### Conformal
 
 Also known as Orthomorphic.
 
@@ -129,31 +129,25 @@ Examples of conformal projections:
  * Transverse Mercator
  * Stereographic
  * Lambert conformal conic
-
-#### Preserving metric: Conformal
+ 
+<br>
 
 Use in large scale maps (zoomed in)
 
-Often used to preserve shape to represent their physical counterpart.
-Seamless online maps like OSM/Google/Bing typically use a Mercator projection although Google Maps has begun using an 3D-rendered globe projection when the user zooms out:
+* Often used to preserve shape to represent their physical counterpart. Seamless online maps like OSM/Google/Bing typically use a Mercator projection although Google Maps has begun using an 3D-rendered globe projection when the user zooms out:
 
 > The first launch of [Google] Maps actually did not use Mercator, and streets in high latitude places like Stockholm did not meet at right angles on the map the way they do in reality. [[ref](https://productforums.google.com/d/msg/maps/A2ygEJ5eG-o/KbZr_B0h2hkJ)]
 
-The major drawback: it is difficult to compare lengths or areas
+* The major drawback: it is difficult to compare lengths or areas.
 
-#### Preserving metric: Conformal
-
+<br> 
 Use in small scale maps (zoomed out)
 
-Maps reflecting directions, such as an [aero]nautical chart, or whose gradients are important,
-such as a weather maps, are often projected by conformal projections.
+* Maps reflecting directions, such as an [aero]nautical chart, or whose gradients are important, such as a weather maps, are often projected by conformal projections.
 
-Historically, many world maps are drawn by conformal projections, but the fact that the scale of the map
-varies by location makes it difficult to compare lengths or areas.
-Some have gone as far as calling the Mercator projection imperialistic and racist.
+* Historically, many world maps are drawn by conformal projections, but the fact that the scale of the map varies by location makes it difficult to compare lengths or areas. Some have gone as far as calling the Mercator projection imperialistic and racist.
 
-
-#### Preserving metric: Equidistant
+#### Equidistant
 
 No map projection can be universally equidistant.
 
@@ -164,7 +158,7 @@ Examples of projections that preserve distances along meridians (but not paralle
  * Equirectangular / Plate Carree
  * Azimuthal equidistant
 
-#### Preserving metric: Equal-area
+#### Equal-area
 
 
 Equal-area maps preserve area measure, generally distorting shapes in order to do so.
@@ -178,7 +172,7 @@ Examples of equal area projections:
  * Mollweide
  * Sinusoidal
 
-#### Preseving metric: Compromise
+#### Compromise
 
 Rather than perfectly preserving any metric properties, compromise
 projections aim strike a balance between distortions.

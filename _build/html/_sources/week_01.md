@@ -1,4 +1,4 @@
-Chapter One: Syllabus and Introduction
+Chapter 1: Introduction to Jupyter Notebooks and Map Projections
 =======================
 
 ## Syllabus can be found on the bCourses page:
@@ -17,6 +17,10 @@ This week we will focus on building skills we will be using throughout the semes
 
 ## EPS 88 Fall 2020
 
+**Video 1, Welcome to EPS 88 and class tools tour:**
+
+[![Welcome to EPS 88 Video](http://img.youtube.com/vi/6-K3slGttf8/0.jpg)](http://www.youtube.com/watch?v=6-K3slGttf8 "")
+
 This semester EPS 88 will be slightly different from past iterations. Instruction will be completely remote and almost all asynchronous. We have several tools to facilitate this:
 
 - The bCourses site. This will be your home base where you will find the syllabus, important links, announcements, and reading quizzes. There will be a Module for each week of the semester where you can find the pre-class, during-class, and after-class work.
@@ -29,4 +33,4 @@ Each week's module workflow will consist of:
 * a Jupyter notebook we will work through together during the weekly class zoom meeting (Tuesdays noon-2pm)
 * a Jupyter notebook homework\* assignment (\* yes, all the work is homework)
 
-We'll schedule a weekly "office-hour" zoom opportunity to for students to ask questions, but please, post your questions to the bCourse discussion pages. We will answer questions there for the benefit of everyone.
+We'll schedule a weekly "office-hour" zoom opportunity to for students to ask questions, but please, post your questions to the class discourse discussion pages. We will answer questions there for the benefit of everyone.

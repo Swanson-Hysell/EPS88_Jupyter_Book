@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Chapter One: Syllabus and Introduction &#8212; Python Intro to Geoscience</title>
+    <title>Chapter 1: Introduction to Jupyter Notebooks and Map Projections &#8212; Python Intro to Geoscience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -29,6 +29,7 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -82,7 +83,7 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Chapter One: Syllabus and Introduction
+   Chapter 1: Introduction to Jupyter Notebooks and Map Projections
   </a>
   <ul>
    <li class="toctree-l2">
@@ -104,27 +105,75 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_02.html">
-   Chapter Two: Dynamic Earth and Data Input
+   Chapter 2: Data Input and Our Dynamic Earth
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_03.html">
-   Week Three: Earthquakes and Data Visualization
+   Chapter 3: Data Visualization and Earthquakes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_04.html">
-   Week Four: Seafloor Spreading and Pandas
+   Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_05.html">
-   Week Five: Earthquake Statistics and Loops
+   Chapter 5: Loops and Earthquake Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_06.html">
+   Chapter 6: Probability Distributions and Random Earth Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_07.html">
+   Chapter 7: A/B Testing and Volcanic Geochemistry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_08.html">
+   Chapter 8: Bootstrapping and Directional Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_09.html">
+   Chapter 9: Linear Regression, the Age of the Universe, and Subsidence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_10.html">
+   Chapter 10: Non-linear Regression and Atmospheric CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_11.html">
+   Chapter 11: Time Series Analysis and Glacial Cycles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_12.html">
+   Chapter 12: Image Reduction and Remote Planetary Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_13.html">
+   Chapter 13: Classification and Volcanic Source
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="append_A.html">
    Appendix A: Function Catalog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="append_B.html">
+   Appendix B: Earth Science Glossary
   </a>
  </li>
 </ul>
@@ -217,8 +266,8 @@
         
               <div>
                 
-  <div class="section" id="chapter-one-syllabus-and-introduction">
-<h1>Chapter One: Syllabus and Introduction<a class="headerlink" href="#chapter-one-syllabus-and-introduction" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="chapter-1-introduction-to-jupyter-notebooks-and-map-projections">
+<h1>Chapter 1: Introduction to Jupyter Notebooks and Map Projections<a class="headerlink" href="#chapter-1-introduction-to-jupyter-notebooks-and-map-projections" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syllabus-can-be-found-on-the-bcourses-page">
 <h2>Syllabus can be found on the bCourses page:<a class="headerlink" href="#syllabus-can-be-found-on-the-bcourses-page" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bcourses.berkeley.edu/courses/1494649/assignments/syllabus">Syllabus</a></p>
@@ -234,6 +283,8 @@
 </div>
 <div class="section" id="eps-88-fall-2020">
 <h2>EPS 88 Fall 2020<a class="headerlink" href="#eps-88-fall-2020" title="Permalink to this headline">¶</a></h2>
+<p><strong>Video 1, Welcome to EPS 88 and class tools tour:</strong></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=6-K3slGttf8"><img alt="Welcome to EPS 88 Video" src="http://img.youtube.com/vi/6-K3slGttf8/0.jpg" /></a></p>
 <p>This semester EPS 88 will be slightly different from past iterations. Instruction will be completely remote and almost all asynchronous. We have several tools to facilitate this:</p>
 <ul class="simple">
 <li><p>The bCourses site. This will be your home base where you will find the syllabus, important links, announcements, and reading quizzes. There will be a Module for each week of the semester where you can find the pre-class, during-class, and after-class work.</p></li>
@@ -247,7 +298,7 @@
 <li><p>a Jupyter notebook we will work through together during the weekly class zoom meeting (Tuesdays noon-2pm)</p></li>
 <li><p>a Jupyter notebook homework* assignment (* yes, all the work is homework)</p></li>
 </ul>
-<p>We’ll schedule a weekly “office-hour” zoom opportunity to for students to ask questions, but please, post your questions to the bCourse discussion pages. We will answer questions there for the benefit of everyone.</p>
+<p>We’ll schedule a weekly “office-hour” zoom opportunity to for students to ask questions, but please, post your questions to the class discourse discussion pages. We will answer questions there for the benefit of everyone.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
