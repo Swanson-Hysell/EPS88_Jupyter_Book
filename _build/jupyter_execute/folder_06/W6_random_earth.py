@@ -42,9 +42,9 @@ Geomagnetic reversals are often interpretted to behave like a Poisson process. A
 - The average rate (events per time period) is constant.
 - Two events cannot occur at the same time.
 
-So the probability of the number of reversal events ($k$) is $$P(k)=\frac{\lambda^{k} e^{-\lambda}}{k!}$$ where $\lambda$ is the average reversal rate which has been $\sim4$ reversals/Myr for the past 10 Ma.
+So the probability of the number of reversal events ($k$) is $P(k)=\frac{\lambda^{k} e^{-\lambda}}{k!}$, where $\lambda$ is the average reversal rate which has been $\sim4$ reversals/Myr for the past 10 Ma.
 
-The probability of a _polarity chron_ duration i.e. the amount of time between reversals is then given by the Gamma distribution: $$ P(x) = \frac{x^{\alpha-1}e^{-x/\theta}}{\Gamma (\alpha) \theta^{\alpha}} $$
+The probability of a _polarity chron_ duration i.e. the amount of time between reversals is then given by the Gamma distribution: $ P(x) = \frac{x^{\alpha-1}e^{-x/\theta}}{\Gamma (\alpha) \theta^{\alpha}} $.
 
 $\theta$ is the expected time between reversals and we will follow McFadden (1984) and define $\theta = \mu / \alpha$ where $\mu$ is the average chron duration. A value for $\alpha$ greater than one can be interpreted either as an artifact linked to some short intervals missing in the GPTS or to some short term memory within the dynamo that would inhibit a second reversal just after a first one has occurred. McFadden (1984) use a value for $\alpha$ of 1.2.
 
@@ -60,7 +60,7 @@ The number of meteors (meteoroids, comets, or asteroids that enter Earth's atmos
 ![meteors](./figures/AMS_TERMINOLOGY.png)
 
 
-### From https://www.amsmeteors.org/meteor-showers/meteor-faq/:
+### From [https://www.amsmeteors.org/meteor-showers/meteor-faq/](https://www.amsmeteors.org/meteor-showers/meteor-faq/):
 
 > **How big are most meteoroids? How fast do they travel?** The majority of visible meteors are caused by particles ranging in size from about that of a small pebble down to a grain of sand, and generally weigh less than 1-2 grams. Those of asteroid origin can be composed of dense stony or metallic material (the minority) while those of cometary origin (the majority) have low densities and are composed of a “fluffy” conglomerate of material, frequently called a “dustball.” The brilliant flash of light from a meteor is not caused so much by the meteoroid’s mass, but by its high level of kinetic energy as it collides with the atmosphere.
 
