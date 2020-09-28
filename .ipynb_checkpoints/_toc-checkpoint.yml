@@ -21,6 +21,9 @@
     - file: folder_05/W5_loops
     - file: folder_05/W5_gutenberg_richter
 - file: week_06
+  sections:
+    - file: folder_06/W6_prob_dist
+    - file: folder_06/W6_random_earth
 - file: week_07
 - file: week_08
 - file: week_09
