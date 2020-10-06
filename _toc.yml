@@ -25,6 +25,9 @@
     - file: folder_06/W6_prob_dist
     - file: folder_06/W6_random_earth
 - file: week_07
+  sections:
+    - file: folder_07/W7_ab_testing
+    - file: folder_07/W7_igneous
 - file: week_08
 - file: week_09
 - file: week_10

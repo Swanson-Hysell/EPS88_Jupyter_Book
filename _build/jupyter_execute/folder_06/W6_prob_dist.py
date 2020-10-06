@@ -133,7 +133,7 @@ Notice how similiar this is to the histogram we made of our 1000 experiments of 
 
 The Poisson distribution gives the probability that an event (with two possible outcomes) occurs $k$ number of times in an interval of time where $\lambda$ is the expected rate of occurance. The Poisson distribution is the limit of the binomial distribution for large $n$. So if you take the limit of the binomial distribution as $n \rightarrow \infty$
 
-$\lim_{n \rightarrow \infty } \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k} = \frac{n!}{k!(n-k)!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k} $
+$$\lim_{n \rightarrow \infty } \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k} = \frac{n!}{k!(n-k)!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k} $$
 
 you'll get the Poisson distribution:
 

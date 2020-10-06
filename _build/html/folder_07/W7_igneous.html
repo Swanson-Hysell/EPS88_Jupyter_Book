@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>7.2 Igneous Rocks &#8212; Python Intro to Geoscience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 8: Bootstrapping and Directional Data" href="../week_08.html" />
+    <link rel="prev" title="7.1 A/B Testing" href="W7_ab_testing.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Intro to Geoscience</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to PyEarth
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_01.html">
+   Chapter 1: Introduction to Jupyter Notebooks and Map Projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_02.html">
+   Chapter 2: Data Input and Our Dynamic Earth
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_03.html">
+   Chapter 3: Data Visualization and Earthquakes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_04.html">
+   Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_05.html">
+   Chapter 5: Loops and Earthquake Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_06.html">
+   Chapter 6: Probability Distributions and Random Earth Processes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../week_07.html">
+   Chapter 7: A/B Testing and Igneous Geochemistry
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="W7_ab_testing.html">
+     7.1 A/B Testing
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     7.2 Igneous Rocks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_08.html">
+   Chapter 8: Bootstrapping and Directional Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_09.html">
+   Chapter 9: Linear Regression, the Age of the Universe, and Subsidence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_10.html">
+   Chapter 10: Non-linear Regression and Atmospheric CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_11.html">
+   Chapter 11: Time Series Analysis and Glacial Cycles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_12.html">
+   Chapter 12: Image Reduction and Remote Planetary Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_13.html">
+   Chapter 13: Classification and Volcanic Source
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_A.html">
+   Appendix A: Function Catalog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_B.html">
+   Appendix B: Earth Science Glossary
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/folder_07/W7_igneous.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-assigned-reading">
+   Additional Assigned Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intrusive-vs-extrusive">
+   Intrusive vs. Extrusive
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mafic-vs-felsic">
+   Mafic vs. felsic
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="igneous-rocks">
+<h1>7.2 Igneous Rocks<a class="headerlink" href="#igneous-rocks" title="Permalink to this headline">¶</a></h1>
+<p><strong>Outline:</strong></p>
+<ul class="simple">
+<li><p>Intrusive vs. Extrusive</p></li>
+<li><p>Mafic vs. felsic</p></li>
+</ul>
+<div class="section" id="additional-assigned-reading">
+<h2>Additional Assigned Reading<a class="headerlink" href="#additional-assigned-reading" title="Permalink to this headline">¶</a></h2>
+<p>Article from the National Geographic <a class="reference external" href="https://www.nationalgeographic.com/science/2020/05/mount-st-helens-isnt-where-should-be-scientists-may-finally-know-why/">Mount St. Helens isn’t where it should be. Scientists may finally know why.</a></p>
+</div>
+<div class="section" id="intrusive-vs-extrusive">
+<h2>Intrusive vs. Extrusive<a class="headerlink" href="#intrusive-vs-extrusive" title="Permalink to this headline">¶</a></h2>
+<p>Igneous rocks form from molten rock that cools and solidifies. One way to describe igneous rocks is by the environment (and cooling time) in which they form.</p>
+<p><strong>Watch this 5 minute video about intrusive and extrusive igneous rocks.</strong></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=aCnAF1Opt8M"><img alt="" src="http://img.youtube.com/vi/aCnAF1Opt8M/0.jpg" /></a></p>
+<p>Intrusive igneous rocks form from cooling magma under ground. Intrusive rocks have more time to cool and large mineral crystals can form in the magma chamber.</p>
+<p>Extrusive igneous rocks form above the surface from erupted lava. Extrusive rocks cool very quickly and large mineral crystals do not have enough time to form, so extrusive rocks are fine grained and may have trapped gas bubbles.</p>
+</div>
+<div class="section" id="mafic-vs-felsic">
+<h2>Mafic vs. felsic<a class="headerlink" href="#mafic-vs-felsic" title="Permalink to this headline">¶</a></h2>
+<p>Another scheme for classifying igneous rocks is by their geochemistry i.e. by the chemical composition of the minerals that form them. The end-members of this spectrum are <em>feslic</em> and <em>mafic</em> compositions. This illustration provides an overview of the compositional difference between different types of igneous rocks:</p>
+<p><img alt="mafic_felsic" src="../_images/mafic_felsic.jpg" /></p>
+<p>Felsic rocks have more silica, sodium, and potassium than feslic rocks. Felsic rocks are typically lighter in color. Mafic rocks have more iron, magnesium, and calcium than feslic rocks and are usually dark in color.</p>
+<p><strong>Watch this 4 minute video about igneous rock classification:</strong></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=Y0w79X_3fIA"><img alt="" src="http://img.youtube.com/vi/Y0w79X_3fIA/0.jpg" /></a></p>
+<p>These compositional differences manifest in different material properties which can be observed at active volcanos. Mafic volcanoes (such as Kilauea) produce magmas that have low viscosity and flow. Felsic volcanoes produce more viscous magmas and erupt explosively.</p>
+<p><strong>Watch this Bill Nye the Science Guy episode “Volcanoes”:</strong></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=vSR2ZG0yjP8"><img alt="" src="http://img.youtube.com/vi/vSR2ZG0yjP8/0.jpg" /></a></p>
+<p>Here are some additional examples of how different magma compositions have different eruptive styles.</p>
+<p>Mafic lava flowing (Kilauea, Hawaii):</p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=_hyE2NO7HnU"><img alt="" src="http://img.youtube.com/vi/_hyE2NO7HnU/0.jpg" /></a></p>
+<p>The 1980 eruption of Mount Saint Helens:</p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=AYla6q3is6w"><img alt="" src="http://img.youtube.com/vi/AYla6q3is6w/0.jpg" /></a></p>
+<p>Dacite dome growing within Mount Saint Helens:</p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=h6B1myUKAS4"><img alt="" src="http://img.youtube.com/vi/h6B1myUKAS4/0.jpg" /></a></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=3v7p9mMV6M8"><img alt="" src="http://img.youtube.com/vi/3v7p9mMV6M8/0.jpg" /></a>
+<em>composition of 65 percent SiO2 (dacite)</em></p>
+<p>Intermediate eruption (Krakatau, Indonesia):</p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=NLhjNzQHphQ"><img alt="" src="http://img.youtube.com/vi/NLhjNzQHphQ/0.jpg" /></a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./folder_07"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="W7_ab_testing.html" title="previous page">7.1 A/B Testing</a>
+    <a class='right-next' id="next-link" href="../week_08.html" title="next page">Chapter 8: Bootstrapping and Directional Data</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EPS 88 Team<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

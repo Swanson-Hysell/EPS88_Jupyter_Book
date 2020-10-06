@@ -125,7 +125,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../week_07.html">
-   Chapter 7: A/B Testing and Volcanic Geochemistry
+   Chapter 7: A/B Testing and Igneous Geochemistry
   </a>
  </li>
  <li class="toctree-l1">
@@ -480,7 +480,8 @@
 <div class="section" id="poisson-distribution">
 <h3>Poisson Distribution<a class="headerlink" href="#poisson-distribution" title="Permalink to this headline">¶</a></h3>
 <p>The Poisson distribution gives the probability that an event (with two possible outcomes) occurs <span class="math notranslate nohighlight">\(k\)</span> number of times in an interval of time where <span class="math notranslate nohighlight">\(\lambda\)</span> is the expected rate of occurance. The Poisson distribution is the limit of the binomial distribution for large <span class="math notranslate nohighlight">\(n\)</span>. So if you take the limit of the binomial distribution as <span class="math notranslate nohighlight">\(n \rightarrow \infty\)</span></p>
-<p>$\lim_{n \rightarrow \infty } \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k} = \frac{n!}{k!(n-k)!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k} $</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n \rightarrow \infty } \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k} = \frac{n!}{k!(n-k)!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k} \]</div>
 <p>you’ll get the Poisson distribution:</p>
 <p><span class="math notranslate nohighlight">\(P(k\)</span> events in interval<span class="math notranslate nohighlight">\() = e^{-\lambda}\frac{\lambda^{k}}{k!}.\)</span></p>
 <p>Because <span class="math notranslate nohighlight">\(\lim_{x \rightarrow \infty } (1+\frac{a}{x})^{x}=e^{a}\)</span> and <span class="math notranslate nohighlight">\(\lim_{x \rightarrow \infty } \frac{x!}{x^{k}(x-k)!} = 1\)</span></p>
