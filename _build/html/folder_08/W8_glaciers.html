@@ -1,0 +1,507 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>8.2 Evidence of past glaciation &#8212; Python Intro to Geoscience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 9: Linear Regression, the Age of the Universe, and Subsidence" href="../week_09.html" />
+    <link rel="prev" title="8.1 Bootstrap Resampling" href="W8_bootstrapping.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Intro to Geoscience</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to PyEarth
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_01.html">
+   Chapter 1: Introduction to Jupyter Notebooks and Map Projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_02.html">
+   Chapter 2: Data Input and Our Dynamic Earth
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_03.html">
+   Chapter 3: Data Visualization and Earthquakes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_04.html">
+   Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_05.html">
+   Chapter 5: Loops and Earthquake Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_06.html">
+   Chapter 6: Probability Distributions and Random Earth Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_07.html">
+   Chapter 7: A/B Testing and Igneous Geochemistry
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../week_08.html">
+   Chapter 8: Bootstrapping, Glaciers, and Directional Data
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="W8_bootstrapping.html">
+     8.1 Bootstrap Resampling
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8.2 Evidence of past glaciation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_09.html">
+   Chapter 9: Linear Regression, the Age of the Universe, and Subsidence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_10.html">
+   Chapter 10: Non-linear Regression and Atmospheric CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_11.html">
+   Chapter 11: Time Series Analysis and Glacial Cycles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_12.html">
+   Chapter 12: Image Reduction and Remote Planetary Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_13.html">
+   Chapter 13: Classification and Volcanic Source
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_A.html">
+   Appendix A: Function Catalog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_B.html">
+   Appendix B: Earth Science Glossary
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/folder_08/W8_glaciers.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-assigned-reading">
+   Additional Assigned Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-last-glacial-maximum">
+   The Last Glacial Maximum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-cordilleran-ice-sheet">
+   The Cordilleran ice sheet
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-do-earth-scientists-determine-the-extent-and-direction-of-ice-sheet-flow">
+   How do Earth scientists determine the extent and direction of ice sheet flow?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#striation-striation-or-groove">
+     Striation &amp; Striation or groove
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crag-and-tail">
+     Crag-and-tail
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#drumlin-drumlinoid-fluted-bedrock-fluting">
+     Drumlin, Drumlinoid, Fluted bedrock &amp; fluting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#directional-data">
+   Directional Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#azimuth">
+     Azimuth
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-the-x-length-and-y-length-of-the-unit-vector-associated-with-the-azimuth">
+     Getting the x length and y length of the unit vector associated with the azimuth
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-the-directions">
+     Visualizing the directions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quiver-map">
+       Quiver map
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rose-diagrams">
+       Rose diagrams
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="evidence-of-past-glaciation">
+<h1>8.2 Evidence of past glaciation<a class="headerlink" href="#evidence-of-past-glaciation" title="Permalink to this headline">¶</a></h1>
+<p><strong>Outline:</strong></p>
+<ul class="simple">
+<li><p>The last glacial maximum</p></li>
+<li><p>The Cordilleran ice sheet</p></li>
+<li><p>Evidence of glacial flow direction</p></li>
+</ul>
+<div class="section" id="additional-assigned-reading">
+<h2>Additional Assigned Reading<a class="headerlink" href="#additional-assigned-reading" title="Permalink to this headline">¶</a></h2>
+<p>Physical Geology – 2nd Edition, By Steven Earle <a class="reference external" href="https://opentextbc.ca/physicalgeology2ed/part/chapter-16-glaciation/">Chapter 16 Glaciation</a></p>
+<p>Listen to this episode of the podcast <a class="reference external" href="https://www.kqed.org/news/11839198/the-bay-area-during-the-ice-age-think-saber-tooth-cats-and-mammoths">Bay Curious</a> about “The Bay Area During the Ice Age”</p>
+</div>
+<div class="section" id="the-last-glacial-maximum">
+<h2>The Last Glacial Maximum<a class="headerlink" href="#the-last-glacial-maximum" title="Permalink to this headline">¶</a></h2>
+<p>Around 20,000 years ago was the last glacial maximum, the most recent of glacial intervals associated with climate going between a glacial and interglacial climate states over the past 2.5 million years. We will look at data associated with more of these cycles when we talk about time-series analysis. For the moment, let’s focus on the warming from the last glacial maximum which is visualized (based on estimates published in a couple different scientific papers) in the following xkcd comic:</p>
+<p><img alt="xkcd_glacier_timeline" src="../_images/earth_temperature_timeline_2x.png" /></p>
+<p>At the last glacial maximum, the extent of ice sheets on North America were the following such that nearly all of Canada was covered in an ice sheet (like Greenland is today) with this ice sheet extending down into the lower 48 states of the present-day United States:</p>
+<p><img alt="glacier_extent" src="../_images/Cordilleran-and-Laurentide-Ice-Sheets.png" /></p>
+<blockquote>
+<div><p>Source https://opentextbc.ca/geology/chapter/16-1-glacial-periods-in-earths-history/</p>
+</div></blockquote>
+<p>This xkcd comic is a helpful visualization of the thickness of the Laurentide ice sheet at the location of a few modern day cities:</p>
+<p><img alt="xkcd_glacier" src="../_images/ice_sheets_2x.png" /></p>
+</div>
+<div class="section" id="the-cordilleran-ice-sheet">
+<h2>The Cordilleran ice sheet<a class="headerlink" href="#the-cordilleran-ice-sheet" title="Permalink to this headline">¶</a></h2>
+<p>Let’s focus on the Cordilleran ice sheet which is visualized here:</p>
+<p><img alt="" src="../_images/Cordilleran_ice_sheet.png" /></p>
+<blockquote>
+<div><p>Source Booth et al. 2003 where it is modified from Clague (1981)</p>
+</div></blockquote>
+<p>Booth et al. (2003) in their review paper on the Cordilleran ice sheet provide this summary of the history of the most recent growth of the ice sheet.</p>
+<blockquote>
+<div><p>The Cordilleran ice sheet most recently advanced out of the mountains of British Columbia about 25,000 14C yr B.P. It flowed west onto the continental shelf, east into the intermontaine valleys of British Columbia where it probably merged with the western edge of the Laurentide ice sheet, and south into the lowlands of Washington State (Fig. 8, Table 1). In southern British Columbia and western Washington the Puget lobe filled the Fraser Lowland and the Puget Lowland between the Olympic Mountains and Cascade Range. The Juan de Fuca lobe extended east along the Strait of Juan de Fuca to termine some 100km west of Washington’s present coast. Several ice lobes east of the Cascade Range expanded south down the Okanogan Valley and down other valleys farther east. The Fraser-age ice-sheet maximum on both sides of the Cascade Range was broadly synchronous (Waitt &amp; Thorson, 1983). It approximately coincided with the maximum advance of some parts of the Laurentide ice sheet in central North America at about 14,000 14C yr B.P. but lagged several thousand years behind the culminating advance of the most of the Laurentide ice sheet (Lowell et al., 1999; Mickelson et al., 1983; Prest, 1969). *The cordilleran ice sheet, Booth et al. 2003</p>
+</div></blockquote>
+<p>There are a lot of different statements made in the above summary paragraph that come from a lot of different data types. For today, let’s focus on the statements regarding the flow direction.</p>
+<p>This photograph of the Aletsch Glacier in Switzerland provides a striking visualization of ice flow in a modern glacier as detritus associated with rock falls onto the glacier have been stretched out in the direction of ice flow:</p>
+<p><img alt="" src="../_images/glacier.png" /></p>
+<blockquote>
+<div><p>The Aletsch Glacier, the largest glacier of the Alps, in Switzerland. Source: By Dirk Beyer - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=352940</p>
+</div></blockquote>
+</div>
+<div class="section" id="how-do-earth-scientists-determine-the-extent-and-direction-of-ice-sheet-flow">
+<h2>How do Earth scientists determine the extent and direction of ice sheet flow?<a class="headerlink" href="#how-do-earth-scientists-determine-the-extent-and-direction-of-ice-sheet-flow" title="Permalink to this headline">¶</a></h2>
+<p>As covered in Chapter 16 of Physical Geology, the presence of ice lead to a number of different types of features.</p>
+<div class="section" id="striation-striation-or-groove">
+<h3>Striation &amp; Striation or groove<a class="headerlink" href="#striation-striation-or-groove" title="Permalink to this headline">¶</a></h3>
+<p>As glaciers flow, they can entrain rocks. If these rocks come in contact with the base of the glacier, they can scratch the underlying rock resulting in striations or scouring out larger-scale grooves:</p>
+<p><img alt="" src="../_images/striations.png" /></p>
+<blockquote>
+<div><p>Photograph of glacial striations and grooves on Sioux Quartzite bedrock at Jeffers, Minnesota. At least two directions of ice movement are indicated by crossing (x) pattern of striae. Source: <a class="reference external" href="http://academic.emporia.edu/aberjame/ice/lec01/lec1.htm">http://academic.emporia.edu/aberjame/ice/lec01/lec1.htm.</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="crag-and-tail">
+<h3>Crag-and-tail<a class="headerlink" href="#crag-and-tail" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Definition: a tadpole-shaped landform developed by glacial erosion of rocks on unequal resistance. The crags are cliffs developed in near-cylindrical masses of strong rock. The tail is formed in softer rocks sheltered from erosion in its lee. Source: http://www.landforms.eu/Lothian/crag%20and%20tail.htm</p>
+</div></blockquote>
+<p>This image from Victoria Island in British Columbia shows both striations and miniture crag-and-tail features:</p>
+<p><img alt="" src="../_images/crag-and-tail.png" /></p>
+<blockquote>
+<div><p>Source: https://www.geocaching.com/geocache/GC1HW85_victoria-earthcache-series-3-all-scratched-up</p>
+</div></blockquote>
+<p>Crag-and-tail features can also be much larger such as Abbey Craig, a hilltop overlooking Stirling in Scotland on which a monument to Sir William Wallace was built.</p>
+<p><img alt="" src="../_images/Abbey_craig.png" /></p>
+<blockquote>
+<div><p>Source: http://lenstalk.com/index.php/albumscotland/album01/album22/album24/L1000139_Abbey_Craig_and_the_Ochils_from_Stirling_Castle</p>
+</div></blockquote>
+</div>
+<div class="section" id="drumlin-drumlinoid-fluted-bedrock-fluting">
+<h3>Drumlin, Drumlinoid, Fluted bedrock &amp; fluting<a class="headerlink" href="#drumlin-drumlinoid-fluted-bedrock-fluting" title="Permalink to this headline">¶</a></h3>
+<p>Drumlin definition: An elongate hill, streamlined in the direction of ice flow and composed largely of glacial deposits.</p>
+<p><img alt="" src="../_images/drumlins.png" /></p>
+<blockquote>
+<div><p>Airphoto of Drumlins on Hazelton Peak [British Columbia]. Flow is toward the bottom right of the photo. Some of the stoss (upflow) ends of the drumlins are truncated by cliff faces (A). Stoss-end crescentic furrows are visible that merge with lateral furrows separating the drumlins, thus producing U-shaped furrows (B). Source: <em>Streamlined erosional residuals and drumlins in central British Columbia</em> McClenagan (2013) https://doi.org/10.1016/j.geomorph.2013.01.015</p>
+</div></blockquote>
+<p>I grew up on a drumlin!!! Here are some a good examples from Western New York.</p>
+<p><img alt="" src="../_images/WNY_drumlins.png" /></p>
+</div>
+</div>
+<div class="section" id="directional-data">
+<h2>Directional Data<a class="headerlink" href="#directional-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="azimuth">
+<h3>Azimuth<a class="headerlink" href="#azimuth" title="Permalink to this headline">¶</a></h3>
+<p>Earth science is filled with directional data. The most typical way that directional data are reported is as azimuth:</p>
+<p><img alt="" src="../_images/azimuth.png" /></p>
+</div>
+<div class="section" id="getting-the-x-length-and-y-length-of-the-unit-vector-associated-with-the-azimuth">
+<h3>Getting the x length and y length of the unit vector associated with the azimuth<a class="headerlink" href="#getting-the-x-length-and-y-length-of-the-unit-vector-associated-with-the-azimuth" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../_images/Circle_cos_sin.gif" /></p>
+<p>If <span class="math notranslate nohighlight">\(\theta=0\)</span>° <span class="math notranslate nohighlight">\(sin(\theta)=1\)</span> and <span class="math notranslate nohighlight">\(cos(\theta)=0\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(\theta=90\)</span>° <span class="math notranslate nohighlight">\(sin(\theta)=0\)</span> and <span class="math notranslate nohighlight">\(cos(\theta)=1\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(\theta=225\)</span>° <span class="math notranslate nohighlight">\(sin(\theta)= -0.7071\)</span> and <span class="math notranslate nohighlight">\(cos(\theta)= -0.7071\)</span></p>
+<p>Unfortunately, the trignometric convention is rotated 90° from the geographic convention, but the result is that:</p>
+<p>x_length = sin(azimuth)</p>
+<p>y_length = cos(azimuth)</p>
+<p><img alt="" src="../_images/2D_Direction_Vectors.svg" /></p>
+</div>
+<div class="section" id="visualizing-the-directions">
+<h3>Visualizing the directions<a class="headerlink" href="#visualizing-the-directions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="quiver-map">
+<h4>Quiver map<a class="headerlink" href="#quiver-map" title="Permalink to this headline">¶</a></h4>
+<p>We can represent our directions as arrows (quivers) mapped at the geographic location where the data was collected using <a class="reference external" href="https://matplotlib.org/3.3.2/api/_as_gen/matplotlib.pyplot.quiver.html">matplotlibs’ <code class="docutils literal notranslate"><span class="pre">plt.quiver</span></code></a>.</p>
+<p>We will follow these steps:</p>
+<ul class="simple">
+<li><p>For quiver maps, we will create a  map projection instance (called <code class="docutils literal notranslate"><span class="pre">ax</span></code>) with the <code class="docutils literal notranslate"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.axes(projection=)</span></code> function.</p></li>
+<li><p>As we have done with earlier maps we set the edges of our map with <code class="docutils literal notranslate"><span class="pre">ax.set_extent([])</span></code> and add coastlines and a background image if wanted with <code class="docutils literal notranslate"><span class="pre">ax.add_image()</span></code> and <code class="docutils literal notranslate"><span class="pre">ax.coastlines()</span></code>.</p></li>
+<li><p>We will use <code class="docutils literal notranslate"><span class="pre">plt.quiver()</span></code> to add the data to the map. The data needs to be input as numpy arrays. First the positions of the arrows are given with the longitude and latitude arrays. Then the arrow properties are input - their x-component lengths and y-component lengths. Then as with other map plots we need to set <code class="docutils literal notranslate"><span class="pre">transform=ccrs.PlateCarree()</span></code>. The color and scale of the arrows can be set to make a nice looking map.</p></li>
+</ul>
+<p><img alt="" src="../_images/quiver_plot.png" /></p>
+</div>
+<div class="section" id="rose-diagrams">
+<h4>Rose diagrams<a class="headerlink" href="#rose-diagrams" title="Permalink to this headline">¶</a></h4>
+<p><em>Text modified from Lisa Tauxe’s materials for her Python for Earth Science Students course: https://github.com/ltauxe/Python-for-Earth-Science-Students</em></p>
+<p>As Earth scientists, we like to make plots that convey the most information with the least amount of effort for the viewer.  2D directional data are much better represented as ‘rose diagrams’, which are really just histograms plotted around a circle. They are also known as <em>polar</em> projections as they could be used to make a map of the Earth looking down at one of the poles.</p>
+<p>We will follow these steps:</p>
+<ul class="simple">
+<li><p>For rose diagrams, we will create a  plot instance (called <code class="docutils literal notranslate"><span class="pre">fig</span></code>) with the <code class="docutils literal notranslate"><span class="pre">plt.subplot(</span> <span class="pre">)</span></code> function.  We make it a <em>polar</em> plot by setting the <code class="docutils literal notranslate"><span class="pre">polar</span></code> keyword to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p>The <em>polar</em> type of subplot has funny coordinates set as default, funny to an Earth scientist at least.  The orientations go around counterclockwise instead of clockwise (like map directions). To make it seem more normal for Earth science data,  we have to switch around the directions to geographic coordinates.  We do this with the <strong>fig.set_theta_direction(-1)</strong> function where the ‘-1’ tells <strong>matplotlib</strong> that we want the numbers to go around clockwise, instead of the default (which for some unknown reason goes counter clockwise).</p></li>
+<li><p>We also have to put ‘0’ at the top of the diagram (because it is ‘North’ in Earth science).  We do that with the <code class="docutils literal notranslate"><span class="pre">fig.set_theta_zero_location('N')</span></code> call, which tells <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to put 0 on top (instead of on the right side which is the default).</p></li>
+<li><p>We have to define some bins, sort of like histograms but around azimuthal circle, and count up how many directions are in each bin.  We will use a bin size of 10$^{\circ}$.  Fortunately, <code class="docutils literal notranslate"><span class="pre">plt.hist(</span> <span class="pre">)</span></code> will count up the number of directional data in each bin for us! Usually we just use <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> to make the plot, but we can also have it return the bins and the number in each bin.</p></li>
+<li><p>We will use the  plot function <strong>plt.bar( )</strong> which normally makes bar charts, but will make rose diagrams if the plot is <em>polar</em>.</p></li>
+<li><p>Finally, we will plot the data on the figure instance.</p></li>
+</ul>
+<p><img alt="" src="../_images/rose_plot.png" /></p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./folder_08"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="W8_bootstrapping.html" title="previous page">8.1 Bootstrap Resampling</a>
+    <a class='right-next' id="next-link" href="../week_09.html" title="next page">Chapter 9: Linear Regression, the Age of the Universe, and Subsidence</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EPS 88 Team<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

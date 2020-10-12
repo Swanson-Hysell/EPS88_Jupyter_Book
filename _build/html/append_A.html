@@ -118,7 +118,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_08.html">
-   Chapter 8: Bootstrapping and Directional Data
+   Chapter 8: Bootstrapping, Glaciers, and Directional Data
   </a>
  </li>
  <li class="toctree-l1">
@@ -240,23 +240,97 @@
   <div class="section" id="appendix-a-function-catalog">
 <h1>Appendix A: Function Catalog<a class="headerlink" href="#appendix-a-function-catalog" title="Permalink to this headline">¶</a></h1>
 <p><strong>This is a (semi)comprehensive list of the built-in python functions we will use in this class.</strong></p>
+<p><strong>Week 1</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">print()</span></code> prints to the screen the value of the variable in the parentheses or the <code class="docutils literal notranslate"><span class="pre">'text'</span></code> if in quote marks.</p>
-<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> reads from a csv (comma separated values) formated file to a Pandas DataFrame.</p>
 <p><code class="docutils literal notranslate"><span class="pre">dataframe.head()</span></code> prints the first 5 rows of the data table named <code class="docutils literal notranslate"><span class="pre">dataframe</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">dataframe.describe()</span></code> prints some summary statistics of the data table named <code class="docutils literal notranslate"><span class="pre">dataframe</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">dataframe.loc[0][column1]</span></code> refers to the element of the data table named <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> in the first (zeroth) row of column <code class="docutils literal notranslate"><span class="pre">column1</span></code>.</p>
-<p>Most basic mapping: <br />
-<code class="docutils literal notranslate"><span class="pre">plt.figure(figsize=(10,5))</span></code> <br />
-<code class="docutils literal notranslate"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.axes(projection=ccrs.Mollweide())</span></code> <br />
-<code class="docutils literal notranslate"><span class="pre">ax.coastlines()</span></code> <br />
-<code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> <br />
-This defines a figure object, addes axes with a Mollweide map projection, adds coastlines, and prints the figure to the screen. Note: you will need to <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">cartopy.crs</span> <span class="pre">as</span> <span class="pre">ccrs</span></code> and <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> first for this to run.</p>
+<p>Most basic mapping:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Mollweide</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This defines a figure object, addes axes with a Mollweide map projection, adds coastlines, and prints the figure to the screen. Note: you will need to <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">cartopy.crs</span> <span class="pre">as</span> <span class="pre">ccrs</span></code> and <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> first for this to run.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ax.tissot()</span></code> will add Tissot circles to a map. Do this to see the map projection created distortions.</p>
-<p><code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> makes a matplotlib scatter plot.</p>
+<p><code class="docutils literal notranslate"><span class="pre">plt.scatter(x,y,c,s)</span></code> makes a matplotlib scatter plot of data located at (x,y) with color set by the variable <code class="docutils literal notranslate"><span class="pre">c</span></code> and markersize set with <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">plt.savefig('filename')</span></code> saves the figure as <em>filename</em>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ax.gridlines()</span></code> or <code class="docutils literal notranslate"><span class="pre">plt.grid()</span></code> add gridlines to a figure.</p>
+<p><strong>Week 2</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> is a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function to load data from a .txt (text) file format.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> reads from a csv (comma separated values) formated file to a Pandas DataFrame.</p>
 <p><code class="docutils literal notranslate"><span class="pre">variablename.shape</span></code> returns the array size of a variable named <em>variablename</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.reshape()</span></code> reshapes the variable named <em>variablename</em> to the input size. For example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">plt.hist(x,bins=n)</span></code> plots a histogram of the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> with <code class="docutils literal notranslate"><span class="pre">n</span></code> number of bins. Setting <code class="docutils literal notranslate"><span class="pre">density=True</span></code> will normalize the histogram.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.max(x)</span></code> and <code class="docutils literal notranslate"><span class="pre">np.min(x)</span></code> returns the maximum and minimum value of the input <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.mean</span></code> and <code class="docutils literal notranslate"><span class="pre">np.std</span></code> returns the mean and standard deviation value of the input <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">len(x)</span></code> returns the length of the array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.random.normal()</span></code> generates random points from a normal distribution.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sorted(x)</span></code> sorts the values of the array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.asarray(x)</span></code> converts the input to an array.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.linspace(a,b,n)</span></code> creates a number line list from <code class="docutils literal notranslate"><span class="pre">a</span></code> to <code class="docutils literal notranslate"><span class="pre">b</span></code> with <code class="docutils literal notranslate"><span class="pre">n</span></code> elements.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.arange(a,b,step)</span></code> creates a number line list from <code class="docutils literal notranslate"><span class="pre">a</span></code> to <code class="docutils literal notranslate"><span class="pre">b</span></code> in steps of <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.repeat(x,n,axis=0)</span></code> repeats the array <code class="docutils literal notranslate"><span class="pre">x</span></code> <code class="docutils literal notranslate"><span class="pre">n</span></code> number of times along the <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> (0 or 1) axis.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.tile(x,n)</span></code> makes an array by reapeating <code class="docutils literal notranslate"><span class="pre">x</span></code> <code class="docutils literal notranslate"><span class="pre">n</span></code> number of times.</p>
+<p><strong>Week 3</strong></p>
+<p>Fancier histogram:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Magnitude&#39;</span><span class="p">,</span><span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Magnitude, Mw&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Events&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Earthquake Magnitudes&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">plt.figure</span></code> makes a object and <code class="docutils literal notranslate"><span class="pre">add_subplot</span></code> adds subplots. <code class="docutils literal notranslate"><span class="pre">edgecolor</span></code> sets the color of the bin outline. <code class="docutils literal notranslate"><span class="pre">log=True</span></code> makes the y-axis logarithmic. <code class="docutils literal notranslate"><span class="pre">fontsize</span></code> sets the size of the fonts.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> converts a string column of a dataframe with date and time data to a <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object.</p>
+<p><code class="docutils literal notranslate"><span class="pre">plt.annotate</span></code> add annotation to a plot.</p>
+<p><strong>Week 4</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">dataframe_name.drop(columns=['a','b'])</span></code> drops the columns <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> from the dataframe <code class="docutils literal notranslate"><span class="pre">dataframe_name</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.isnan(x)</span></code> returns a boolean array with <code class="docutils literal notranslate"><span class="pre">True</span></code> values where <code class="docutils literal notranslate"><span class="pre">x</span></code> has <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.</p>
+<p>Defining a function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">name_of_function</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to compute something</span>
+<span class="sd">    </span>
+<span class="sd">    parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input variable in units</span>
+<span class="sd">    </span>
+<span class="sd">    output variabel in units</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># write your code here</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">input</span>
+    <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+</div>
+<p><strong>Week 5</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">dataframe_name['column</span> <span class="pre">b'].values</span></code> converts the DataFrame Series <code class="docutils literal notranslate"><span class="pre">column</span> <span class="pre">b</span></code> into the numpy array <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">dataframe_name['column</span> <span class="pre">b'].index[dataframe_name['column</span> <span class="pre">b']==x]</span></code> returns the index value where it is true that <code class="docutils literal notranslate"><span class="pre">dataframe_name['column</span> <span class="pre">b']==x</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.power(base,exponent)</span></code> numpyt function to execute <span class="math notranslate nohighlight">\(base^{exponent}\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">np.count_nonzero(x)</span></code> counts the non-zero elements of the array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.delete(x,del,axis=0)</span></code> deletes the indices <code class="docutils literal notranslate"><span class="pre">del</span></code> from the array <code class="docutils literal notranslate"><span class="pre">x</span></code> along the <code class="docutils literal notranslate"><span class="pre">axis=</span></code> (0 or 1) axis.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.unique(x)</span></code> finds the unique elements of the array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">dataframe_name.sort_values(by=['column</span> <span class="pre">b'])</span></code> sorts the rows of the dataframe <code class="docutils literal notranslate"><span class="pre">datafram_name</span></code> by the values in <code class="docutils literal notranslate"><span class="pre">column</span> <span class="pre">b</span></code>.</p>
+<p><strong>Week 6</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">np.random.choice(a)</span></code> generates a random sample pulled from elements in the 1D array <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.random.binomial(n,p,size=s)</span></code> Samples are drawn from a binomial distribution with specified parameters, <code class="docutils literal notranslate"><span class="pre">n</span></code> trials and <code class="docutils literal notranslate"><span class="pre">p</span></code> probability of success where <code class="docutils literal notranslate"><span class="pre">n</span></code> an integer &gt;= 0 and <code class="docutils literal notranslate"><span class="pre">p</span></code> is in the interval [0,1].</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.random.poisson(lam,size=n)</span></code> Samples are drawn from a Poisson distribution with specified parameters, <code class="docutils literal notranslate"><span class="pre">lam</span></code> average rate of event occurance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.random.gamma(shape,</span> <span class="pre">scale=1.0,</span> <span class="pre">size=n)</span></code> Samples are drawn from a Gamma distribution with specified parameters, shape (sometimes designated “k”) and scale (sometimes designated “theta”), where both parameters are &gt; 0.</p>
+<p><code class="docutils literal notranslate"><span class="pre">a.append(b)</span></code> Appends (adds on) the variable <code class="docutils literal notranslate"><span class="pre">b</span></code> to the end of the array <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.sum(x)</span></code> Adds up the elements of the array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.cumsum(x)</span></code> Return the cumulative sum of the elements along a given axis.</p>
 </div>
 
     <script type="text/x-thebe-config">

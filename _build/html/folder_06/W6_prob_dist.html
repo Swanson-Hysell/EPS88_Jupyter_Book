@@ -252,11 +252,6 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-statistical-concepts">
-   Basic statistical concepts
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    Probability Distributions
   </a>
@@ -426,19 +421,6 @@
 </div>
 </div>
 </div>
-<div class="section" id="basic-statistical-concepts">
-<h2>Basic statistical concepts<a class="headerlink" href="#basic-statistical-concepts" title="Permalink to this headline">¶</a></h2>
-<p><em>Statistics</em> are the methods by which we analyze, interpret and model data. It is helpful to understand a few concepts:</p>
-<ol class="simple">
-<li><p><strong>Population</strong> versus <strong>sample</strong>: the <em>population</em> is the set of all possible outcomes of a given measurement (if you had an infinite number of data points), while the <em>sample</em> is what you have - a finite number of data points.</p></li>
-<li><p><strong>Probability</strong>: the measure of how likely it is for a particular event to occur.  If something is impossible, it has a probability <span class="math notranslate nohighlight">\(P\)</span> of 0.  If it is a certainty, it has a probability <span class="math notranslate nohighlight">\(P\)</span> of 1. In our coin flip experiment both heads and tails had equal probabilty of 0.5.</p></li>
-<li><p><strong>Theoretical</strong> versus <strong>empirical</strong> distributions: Empirical distributions are measured data. Theoretical distributions are analytical probabililty functions described with an equation.  These can be applied to data, allowing interpretations about the likelihood of observing a given measurement.</p></li>
-</ol>
-<p>Additional resources: Olea (2008): https://pubs.usgs.gov/of/2008/1017/ofr2008-1017_rev.pdf; Davis, J. (2002): Statistical and Data Analysis in Geology, 3rd Ed, Wiley, Hoboken.</p>
-<p>There are many different types of probability distributions and evaluating the equations gives us a theoretical distribution.</p>
-<p>Samples are finite collections of observations which belong to a distribution. In this exercise, we will simulate ‘measurements’ by drawing ‘observations’ from a theoretical distribution.  This is the <em>Monte Carlo</em> approach (named after the gambling town).</p>
-<p><strong>We just simulated an experiment of flipping a coin. Let’s compare what we got through that simulation to the theoretical distribution.</strong></p>
-</div>
 <div class="section" id="id1">
 <h2>Probability Distributions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="binomial-distribution">
@@ -464,6 +446,9 @@
 
 <span class="c1">#plot the probability distribution</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">bi_prob</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># plot as solid line</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">number_heads</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">11.5</span><span class="p">,</span><span class="mf">1.0</span><span class="p">),</span><span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of heads out of 10 attempts, in 1000 trials&#39;</span><span class="p">,</span>  <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of heads out of 10 attempts, $\infty$ trials&#39;</span><span class="p">,</span>  <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span> <span class="c1"># add labels</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">,</span>  <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Binomial Distribution&#39;</span><span class="p">)</span>
@@ -472,22 +457,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/W6_prob_dist_14_0.png" src="../_images/W6_prob_dist_14_0.png" />
+<img alt="../_images/W6_prob_dist_13_0.png" src="../_images/W6_prob_dist_13_0.png" />
 </div>
 </div>
 <p>Notice how similiar this is to the histogram we made of our 1000 experiments of 10 coin flips. Also notice that with only 10 experiments the empirical histogram of heads does not look much like the theoretical distribution.</p>
 </div>
 <div class="section" id="poisson-distribution">
 <h3>Poisson Distribution<a class="headerlink" href="#poisson-distribution" title="Permalink to this headline">¶</a></h3>
-<p>The Poisson distribution gives the probability that an event (with two possible outcomes) occurs <span class="math notranslate nohighlight">\(k\)</span> number of times in an interval of time where <span class="math notranslate nohighlight">\(\lambda\)</span> is the expected rate of occurance. The Poisson distribution is the limit of the binomial distribution for large <span class="math notranslate nohighlight">\(n\)</span>. So if you take the limit of the binomial distribution as <span class="math notranslate nohighlight">\(n \rightarrow \infty\)</span></p>
-<div class="math notranslate nohighlight">
-\[\lim_{n \rightarrow \infty } \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k} = \frac{n!}{k!(n-k)!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k} \]</div>
-<p>you’ll get the Poisson distribution:</p>
-<p><span class="math notranslate nohighlight">\(P(k\)</span> events in interval<span class="math notranslate nohighlight">\() = e^{-\lambda}\frac{\lambda^{k}}{k!}.\)</span></p>
-<p>Because <span class="math notranslate nohighlight">\(\lim_{x \rightarrow \infty } (1+\frac{a}{x})^{x}=e^{a}\)</span> and <span class="math notranslate nohighlight">\(\lim_{x \rightarrow \infty } \frac{x!}{x^{k}(x-k)!} = 1\)</span></p>
-<p><strong>Watach these two videos explaining Poisson processes, from Khan Academy:</strong></p>
-<p><a class="reference external" href="https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/poisson-distribution/v/poisson-process-1">Poisson Process 1</a></p>
-<p><a class="reference external" href="https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/poisson-distribution/v/poisson-process-2">Poisson Process 2</a></p>
+<p>The Poisson distribution gives the probability that an event (with two possible outcomes) occurs <span class="math notranslate nohighlight">\(k\)</span> number of times in an interval of time where <span class="math notranslate nohighlight">\(\lambda\)</span> is the expected rate of occurance. The Poisson distribution:</p>
+<p><span class="math notranslate nohighlight">\($P(k\)</span> events in interval<span class="math notranslate nohighlight">\() = e^{-\lambda}\frac{\lambda^{k}}{k!}\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lam</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># average rate of occurance (e.g. cars per hour)</span>
@@ -510,7 +488,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/W6_prob_dist_17_0.png" src="../_images/W6_prob_dist_17_0.png" />
+<img alt="../_images/W6_prob_dist_16_0.png" src="../_images/W6_prob_dist_16_0.png" />
 </div>
 </div>
 </div>
@@ -550,7 +528,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/W6_prob_dist_19_0.png" src="../_images/W6_prob_dist_19_0.png" />
+<img alt="../_images/W6_prob_dist_18_0.png" src="../_images/W6_prob_dist_18_0.png" />
 </div>
 </div>
 </div>

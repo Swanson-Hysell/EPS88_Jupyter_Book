@@ -26,5 +26,12 @@ Earth has four major systems: the geosphere, hydrosphere, atmosphere, and biosph
 
 This semester of EPS 88 we will focus on the geosphere, made up of Earth's crust, mantle, and core. This branch of Earth Science is in turn made up of many subdisciplines of scientists who use a variety of tools and techniques to study the Earth. Geoscientists make observations of earth materials and of the dynamic evolution of Earth as mass and energy are cycled between systems. Geoscience is highly interdisciplinary because its subdisciplines have complementary approaches and because Earth's systems are so interconnected. Gaining knowledge of a broad range of geoscience fields and practicing many techniques will make students of EPS 88 more capable earth scientists.
 
+## Be a "pi shaped person"! ($\pi$ not 🥧)
+
+**Watch this 8 minute video from Seteve Brunton | Intro to Data Science: What is Data Science?**
+
+[![](http://img.youtube.com/vi/FsSrzmRawUg/0.jpg)](http://www.youtube.com/watch?v=FsSrzmRawUg "")
+
+
 ## How do Geoscience and Data Science work together?
 As with many fields of science, access to digital instrumentation and high-power computing capabilities are rapidly changing the methods used by geoscientists. The amount of data being collecting is growing, and the systems of equations are growing in number and complexity. Data science knowledge and programming skills make students more employable and, more importantly, better scientists.

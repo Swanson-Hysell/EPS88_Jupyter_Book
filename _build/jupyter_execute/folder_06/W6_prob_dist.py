@@ -76,25 +76,6 @@ plt.hist(number_heads,bins=np.arange(-0.5,11.5,1.0),density=True)
 plt.xlabel('Number of heads out of 10 attempts, in 1000 trials',  fontsize=14)
 plt.show()
 
-## Basic statistical concepts
-
-_Statistics_ are the methods by which we analyze, interpret and model data. It is helpful to understand a few concepts: 
-
-1) **Population** versus **sample**: the _population_ is the set of all possible outcomes of a given measurement (if you had an infinite number of data points), while the _sample_ is what you have - a finite number of data points.  
-
-2) **Probability**: the measure of how likely it is for a particular event to occur.  If something is impossible, it has a probability $P$ of 0.  If it is a certainty, it has a probability $P$ of 1. In our coin flip experiment both heads and tails had equal probabilty of 0.5.
-
-3) **Theoretical** versus **empirical** distributions: Empirical distributions are measured data. Theoretical distributions are analytical probabililty functions described with an equation.  These can be applied to data, allowing interpretations about the likelihood of observing a given measurement.  
-
- 
-Additional resources: Olea (2008): https://pubs.usgs.gov/of/2008/1017/ofr2008-1017_rev.pdf; Davis, J. (2002): Statistical and Data Analysis in Geology, 3rd Ed, Wiley, Hoboken. 
-
-There are many different types of probability distributions and evaluating the equations gives us a theoretical distribution. 
-
-Samples are finite collections of observations which belong to a distribution. In this exercise, we will simulate 'measurements' by drawing 'observations' from a theoretical distribution.  This is the _Monte Carlo_ approach (named after the gambling town). 
-
-**We just simulated an experiment of flipping a coin. Let's compare what we got through that simulation to the theoretical distribution.**
-
 ## Probability Distributions 
 ### Binomial Distribution
 
@@ -122,6 +103,9 @@ for i in np.arange(0,len(x),1):
 
 #plot the probability distribution
 plt.plot(x,bi_prob,'ro',linewidth=2) # plot as solid line
+plt.hist(number_heads,bins=np.arange(-0.5,11.5,1.0),density=True)
+plt.xlabel('Number of heads out of 10 attempts, in 1000 trials',  fontsize=14)
+plt.show()
 plt.xlabel('Number of heads out of 10 attempts, $\infty$ trials',  fontsize=14) # add labels
 plt.ylabel('Probability',  fontsize=14) 
 plt.title('Binomial Distribution')
@@ -131,21 +115,9 @@ Notice how similiar this is to the histogram we made of our 1000 experiments of 
 
 ### Poisson Distribution
 
-The Poisson distribution gives the probability that an event (with two possible outcomes) occurs $k$ number of times in an interval of time where $\lambda$ is the expected rate of occurance. The Poisson distribution is the limit of the binomial distribution for large $n$. So if you take the limit of the binomial distribution as $n \rightarrow \infty$
+The Poisson distribution gives the probability that an event (with two possible outcomes) occurs $k$ number of times in an interval of time where $\lambda$ is the expected rate of occurance. The Poisson distribution:
 
-$$\lim_{n \rightarrow \infty } \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k} = \frac{n!}{k!(n-k)!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k} $$
-
-you'll get the Poisson distribution:
-
-$P(k$ events in interval$) = e^{-\lambda}\frac{\lambda^{k}}{k!}.$
-
-Because $\lim_{x \rightarrow \infty } (1+\frac{a}{x})^{x}=e^{a}$ and $\lim_{x \rightarrow \infty } \frac{x!}{x^{k}(x-k)!} = 1$
-
-**Watach these two videos explaining Poisson processes, from Khan Academy:**
-
-[Poisson Process 1](https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/poisson-distribution/v/poisson-process-1)
-
-[Poisson Process 2](https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/poisson-distribution/v/poisson-process-2)
+$$P(k$ events in interval$) = e^{-\lambda}\frac{\lambda^{k}}{k!}$$
 
 
 
