@@ -33,6 +33,9 @@
     - file: folder_08/W8_bootstrapping
     - file: folder_08/W8_glaciers
 - file: week_09
+  sections:
+    - file: folder_09/W9_regression
+    - file: folder_09/W9_co2
 - file: week_10
 - file: week_11
 - file: week_12

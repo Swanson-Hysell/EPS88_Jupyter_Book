@@ -51,6 +51,8 @@ The topographic expression of seafloor spreading differs slightly based on the s
 
 Figure 5: Topography of ridge segments that exhibit fast, intermediate, and slow spreading rates. 
 
+Explore mid-ocean ridges more [here](https://divediscover.whoi.edu/mid-ocean-ridges/).
+
 Mid ocean ridges are not just important tectonically. In places where hot nutrient rich water is ejected from vents (called _hydrothermal vents_) they host vital ecosystems with unique organisms.
 
 **Life at hydrothermal vents | Natural History Museum**

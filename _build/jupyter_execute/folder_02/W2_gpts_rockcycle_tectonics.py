@@ -48,6 +48,8 @@ EPS 50 and EPS 122 cover these topics in greater detail.
 
 >Figure 3: Structure of Earth, compositional and mechanical layering. 
 
+Explore Earth's structure [here](https://divediscover.whoi.edu/earths-anatomy/).
+
 
 ## Types of Rocks and the Rock Cycle
 There are three types of rocks (igneous, sedimentary, and metamorphic) which are defined by how they are formed. The characteristics of every rock (i.e. grain-size, mineral make up, layering or foliation, presence of fossils) provide evidence of the processes and environment which formed it. The rock cycle (Shown in Figure 8) is used to describe the interconnected systems at work forming the rocks which make up Earth’s crust. Crustal materials are recycled between the different types of rocks, keeping physical and chemical records of their journey through time.
@@ -99,6 +101,8 @@ The rigid nature of the lithosphere determines its response to tectonic forces (
 
 EPS 50 and EPS 116 covers this topic in greater detail.
 
+Explore the plates [here](https://divediscover.whoi.edu/plate-tectonics/plate-boundaries/).
+
 ![Lithospheric plates](./figures/plate_map.png)
 
 >Figure 9: Lithospheric plates and relative motions. Source: [USGS](https://volcanoes.usgs.gov/vsc/file_mngr/file-139/This_Dynamic_Planet-Teaching_Companion_Packet.pdf) 
@@ -110,6 +114,8 @@ EPS 50 and EPS 116 covers this topic in greater detail.
 >Figure 10: Divergent and convergent lithospheric plate boundaries. Source: [USGS](https://volcanoes.usgs.gov/vsc/file_mngr/file-139/This_Dynamic_Planet-Teaching_Companion_Packet.pdf)
 
 EPS 50 and EPS 116 covers this topic in greater detail.
+
+Explore the plate motions [here](https://divediscover.whoi.edu/plate-tectonics/plate-movements/).
 
 ### Divergent (Constructive)
 When tectonic forces move lithospheric plates apart a divergent or spreading boundary forms. As the plates spread apart mantle material from below rises to fill the space (Figure 10). As it rises there is less pressure confining it to be solid and it partially melts in process called decompression melting. This melt forms new extrusive igneous basalt – mid-ocean ridge basalt (MORB). Most divergent boundaries occur between oceanic crust (Figure 9) and are called mid-ocean ridges even though they are not strictly in the middle of ocean basins (Figure 11). 

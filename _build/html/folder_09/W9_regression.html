@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>9.1 Regression - Model fitting &#8212; Python Intro to Geoscience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9.2 Atmospheric Carbon Dioxide Concentration" href="W9_co2.html" />
+    <link rel="prev" title="Chapter 9: Regression and Atmospheric CO\(_{2}\) Concentration" href="../week_09.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Intro to Geoscience</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to PyEarth
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_01.html">
+   Chapter 1: Introduction to Jupyter Notebooks and Map Projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_02.html">
+   Chapter 2: Data Input and Our Dynamic Earth
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_03.html">
+   Chapter 3: Data Visualization and Earthquakes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_04.html">
+   Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_05.html">
+   Chapter 5: Loops and Earthquake Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_06.html">
+   Chapter 6: Probability Distributions and Random Earth Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_07.html">
+   Chapter 7: A/B Testing and Igneous Geochemistry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_08.html">
+   Chapter 8: Bootstrapping, Glaciers, and Directional Data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../week_09.html">
+   Chapter 9: Regression and Atmospheric CO
+   <span class="math notranslate nohighlight">
+    \(_{2}\)
+   </span>
+   Concentration
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     9.1 Regression - Model fitting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="W9_co2.html">
+     9.2 Atmospheric Carbon Dioxide Concentration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_10.html">
+   Chapter 10: Non-linear Regression and Atmospheric CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_11.html">
+   Chapter 11: Time Series Analysis and Glacial Cycles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_12.html">
+   Chapter 12: Image Reduction and Remote Planetary Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_13.html">
+   Chapter 13: Classification and Volcanic Source
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_A.html">
+   Appendix A: Function Catalog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_B.html">
+   Appendix B: Earth Science Glossary
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/folder_09/W9_regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-assigned-reading">
+   Additional Assigned Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bivariate-data">
+   Bivariate data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-regression-least-squares">
+   Linear Regression (Least Squares)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-a-line-with-np-polyfit">
+     Fitting a line with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.polyfit()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#locally-weighted-regression">
+   Locally Weighted Regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#curve-fitting-a-line-with-nonparametric-lowess">
+     Curve fitting a line with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       nonparametric.lowess
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluating-model-fit">
+   Evaluating model fit
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pearson-correlation-coefficient-r-2">
+     Pearson correlation coefficient R
+     <span class="math notranslate nohighlight">
+      \(^{2}\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-residuals">
+     Plotting Residuals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="regression-model-fitting">
+<h1>9.1 Regression - Model fitting<a class="headerlink" href="#regression-model-fitting" title="Permalink to this headline">¶</a></h1>
+<p><strong>Outline:</strong></p>
+<ul class="simple">
+<li><p>Bivariate data</p></li>
+<li><p>Least Squares Regression: Determining the slope of a line</p></li>
+<li><p>Local Weighted Regression: Smooth curve fit</p></li>
+<li><p>Evaluating model fit</p></li>
+</ul>
+<div class="section" id="additional-assigned-reading">
+<h2>Additional Assigned Reading<a class="headerlink" href="#additional-assigned-reading" title="Permalink to this headline">¶</a></h2>
+<p>Data 8 textbook “Computational and Inferential Thinking: The Foundations of Data Science” By Ani Adhikari and John DeNero <a class="reference external" href="https://www.inferentialthinking.com/chapters/15/Prediction.html">Chapter 15 Prediction</a>. This should overlap with your assigned reading for Data 8.</p>
+</div>
+<div class="section" id="bivariate-data">
+<h2>Bivariate data<a class="headerlink" href="#bivariate-data" title="Permalink to this headline">¶</a></h2>
+<p><em>Bivariate data</em> arise in any system where one quantity depends on another. For example: if you are measuring the distance between you (the origin) and an object moving away from you, and you make multiple measurements at different times. Then you have distance measured <em>as a funtion of</em> time. There are many examples in Earth and Planetary Science where we are interested in the dependence of one set of data on another. We have dealt with such scenarios thus far in considering the distance of the last geomagnetic reversal from the ridge crest to get spreading rate and the difference in arrival times of the <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(S\)</span> seismic waves is related to distance from the source to the receiver.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># make up some randomly scattered linearly related data</span>
+<span class="n">x_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">m_value</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">y_value</span> <span class="o">=</span> <span class="n">m_value</span><span class="o">*</span><span class="n">x_value</span><span class="o">+</span><span class="n">b_value</span>
+
+<span class="c1"># plot the data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_value</span><span class="p">,</span><span class="n">y_value</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X: time (seconds)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y: distance (meters)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/W9_regression_2_0.png" src="../_images/W9_regression_2_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="linear-regression-least-squares">
+<h2>Linear Regression (Least Squares)<a class="headerlink" href="#linear-regression-least-squares" title="Permalink to this headline">¶</a></h2>
+<p>Continuing with our example of distance as a function of time, we have time on the x-axis in seconds and distance on the y-axis in meters. The slope of this line is then the velocity:</p>
+<p><span class="math notranslate nohighlight">\(d = vt\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(v\)</span> is velocity, <span class="math notranslate nohighlight">\(d\)</span> is distance, and <span class="math notranslate nohighlight">\(t\)</span> is time.</p>
+<p>This looks a lot like the equation for a line through the data (<span class="math notranslate nohighlight">\(y=mx + b\)</span>) where <span class="math notranslate nohighlight">\(m\)</span> is the slope and <span class="math notranslate nohighlight">\(b\)</span> is the y-intercept.  In this case we’ll say the object started at our location, so the y-intercept is 0, and <span class="math notranslate nohighlight">\(m\)</span> is <span class="math notranslate nohighlight">\(v\)</span>.</p>
+<p>So how do we find the slope?</p>
+<p><strong>Watch this video about Least Squares Regression:</strong></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=tl5QNhSe0Yk"><img alt="" src="http://img.youtube.com/vi/tl5QNhSe0Yk/0.jpg" /></a></p>
+<p>Here is where we can use linear regression to find the “best fit” line through the data. The approach is to minimize the sum of the squares of the distances (residuals) between the points and a line through them. In this illustration below, the residuals are the vertical distance between each data point and the line:</p>
+<p><img alt="" src="../_images/Residuals_for_Linear_Regression_Fit.png" /></p>
+<p>The approach in linear regression is to find the line that minimizes the squared value of these distances all added up.</p>
+<p><img alt="" src="../_images/RMSE1.png" />
+<img alt="" src="../_images/RMSE2.png" />
+<img alt="" src="../_images/RMSE3.png" />
+<img alt="" src="../_images/RMSE4.png" /></p>
+<div class="section" id="fitting-a-line-with-np-polyfit">
+<h3>Fitting a line with <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code><a class="headerlink" href="#fitting-a-line-with-np-polyfit" title="Permalink to this headline">¶</a></h3>
+<p>We determine the best-fit line through this least squares approach using the <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> function. A straight line is a first degree polynomial.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> can be used to calculate best fit lines (setting the degree (<code class="docutils literal notranslate"><span class="pre">deg</span></code>) to 1), or higher order curves (setting degree to 2 or higher) returning the slope and the intercept.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m_b</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_value</span><span class="p">,</span><span class="n">y_value</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m_b</span><span class="p">)</span> <span class="c1">#see if that worked</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[ 2.01655592 -0.0355551 ]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">m_b</span></code>  is an array of coefficients, where the first is the slope and the second is the y-intercept.</p>
+<p>We can now use the function <code class="docutils literal notranslate"><span class="pre">np.polyval()</span></code> which will calculate new y values using the model of a linear fit. We can feed <code class="docutils literal notranslate"><span class="pre">m_b</span></code> into <code class="docutils literal notranslate"><span class="pre">np.polyval(</span> <span class="pre">)</span></code>, along with our x array to get a new set of y values which are the y values for the best-fit linear model. Then we can plot the model data as a black line along with the original data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model_y_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">m_b</span><span class="p">,</span><span class="n">x_value</span><span class="p">)</span>
+<span class="n">model_y_values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([4.72955595, 0.78211512, 3.50025007, 1.34674699, 3.29615337,
+       2.58295894, 7.18391089, 7.90362203, 8.24572694, 4.94416466,
+       5.86619226, 1.69099051, 1.84963512, 7.75095411, 0.13763341,
+       0.44586634, 5.59936057, 1.59527497, 1.41637502, 6.51634302,
+       0.23600479, 2.03248899, 3.54941407, 1.04628421, 2.83871583,
+       1.44505466, 4.84538482, 1.91103244, 2.76618243, 2.43279207,
+       2.90962366, 0.15897634, 7.45581054, 7.2219066 , 6.89009371,
+       1.54261591, 9.03265254, 6.53164258, 2.09335518, 0.19224444,
+       8.71814798, 8.98174724, 2.98634037, 2.67867524, 3.86791532,
+       1.66813189, 1.88854936, 1.25997378, 4.17692389, 5.12675968])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the data and model</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_value</span><span class="p">,</span><span class="n">y_value</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Noisy observations&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_value</span><span class="p">,</span><span class="n">model_y_values</span><span class="p">,</span>
+         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Best fit to noisy data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X: time (seconds)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y: distance (meters)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/W9_regression_8_0.png" src="../_images/W9_regression_8_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="locally-weighted-regression">
+<h2>Locally Weighted Regression<a class="headerlink" href="#locally-weighted-regression" title="Permalink to this headline">¶</a></h2>
+<p>With some datasets it would be nice to be able to fit a smooth curve through the data, but not make a lot of assumptions about what the functional form of the data it. That is, it could be preferable not to assume that the data are going to be well-represented by a 1st or 2nd order polynomial. One approach that can be taken is to apply Locally Weighted Scatterplot Smoothing (LOWESS).</p>
+<p><strong>Here is a slightly irritating, but informative video that explains locally-weighted regression.</strong></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=Vf7oJ6z2LCc"><img alt="" src="http://img.youtube.com/vi/Vf7oJ6z2LCc/0.jpg" /></a></p>
+<div class="section" id="curve-fitting-a-line-with-nonparametric-lowess">
+<h3>Curve fitting a line with <code class="docutils literal notranslate"><span class="pre">nonparametric.lowess</span></code><a class="headerlink" href="#curve-fitting-a-line-with-nonparametric-lowess" title="Permalink to this headline">¶</a></h3>
+<p>The example code below is slightly modified from the documentation of the Python module <a class="reference external" href="https://www.statsmodels.org/dev/generated/statsmodels.nonparametric.smoothers_lowess.lowess.html">statsmodel</a>
+In this code, noisy data associated with a sine curve are simulated. The <code class="docutils literal notranslate"><span class="pre">nonparametric.lowess</span></code> function is then applied to the data using two different fractions of the data (i.e. how much of the data is considered by the local weighting). The <code class="docutils literal notranslate"><span class="pre">frac</span></code> argument is the fraction of the data used when estimating each y-value, lowering it will result in a curvier model.</p>
+<p><strong>Note that the <code class="docutils literal notranslate"><span class="pre">lowess</span></code> function returns a two column numpy array. The x-values are the first column and the y-values are the second column. They are accessed using the [:,0] notation that can be applied to numpy arrays.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="n">lowess</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">nonparametric</span><span class="o">.</span><span class="n">lowess</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">lowess</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">lowess</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;raw data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">z</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;LOWESS (frac=0.75)&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">w</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;LOWESS (frac=0.25)&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/W9_regression_10_0.png" src="../_images/W9_regression_10_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="evaluating-model-fit">
+<h2>Evaluating model fit<a class="headerlink" href="#evaluating-model-fit" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pearson-correlation-coefficient-r-2">
+<h3>Pearson correlation coefficient R<span class="math notranslate nohighlight">\(^{2}\)</span><a class="headerlink" href="#pearson-correlation-coefficient-r-2" title="Permalink to this headline">¶</a></h3>
+<p>We’d also like to know who well our linear model fits our data (i.e. how correlated the data are). We’ll use the Pearson <span class="math notranslate nohighlight">\(R^{2}\)</span> correlation coefficient for this. <span class="math notranslate nohighlight">\(R^{2}\)</span> is zero for uncorrelated data, and 1 for perfectly linear data (so no misfit between the model line and data). We’ll use the scipy function <code class="docutils literal notranslate"><span class="pre">stats.linregress</span></code> to compute <span class="math notranslate nohighlight">\(R^{2}\)</span>.</p>
+<p>And use it, to get what is normally called the <span class="math notranslate nohighlight">\(R^2\)</span> value, which when 1. represents perfect agreement.</p>
+<p><img alt="" src="../_images/Correlation_examples.png" /></p>
+<blockquote>
+<div><p>Pearson correlation coefficient between several example X,Y sets. Source: https://en.wikipedia.org/wiki/Correlation_and_dependence</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># compute the R^2 for the random linear distance per time linear example above</span>
+<span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">rvalue</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x_value</span><span class="p">,</span><span class="n">y_value</span><span class="p">)</span>
+
+<span class="n">rvalue</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.958541305318562
+</pre></div>
+</div>
+</div>
+</div>
+<p>Not a bad fit!  We can have confidence that there is a strong correlation between time and distance. The object has a constant velocity.</p>
+</div>
+<div class="section" id="plotting-residuals">
+<h3>Plotting Residuals<a class="headerlink" href="#plotting-residuals" title="Permalink to this headline">¶</a></h3>
+<p>To see how well the regression performs, the data scientist must measure how far off the estimates are from the actual values. These differences are called <em>residuals</em>.</p>
+<div class="math notranslate nohighlight">
+\[
+\mbox{residual} ~=~ \mbox{observed value} ~-~ \mbox{regression estimate}
+\]</div>
+<p>A residual is what’s left over – the residue – after estimation.</p>
+<p>Residuals are the vertical distances of the points from the regression line. There is one residual for each point in the scatter plot. The residual is the difference between the observed value of <span class="math notranslate nohighlight">\(y\)</span> and the fitted value of <span class="math notranslate nohighlight">\(y\)</span>, so for the point <span class="math notranslate nohighlight">\((x, y)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\mbox{residual} ~~ = ~~ y ~-~
+\mbox{fitted value of }y
+~~ = ~~ y ~-~
+\mbox{height of regression line at }x
+\]</div>
+<p><strong>The residual plot of a good regression shows no pattern. The residuals look about the same, above and below the horizontal line at 0, across the range of the predictor variable.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute residuals for the random sine example above</span>
+<span class="n">residual_frac75</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">z</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">residual_frac25</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">w</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;raw data&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">z</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;LOWESS (frac=0.75)&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">w</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;LOWESS (frac=0.25)&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Data and Models&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">z</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">residual_frac75</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;y - model (frac=0.75)&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#1f77b4&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Residual y - model (frac=0.75)&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">w</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">residual_frac25</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;y - model (frac=0.25)&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#ff7f0e&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Residual y - model (frac=0.25)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/W9_regression_15_0.png" src="../_images/W9_regression_15_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./folder_09"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../week_09.html" title="previous page">Chapter 9: Regression and Atmospheric CO<span class="math notranslate nohighlight">\(_{2}\)</span> Concentration</a>
+    <a class='right-next' id="next-link" href="W9_co2.html" title="next page">9.2 Atmospheric Carbon Dioxide Concentration</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EPS 88 Team<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
