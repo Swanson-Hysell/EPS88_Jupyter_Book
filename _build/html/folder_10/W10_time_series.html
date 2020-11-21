@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>10.1 Spectral analysis &#8212; Python Intro to Geoscience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10.2 Drivers of glacial-interglacial cycles" href="W10_climate_forcing.html" />
+    <link rel="prev" title="Chapter 10: Time Series Analysis and Glacial Cycles" href="../week_10.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Intro to Geoscience</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to PyEarth
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_01.html">
+   Chapter 1: Introduction to Jupyter Notebooks and Map Projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_02.html">
+   Chapter 2: Data Input and Our Dynamic Earth
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_03.html">
+   Chapter 3: Data Visualization and Earthquakes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_04.html">
+   Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_05.html">
+   Chapter 5: Loops and Earthquake Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_06.html">
+   Chapter 6: Probability Distributions and Random Earth Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_07.html">
+   Chapter 7: A/B Testing and Igneous Geochemistry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_08.html">
+   Chapter 8: Bootstrapping, Glaciers, and Directional Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_09.html">
+   Chapter 9: Regression and Atmospheric CO
+   <span class="math notranslate nohighlight">
+    \(_{2}\)
+   </span>
+   Concentration
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../week_10.html">
+   Chapter 10: Time Series Analysis and Glacial Cycles
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     10.1 Spectral analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="W10_climate_forcing.html">
+     10.2 Drivers of glacial-interglacial cycles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_11.html">
+   Chapter 11: Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_A.html">
+   Appendix A: Function Catalog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_B.html">
+   Appendix B: Earth Science Glossary
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/folder_10/W10_time_series.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fourier-series">
+   Fourier series
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fourier-transform-and-power-spectum">
+   Fourier transform and power spectum
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="spectral-analysis">
+<h1>10.1 Spectral analysis<a class="headerlink" href="#spectral-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fourier-series">
+<h2>Fourier series<a class="headerlink" href="#fourier-series" title="Permalink to this headline">¶</a></h2>
+<p>Sinusoidal wave functions can be added together to makes waves with different properties:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># time interval, 1 second</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span> <span class="c1"># time, sampled 200 times per second</span>
+
+<span class="c1"># Sine wave 1</span>
+<span class="n">amp1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">k1</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># number of cycles/second</span>
+<span class="n">sin1</span><span class="o">=</span><span class="n">amp1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k1</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="n">L</span><span class="p">)</span>
+
+<span class="c1"># Sine wave 2</span>
+<span class="n">amp2</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">k2</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># number of cycles/second</span>
+<span class="n">sin2</span><span class="o">=</span><span class="n">amp2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k2</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="n">L</span><span class="p">)</span>
+
+<span class="c1"># f(t)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sin1</span> <span class="o">+</span> <span class="n">sin2</span>
+
+<span class="c1">#Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">sin1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t, seconds&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine Wave 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">sin2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t, seconds&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine Wave 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t, seconds&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;f(t) = Sum of Sine Waves 1 + 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/W10_time_series_1_0.png" src="../_images/W10_time_series_1_0.png" />
+</div>
+</div>
+<p>Any periodic function <span class="math notranslate nohighlight">\(f(t)\)</span> can be represented as the sum of a series of sines and cosines (the Fourier Series):</p>
+<div class="math notranslate nohighlight">
+\[f(t)=a_0+ \sum_{k=1}^{\infty} \bigr[a_k    \cos  \bigr(  \frac{k \pi t}{L}  \bigr)  + b_k    \sin  \bigr( \frac{k \pi t}{L} \bigl) \bigl]  \]</div>
+<p>Where <span class="math notranslate nohighlight">\(a_k\)</span> and <span class="math notranslate nohighlight">\(b_k\)</span> are the Fourier coefficients and control the amplitude of the sinusoidal wave, <span class="math notranslate nohighlight">\(-L\)</span> to <span class="math notranslate nohighlight">\(L\)</span> is the domain of the periodic function, <span class="math notranslate nohighlight">\(k\)</span> is the index of the sinusoidal wave, and <span class="math notranslate nohighlight">\(\frac{k \pi}{L}\)</span> gives the angular frequency of each wave. Each <span class="math notranslate nohighlight">\(k\)</span>th-wave has a different amplitude and frequency, higher <span class="math notranslate nohighlight">\(k\)</span> waves have higher frequency. For example, “Sine Wave 1” in the coded example above has a larger amplitude and “Sine Wave 2” has a higher frequency.</p>
+<p><strong>Watch these videos from Khan Academy:</strong></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=UKHBWzoOKsY"><img alt="" src="http://img.youtube.com/vi/UKHBWzoOKsY/0.jpg" /></a></p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=aalANrz7bi8"><img alt="" src="http://img.youtube.com/vi/aalANrz7bi8/0.jpg" /></a></p>
+<p><img alt="" src="../_images/Fourier_series_and_transform.gif" /></p>
+<blockquote>
+<div><p>.gif from <a class="reference external" href="https://en.wikipedia.org/wiki/Fourier_series">Wikipedia</a> illustrating a Fourier Series representation of a square wave function. The function (red, S(x)) is the sum of 6 sine functions with different amplitudes and frequencies. The Fourier transform (blue spikes, S(f)) shows the amplitude of the 6 frequencies.</p>
+</div></blockquote>
+</div>
+<div class="section" id="fourier-transform-and-power-spectum">
+<h2>Fourier transform and power spectum<a class="headerlink" href="#fourier-transform-and-power-spectum" title="Permalink to this headline">¶</a></h2>
+<p>You can represent data as a series in time (in the time-domain) as we have been doing OR you can represent the data in terms of frequency (frequency-domain). This is called a <em>Fourier transform</em> and is illustrated in the .gif above.</p>
+<p>The Fourier series is:</p>
+<div class="math notranslate nohighlight">
+\[f(t)=a_0+ \sum_{k=1}^{\infty} \bigr[a_k    \cos  \bigr(  \frac{k \pi t}{L}  \bigr)  + b_k    \sin  \bigr( \frac{k \pi t}{L} \bigl) \bigl]  = \sum_{k=-\infty}^{\infty} c_k e^{ik\pi t/L}   \]</div>
+<p>with the coefficients are given by:</p>
+<div class="math notranslate nohighlight">
+\[ c_k = \frac{1}{2L}\int_{-L}^{L}f(t)e^{-ik\pi t/L} dt\]</div>
+<p>This is the discrete Fourier series, i.e. a discrete number of <span class="math notranslate nohighlight">\(k\)</span> frequencies <span class="math notranslate nohighlight">\(\left ( \omega_k = k\pi/L  \right )\)</span> are used to represent <span class="math notranslate nohighlight">\(f(t)\)</span>. By taking the the limits <span class="math notranslate nohighlight">\(L \rightarrow \infty\)</span> and <span class="math notranslate nohighlight">\(\Delta \omega \rightarrow\)</span> 0, the discrete frequencies become continuous <span class="math notranslate nohighlight">\(\left ( \omega = k\pi/L  \right )\)</span>. Making the Fourier series continuous results in:</p>
+<div class="math notranslate nohighlight">
+\[ f(t) = \mathfrak{F}^{-1}\left ( \hat{f}(\omega) \right )= \frac{1}{2\pi}\int_{-\infty}^{\infty}\hat{f}(\omega) e^{i \omega t} d\omega\]</div>
+<div class="math notranslate nohighlight">
+\[\hat{f}(\omega) = \mathfrak{F}\left ( f(t) \right )= \int_{-\infty}^{\infty}f(t) e^{-i \omega t} dt\]</div>
+<p>These two integrals are the Fourier transform pair and describe how we can move betweem time-domain and frequency-domain.</p>
+<p>To compute a Fourier transform we will use the <em>fast Fourier transform</em> (fft). We will use the <code class="docutils literal notranslate"><span class="pre">scipy.fft</span></code> package, specifically <code class="docutils literal notranslate"><span class="pre">fft</span></code> to compute the Fourier transform, <code class="docutils literal notranslate"><span class="pre">fftfreq</span></code> to compute the frequencies, and <code class="docutils literal notranslate"><span class="pre">fftshift</span></code> to put the coefficients in the right order. The fft algorithm is fast because it groups the odd and even Fourier coefficients, so they will be in a non-numerical order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">fft</span><span class="p">,</span> <span class="n">fftfreq</span><span class="p">,</span> <span class="n">fftshift</span>
+
+<span class="n">FT_f</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">fftfreq</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fftshift</span><span class="p">(</span><span class="n">freq</span><span class="p">),</span> <span class="n">fftshift</span><span class="p">(</span><span class="n">FT_f</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Fourier Transform of f&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency, cycles/second&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$\hat</span><span class="si">{f}</span><span class="s1">(\omega)$&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/anaconda3/lib/python3.7/site-packages/numpy/core/_asarray.py:85: ComplexWarning: Casting complex values to real discards the imaginary part
+  return array(a, dtype, copy=False, order=order)
+</pre>
+</div>
+<img alt="../_images/W10_time_series_4_1.png" src="../_images/W10_time_series_4_1.png" />
+</div>
+</div>
+<p>Another useful way of visualizing the frequenecy content of our time-series data is to plot the <em>power</em> in the data as a function of frequency.  This is known as the <em>power spectrum</em>.</p>
+<p>There are entire courses devoted to the subject of <em>time series analysis</em> and a complete treatment is beyond the scope of this class, but we can begin to answer the basic question: <em>Do the two data sets have wiggles with the same frequencies?</em></p>
+<p>To compute the <em>power spectral density</em> for a time series we will use the <code class="docutils literal notranslate"><span class="pre">signal.periodogram</span></code> function in the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> package.  As a result we will be able to generate a <em>periodogram</em>, which is a plot of power versus frequency.</p>
+<p>We will also use a <em>window</em> in the periodogram calculation.  What a <em>window</em> does is multiply the time series by a function (called a taper) that weights information, suppressing data at the edges of the window and focussing on the center of the window.  The simplest window is a <em>box car</em> which gives equal weight to everything inside the window.  In the following, we will use a <em>Hann window</em> which looks more like a bell curve. You can check it out here: https://en.wikipedia.org/wiki/Window_function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+
+<span class="n">freqs</span><span class="p">,</span><span class="n">power</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">periodogram</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">fs</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">window</span><span class="o">=</span><span class="s1">&#39;hann&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span><span class="n">power</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Periodogram&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency, cycles/second&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="s1">&#39;Sine Wave 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">5.3</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="s1">&#39;Sine Wave 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/W10_time_series_6_0.png" src="../_images/W10_time_series_6_0.png" />
+</div>
+</div>
+<p>Peaks in the power spectrum show the fundamental frequencies present in your signal.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./folder_10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../week_10.html" title="previous page">Chapter 10: Time Series Analysis and Glacial Cycles</a>
+    <a class='right-next' id="next-link" href="W10_climate_forcing.html" title="next page">10.2 Drivers of glacial-interglacial cycles</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EPS 88 Team<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

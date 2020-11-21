@@ -1,2 +1,6 @@
-Chapter 10: Non-linear Regression and Atmospheric CO<sub>2</sub>
+Chapter 10: Time Series Analysis and Glacial Cycles
 =======================
+We will use spectral analysis to study the dominant frequencies of variations in ice-core CO$_2$ and marine sediment-core oxygen isotopes, which are both paleoclimate indicators, to study the drivers of glacial-interglacial cycles.
+
+* Time series spectral analysis
+* Glacial-interglacial cycle timescales

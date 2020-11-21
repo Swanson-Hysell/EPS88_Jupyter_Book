@@ -37,8 +37,13 @@
     - file: folder_09/W9_regression
     - file: folder_09/W9_co2
 - file: week_10
+  sections:
+    - file: folder_10/W10_time_series
+    - file: folder_10/W10_climate_forcing
 - file: week_11
-- file: week_12
-- file: week_13
+  sections:
+    - file: folder_11/W11_classification
+    - file: folder_11/W11_folds
+    - file: folder_11/W11_land_use
 - file: append_A
 - file: append_B
