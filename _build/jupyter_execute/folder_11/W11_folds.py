@@ -26,8 +26,8 @@ When rocks are squeezed by tectonic stresses they will either bend or break depe
 Folding terminalogy:
 * Folding axis - the plane that cuts through the crest of the fold
 * Folding limbs - the tilted beds on either side of the folding axial plane
-* Syncline or synform - a downward fold
-* Anticline or antiform - an upward fold
+* Syncline or synform - a upward fold
+* Anticline or antiform - an downward fold
 
 ![](./images/folding_jargon.png)
 > A cartoon cross section of folded beds.
